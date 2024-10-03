@@ -2,12 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @import "_vars";
-@import "_defaults";
 
 @import "about";
-@import "menu_top";
 
 // should be LAST
 @import "custom";
