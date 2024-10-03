@@ -8,13 +8,13 @@ const gulp = require('gulp')
 const gutil = require('gulp-util')
 
 // FTP config
-const host            = config.host
-const password        = config.password
-const port            = config.port
-const user            = config.user
+const host = config.host
+const password = config.password
+const port = config.port
+const user = config.user
 
-const remoteFolder    = '/domains/foxartbox.com/public_html/subdomains/table/'
-const localFolder     = 'dist/'
+const remoteFolder = '/domains/foxartbox.com/public_html/subdomains/table/'
+const localFolder = 'dist/'
 
 function getFtpConnection() {
 	return ftp.create({
