@@ -2,15 +2,13 @@
 </script>
 
 <template>
-  <h1>Clean desk</h1>
+  <h1 class="h1">Clean desk</h1>
 
+  <h2 class="h2">Cart</h2>
 
-
-  <h2>Cart</h2>
-
-  <div>Address</div>
-
-  <div>Contact phone</div>
-
-  <div>E-mail</div>
+  <div class="contacts">
+    <div>Address</div>
+    <div>Contact phone</div>
+    <div>E-mail</div>
+  </div>
 </template>

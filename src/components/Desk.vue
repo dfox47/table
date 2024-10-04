@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h2 class="text-center uppercase font-medium tracking-widest text-2xl mb-5">Constructor</h2>
+  <h2 class="h2">Constructor</h2>
 
   <div class="desk_preview border border-gray-400 rounded">
     <div class="desk_item desk_item--phone_holder border border-gray-700 rounded active"></div>
@@ -88,7 +88,7 @@
   justify-content: center;
   left: 50%;
   position: absolute;
-  top: 5%;
+  top: 10%;
   transform: translateX(-50%);
   width: calc(.83% * 39);
 

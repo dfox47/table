@@ -24,6 +24,3 @@ const menuItems = [
     </p>
   </header>
 </template>
-
-<style lang="scss" scoped>
-</style>
