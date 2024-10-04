@@ -9,6 +9,44 @@
     <div class="desk_item desk_item--tablet_holder border border-gray-700 rounded active"></div>
     <div class="desk_item desk_item--whiteboard border border-gray-700 rounded active"></div>
 
+    <div class="desk_holes">
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+      <span class="desk_holes__item"></span>
+    </div>
+
     <div class="desk_logo"></div>
   </div>
 
@@ -40,7 +78,29 @@
 </template>
 
 <style lang="scss" scoped>
-// 1200x600 | 10cm = 0.83 x 1.67
+// 390x270 mm | 10mm = 0.26 x 0.37
+.desk_holes {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(2.5% * 3);
+  height: calc(1.67% * 27);
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 5%;
+  transform: translateX(-50%);
+  width: calc(.83% * 39);
+
+  &__item {
+    border-radius: 50%;
+    border: 1px solid #000;
+    height: calc(3.7% * 3);
+    width: calc(2.6% * 3);
+  }
+}
+
+// 1200x600 mm | 10mm = 0.83 x 1.67
 .desk_item {
   display: none;
   position: absolute;
@@ -50,22 +110,22 @@
     display: block;
   }
 
-  // 12x100
+  // 12x100 mm
   &--phone_holder {
     height: 1.67%;
-    right: calc(.83% * 24);
-    top: calc(1.67% * 10);
+    right: calc(.83% * 26);
+    top: calc(1.67% * 3.5);
     transform: rotate(30deg);
-    width: 5.7%;
+    width: 7%;
   }
 
-  // 12x200
+  // 12x200 mm
   &--tablet_holder {
     height: 1.67%;
-    right: calc(.83% * 2);
-    top: calc(1.67% * 9);
+    right: calc(.83%);
+    top: calc(1.67% * 8);
     transform: rotate(30deg);
-    width: 19%;
+    width: 21%;
   }
 
   // 210x297
