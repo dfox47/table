@@ -4,7 +4,7 @@
 <template>
   <h1>Clean desk</h1>
 
-  <h2>Constructor</h2>
+
 
   <h2>Cart</h2>
 

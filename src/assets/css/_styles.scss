@@ -2,9 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "_vars";
 
-@import "about";
+@import "_vars";
 
 // should be LAST
 @import "custom";
