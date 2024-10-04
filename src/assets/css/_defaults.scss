@@ -1,3 +1,71 @@
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+
+  &--main {
+    background-color: $c_primary;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 6px 24px 0 rgba(#000, .2);
+
+    &::after {
+      background-color: $c_special;
+      content: " ";
+      height: 100%;
+      position: absolute;
+      right: 0;
+      transition: $transition;
+      width: 0;
+    }
+
+    &:hover {
+      &::after {
+        right: auto;
+        left: 0;
+        width: 100%;
+      }
+
+      span {
+        color: $c_primary;
+        animation: scaleUp .3s ease-in-out;
+      }
+    }
+
+    span {
+      color: #fff;
+      font-size: 1.1em;
+      letter-spacing: .3em;
+      padding: 1em 1.5em;
+      text-align: center;
+      text-decoration: none;
+      transition: $transition;
+      width: 100%;
+      z-index: 20;
+    }
+  }
+}
+
 .h1 {
   font-size: 2em;
   font-weight: 500;

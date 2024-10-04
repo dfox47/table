@@ -46,8 +46,6 @@
       <span class="desk_holes__item"></span>
       <span class="desk_holes__item"></span>
     </div>
-
-    <div class="desk_logo"></div>
   </div>
 
   <ul class="desk_options">
@@ -75,6 +73,25 @@
       </label>
     </li>
   </ul>
+
+  <div>Color</div>
+
+  <div>Size</div>
+
+  <h2 class="h2">Technical description</h2>
+
+  <table>
+    <tbody>
+    <tr>
+      <td>Weight</td>
+      <td>50 Kg</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="flex justify-center">
+    <a class="btn btn--main" href=""><span class="font-extralight">Add to cart</span></a>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -135,10 +152,6 @@
     left: calc(.83% * 1.5);
     width: 17.5%;
   }
-}
-
-.desk_logo {
-  position: absolute;
 }
 
 .desk_preview {
