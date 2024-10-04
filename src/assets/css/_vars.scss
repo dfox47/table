@@ -1,7 +1,7 @@
 // sCSS Document
 // Powered by Denis FOX | dfox@foxartbox.com
 
-//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;300;400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 // colors
 $c_main:                    #ee0979;
@@ -21,4 +21,4 @@ $mobile_s:              'only screen and (max-width: 500px)';
 $tablet:                'only screen and (max-width: 1023px)';
 
 // fonts
-$font_main:             Arial, Helvetica, sans-serif;
+$font_main:             Montserrat, Arial, Helvetica, sans-serif;
