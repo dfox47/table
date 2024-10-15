@@ -74,7 +74,27 @@
     </li>
   </ul>
 
-  <div>Color</div>
+  <div>
+    <h3>Top color</h3>
+
+    <select>
+      <option value="black">Black</option>
+      <option value="blue">Blue</option>
+      <option value="orange">Orange</option>
+      <option value="red">Red</option>
+    </select>
+  </div>
+
+  <div>
+    <h3>Bottom color</h3>
+
+    <select>
+      <option value="black">Black</option>
+      <option value="blue">Blue</option>
+      <option value="orange">Orange</option>
+      <option value="red">Red</option>
+    </select>
+  </div>
 
   <div>Size</div>
 
