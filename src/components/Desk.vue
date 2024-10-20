@@ -243,7 +243,7 @@ const model = reactive({
 @use '@/assets/css/_vars' as *;
 
 h3 {
-  margin: #{$space / 2} 0 0;
+  margin: #{0.7 * $space} 0 #{0.1 * $space};
 
   &:first-child {
     margin-top: 0;
@@ -450,7 +450,9 @@ h3 {
 }
 
 .desk_wrapper {
+  align-items: flex-start;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: $space;
   margin: 0 0 #{2 * $space};
