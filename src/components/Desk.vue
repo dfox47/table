@@ -8,9 +8,15 @@
 
         <div class="desk_item desk_item__phone_holder" :class="'desk_item--' + model.bottomColor" v-if="model.phoneHolder.value"></div>
 
+        <div class="desk_item desk_item__phone_holder desk_item__phone_holder--left" :class="'desk_item--' + model.bottomColor" v-if="model.phoneHolder.value"></div>
+
         <div class="desk_item desk_item__tablet_holder" :class="'desk_item--' + model.bottomColor" v-if="model.tabletHolder.value"></div>
 
+        <div class="desk_item desk_item__tablet_holder desk_item__tablet_holder--left" :class="'desk_item--' + model.bottomColor" v-if="model.tabletHolder.value"></div>
+
         <div class="desk_item desk_item__whiteboard" v-if="model.whiteboard.value"></div>
+
+        <div class="desk_item desk_item__whiteboard desk_item__whiteboard--left" v-if="model.whiteboard.value"></div>
 
         <div class="desk_holes" v-if="model.ventHoles.value">
           <span class="desk_holes__item" v-for="item in 35" :key="item"></span>
@@ -100,6 +106,11 @@
 
   <table class="desk_description">
     <tbody>
+    <tr>
+      <td>Whiteboard</td>
+      <td>A4 (210x297 mm</td>
+    </tr>
+
     <tr>
       <td>Height</td>
       <td>70-117 cm</td>
@@ -261,6 +272,12 @@ const model = reactive({
     top: calc(1.67% * 3.5);
     transform: rotate(30deg);
     width: 7%;
+
+    &--left {
+      left: calc(.83% * 26);
+      right: auto;
+      transform: rotate(-30deg);
+    }
   }
 
   // 12x200 mm
@@ -270,6 +287,12 @@ const model = reactive({
     top: calc(1.67% * 8);
     transform: rotate(30deg);
     width: 21%;
+
+    &--left {
+      left: calc(.83%);
+      right: auto;
+      transform: rotate(-30deg);
+    }
   }
 
   // 210x297
@@ -279,6 +302,11 @@ const model = reactive({
     height: 49.5%;
     left: calc(.83% * 1.5);
     width: 17.5%;
+
+    &--left {
+      left: auto;
+      right: calc(.83% * 1.5);
+    }
   }
 }
 
@@ -305,7 +333,7 @@ const model = reactive({
 
 .desk_side {
   &__item {
-    height: .5em;
+    height: 0.5em;
     width: 100%;
 
     &:first-child {
