@@ -17,11 +17,13 @@
         </div>
       </div>
 
-      <div class="desk_side">
+      <div class="desk_side_wrapper">
         <div class="desk_preview__title">Side</div>
 
-        <div class="desk_side__item" :class="'desk_side__item--' + model.mainColor"></div>
-        <div class="desk_side__item" :class="'desk_side__item--' + model.bottomColor"></div>
+        <div class="desk_side">
+          <div class="desk_side__item" :class="'desk_side__item--' + model.mainColor"></div>
+          <div class="desk_side__item" :class="'desk_side__item--' + model.bottomColor"></div>
+        </div>
       </div>
     </div>
 
@@ -232,7 +234,7 @@ const model = reactive({
 // 1200x600 mm | 10mm = 0.83 x 1.67
 .desk_item {
   border: 1px solid $c_border;
-  border-radius: .2em;
+  border-radius: $border_radius;
   position: absolute;
   z-index: 1;
 
@@ -280,6 +282,11 @@ const model = reactive({
   }
 }
 
+.desk_options {
+  max-width: 320px;
+  width: 100%;
+}
+
 .desk_preview {
   display: grid;
   max-width: 500px;
@@ -297,13 +304,16 @@ const model = reactive({
 }
 
 .desk_side {
-  position: relative;
-
   &__item {
     height: .5em;
     width: 100%;
 
+    &:first-child {
+      border-radius: $border_radius $border_radius 0 0;
+    }
+
     &:last-child {
+      border-radius: 0 0 $border_radius $border_radius;
       border-top: 0;
     }
 
@@ -323,6 +333,10 @@ const model = reactive({
       background-color: $c_desk_color_3;
     }
   }
+}
+
+.desk_side_wrapper {
+  position: relative;
 }
 
 .desk_top {
@@ -357,9 +371,9 @@ const model = reactive({
 }
 
 .desk_wrapper {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 1em;
-  margin: 0 0 5em;
+  display: flex;
+  justify-content: center;
+  gap: $space;
+  margin: 0 0 #{2 * $space};
 }
 </style>
