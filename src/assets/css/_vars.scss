@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 // colors
-//$c_border:                  #777;
-$c_border:                  #fff;
-$c_primary:                 #183153;
-$c_special:                 #ffd401;
-$c_text:                    #222;
+$c_border:          #fff;
+$c_desk_color_0:    #000;
+$c_desk_color_1:    #1e98a5;
+$c_desk_color_2:    #b9640d;
+$c_desk_color_3:    #bd1d1d;
+$c_primary:         #183153;
+$c_special:         #ffd401;
+$c_text:            #222;
+$c_desk_color_4:    #000;
+
+$space: 2em;
 
 $fontsFolder:               'assets/fonts/';
 $i:                         'assets/i';

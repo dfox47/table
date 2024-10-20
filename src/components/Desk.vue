@@ -4,11 +4,13 @@
   <div class="desk_wrapper">
     <div class="desk_preview">
       <div class="desk_top border rounded" :class="'desk_top--' + model.mainColor">
-        <div class="desk_item desk_item--phone_holder" v-if="model.phoneHolder.value"></div>
+        <div class="desk_preview__title">Top</div>
 
-        <div class="desk_item desk_item--tablet_holder" v-if="model.tabletHolder.value"></div>
+        <div class="desk_item desk_item__phone_holder" :class="'desk_item--' + model.bottomColor" v-if="model.phoneHolder.value"></div>
 
-        <div class="desk_item desk_item--whiteboard" v-if="model.whiteboard.value"></div>
+        <div class="desk_item desk_item__tablet_holder" :class="'desk_item--' + model.bottomColor" v-if="model.tabletHolder.value"></div>
+
+        <div class="desk_item desk_item__whiteboard" v-if="model.whiteboard.value"></div>
 
         <div class="desk_holes" v-if="model.ventHoles.value">
           <span class="desk_holes__item" v-for="item in 35" :key="item"></span>
@@ -16,6 +18,8 @@
       </div>
 
       <div class="desk_side">
+        <div class="desk_preview__title">Side</div>
+
         <div class="desk_side__item" :class="'desk_side__item--' + model.mainColor"></div>
         <div class="desk_side__item" :class="'desk_side__item--' + model.bottomColor"></div>
       </div>
@@ -92,16 +96,31 @@
 
   <h2 class="h2">Technical description</h2>
 
-  <table>
+  <table class="desk_description">
     <tbody>
     <tr>
-      <td>Weight</td>
-      <td>50 Kg</td>
+      <td>Height</td>
+      <td>70-117 cm</td>
+    </tr>
+
+    <tr>
+      <td>Max load</td>
+      <td>100 kg</td>
     </tr>
 
     <tr>
       <td>Size</td>
       <td>1200x600 mm</td>
+    </tr>
+
+    <tr>
+      <td>Guarantee</td>
+      <td>2 years</td>
+    </tr>
+
+    <tr>
+      <td>Weight</td>
+      <td>50 Kg</td>
     </tr>
     </tbody>
   </table>
@@ -167,6 +186,26 @@ const model = reactive({
 <style lang="scss" scoped>
 @use '@/assets/css/_vars' as *;
 
+.desk_description {
+  margin: 0 auto #{2 * $space};
+  max-width: 500px;
+
+  td {
+    padding: 0.2em 0.5em;
+
+    &:nth-child(1) {
+      border-right: 4px solid #fff;
+      text-align: right;
+    }
+  }
+
+  tr {
+    &:nth-child(2n) {
+      background-color: rgba(#000, 0.1);
+    }
+  }
+}
+
 // 390x270 mm | 10mm = 0.26 x 0.37
 .desk_holes {
   align-items: center;
@@ -197,8 +236,24 @@ const model = reactive({
   position: absolute;
   z-index: 1;
 
+  &--black {
+    background-color: $c_desk_color_0;
+  }
+
+  &--blue {
+    background-color: $c_desk_color_1;
+  }
+
+  &--orange {
+    background-color: $c_desk_color_2;
+  }
+
+  &--red {
+    background-color: $c_desk_color_3;
+  }
+
   // 12x100 mm
-  &--phone_holder {
+  &__phone_holder {
     height: 1.67%;
     right: calc(.83% * 26);
     top: calc(1.67% * 3.5);
@@ -207,7 +262,7 @@ const model = reactive({
   }
 
   // 12x200 mm
-  &--tablet_holder {
+  &__tablet_holder {
     height: 1.67%;
     right: calc(.83%);
     top: calc(1.67% * 8);
@@ -216,7 +271,7 @@ const model = reactive({
   }
 
   // 210x297
-  &--whiteboard {
+  &__whiteboard {
     background-color: #fff;
     bottom: calc(1.67% * 1.5);
     height: 49.5%;
@@ -229,9 +284,21 @@ const model = reactive({
   display: grid;
   max-width: 500px;
   width: 100%;
+
+  &__title {
+    bottom: 100%;
+    font-size: 0.7em;
+    left: 0;
+    opacity: .5;
+    position: absolute;
+    text-transform: uppercase;
+    z-index: 3;
+  }
 }
 
 .desk_side {
+  position: relative;
+
   &__item {
     height: .5em;
     width: 100%;
@@ -241,26 +308,26 @@ const model = reactive({
     }
 
     &--black {
-      background-color: #000;
+      background-color: $c_desk_color_0;
     }
 
     &--blue {
-      background-color: #1e98a5;
+      background-color: $c_desk_color_1;
     }
 
     &--orange {
-      background-color: #b9640d;
+      background-color: $c_desk_color_2;
     }
 
     &--red {
-      background-color: #bd1d1d;
+      background-color: $c_desk_color_3;
     }
   }
 }
 
 .desk_top {
   background-color: #fff;
-  margin: 0 auto 1em;
+  margin: 0 auto $space;
   max-width: 500px;
   position: relative;
   width: 100%;
