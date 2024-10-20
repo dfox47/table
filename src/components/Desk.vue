@@ -1,113 +1,94 @@
 <template>
-  <h2 class="h2">Constructor</h2>
+  <h2 class="h2">Construct your desk</h2>
 
-  <div class="desk_preview border border-gray-400 rounded">
-    <div class="desk_item desk_item--phone_holder border border-gray-700 rounded active" v-if="model.phoneHolder.value"></div>
+  <div class="desk_wrapper">
+    <div class="desk_preview">
+      <div class="desk_top border rounded" :class="'desk_top--' + model.mainColor">
+        <div class="desk_item desk_item--phone_holder" v-if="model.phoneHolder.value"></div>
 
-    <div class="desk_item desk_item--tablet_holder border border-gray-700 rounded active"  v-if="model.tabletHolder.value"></div>
+        <div class="desk_item desk_item--tablet_holder" v-if="model.tabletHolder.value"></div>
 
-    <div class="desk_item desk_item--whiteboard border border-gray-700 rounded active"  v-if="model.whiteboard.value"></div>
+        <div class="desk_item desk_item--whiteboard" v-if="model.whiteboard.value"></div>
 
-    <div class="desk_holes">
-      <span class="desk_holes__item" v-for="item in 35" :key="item"></span>
+        <div class="desk_holes" v-if="model.ventHoles.value">
+          <span class="desk_holes__item" v-for="item in 35" :key="item"></span>
+        </div>
+      </div>
+
+      <div class="desk_side">
+        <div class="desk_side__item" :class="'desk_side__item--' + model.mainColor"></div>
+        <div class="desk_side__item" :class="'desk_side__item--' + model.bottomColor"></div>
+      </div>
     </div>
-  </div>
 
-  <ul class="desk_options">
-    <li>
-      <el-checkbox
-          v-model="model.whiteboard.value"
-          label="Whiteboard"
-          size="large"
-      />
+    <div class="desk_options">
+      <ul class="desk_options_list">
+        <li>
+          <el-checkbox
+            v-model="model.whiteboard.value"
+            label="Whiteboard"
+            size="large"
+          />
+        </li>
 
-<!--      <label class="checkbox cursor-pointer">-->
-<!--        <input type="checkbox" name="desk_white_board">-->
-<!--        <span class="checkbox__icon"></span>-->
-<!--        <span class="checkbox__title">Whiteboard</span>-->
-<!--      </label>-->
-    </li>
+        <li>
+          <el-checkbox
+            v-model="model.phoneHolder.value"
+            label="Phone holder"
+            size="large"
+          />
+        </li>
 
-    <li>
-      <el-checkbox
-          v-model="model.phoneHolder.value"
-          label="Phone holder"
-          size="large"
-      />
+        <li>
+          <el-checkbox
+            v-model="model.tabletHolder.value"
+            label="Tablet holder"
+            size="large"
+          />
+        </li>
 
-<!--      <label class="checkbox cursor-pointer">-->
-<!--        <input type="checkbox" name="desk_phone_holder">-->
-<!--        <span class="checkbox__icon"></span>-->
-<!--        <span class="checkbox__title">Phone holder</span>-->
-<!--      </label>-->
-    </li>
+        <li>
+          <el-checkbox
+            v-model="model.ventHoles.value"
+            label="Vent holes"
+            size="large"
+          />
+        </li>
+      </ul>
 
-    <li>
-      <el-checkbox
-          v-model="model.tabletHolder.value"
-          label="Tablet holder"
-          size="large"
-      />
+      <h3>Top color</h3>
 
-<!--      <label class="checkbox cursor-pointer">-->
-<!--        <input type="checkbox" name="desk_tablet_holder">-->
-<!--        <span class="checkbox__icon"></span>-->
-<!--        <span class="checkbox__title">Tablet holder</span>-->
-<!--      </label>-->
-    </li>
-  </ul>
-
-  <div>
-    <h3>Top color</h3>
-
-    <el-select
+      <el-select
         v-model="model.mainColor"
         placeholder="Select"
         size="large"
         style="width: 240px"
-    >
-      <el-option
+      >
+        <el-option
           v-for="item in colorSelected"
           :key="item.value"
           :label="item.label"
           :value="item.value"
-      />
-    </el-select>
+        />
+      </el-select>
 
-<!--    <select v-model="selectModel">-->
-<!--      <option value="black">Black</option>-->
-<!--      <option value="blue">Blue</option>-->
-<!--      <option value="orange">Orange</option>-->
-<!--      <option value="red">Red</option>-->
-<!--    </select>-->
-  </div>
+      <h3>Bottom color</h3>
 
-  <div>
-    <h3>Bottom color</h3>
-
-    <el-select
+      <el-select
         v-model="model.bottomColor"
         placeholder="Select"
         size="large"
         style="width: 240px"
-    >
-      <el-option
+      >
+        <el-option
           v-for="item in colorSelected"
           :key="item.value"
           :label="item.label"
           :value="item.value"
-      />
-    </el-select>
-
-<!--    <select>-->
-<!--      <option value="black">Black</option>-->
-<!--      <option value="blue">Blue</option>-->
-<!--      <option value="orange">Orange</option>-->
-<!--      <option value="red">Red</option>-->
-<!--    </select>-->
+        />
+      </el-select>
+    </div>
   </div>
-
-  <div>Size</div>
 
   <h2 class="h2">Technical description</h2>
 
@@ -116,6 +97,11 @@
     <tr>
       <td>Weight</td>
       <td>50 Kg</td>
+    </tr>
+
+    <tr>
+      <td>Size</td>
+      <td>1200x600 mm</td>
     </tr>
     </tbody>
   </table>
@@ -128,40 +114,35 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue"
+import { reactive } from "vue"
 
 const colorSelected = reactive([
   {
     value: 'black',
-    label: 'black',
+    label: 'Black',
   },
   {
     value: 'blue',
-    label: 'blue'
+    label: 'Blue'
   },
   {
     value: 'orange',
-    label: 'orange'
+    label: 'Orange'
   },
   {
     value: 'red',
-    label: 'red'
+    label: 'Red'
   },
 ])
 
 const positionSelected = reactive([
-    'left',
-    'right'
+  'left',
+  'right'
 ])
 
 const model = reactive({
-  mainColor: '',
-  bottomColor: '',
-  whiteboard: {
-    position: 'left',
-    value: true,
-    price: 20
-  },
+  bottomColor: 'black',
+  mainColor: 'blue',
   phoneHolder: {
     position: 'right',
     value: true,
@@ -172,11 +153,20 @@ const model = reactive({
     value: true,
     price: 20
   },
+  ventHoles: {
+    value: true
+  },
+  whiteboard: {
+    position: 'left',
+    value: true,
+    price: 20
+  },
 })
-
 </script>
 
 <style lang="scss" scoped>
+@use '@/assets/css/_vars' as *;
+
 // 390x270 mm | 10mm = 0.26 x 0.37
 .desk_holes {
   align-items: center;
@@ -192,8 +182,9 @@ const model = reactive({
   width: calc(.83% * 39);
 
   &__item {
+    background-color: #fff;
+    border: 1px solid $c_border;
     border-radius: 50%;
-    border: 1px solid #000;
     height: calc(3.7% * 3);
     width: calc(2.6% * 3);
   }
@@ -201,13 +192,10 @@ const model = reactive({
 
 // 1200x600 mm | 10mm = 0.83 x 1.67
 .desk_item {
-  display: none;
+  border: 1px solid $c_border;
+  border-radius: .2em;
   position: absolute;
   z-index: 1;
-
-  &.active {
-    display: block;
-  }
 
   // 12x100 mm
   &--phone_holder {
@@ -229,6 +217,7 @@ const model = reactive({
 
   // 210x297
   &--whiteboard {
+    background-color: #fff;
     bottom: calc(1.67% * 1.5);
     height: 49.5%;
     left: calc(.83% * 1.5);
@@ -237,10 +226,41 @@ const model = reactive({
 }
 
 .desk_preview {
+  display: grid;
+  max-width: 500px;
+  width: 100%;
+}
+
+.desk_side {
+  &__item {
+    height: .5em;
+    width: 100%;
+
+    &:last-child {
+      border-top: 0;
+    }
+
+    &--black {
+      background-color: #000;
+    }
+
+    &--blue {
+      background-color: #1e98a5;
+    }
+
+    &--orange {
+      background-color: #b9640d;
+    }
+
+    &--red {
+      background-color: #bd1d1d;
+    }
+  }
+}
+
+.desk_top {
   background-color: #fff;
-  //border: 1px solid;
-  //border-radius: 10px;
-  margin: 0 auto;
+  margin: 0 auto 1em;
   max-width: 500px;
   position: relative;
   width: 100%;
@@ -251,5 +271,28 @@ const model = reactive({
     padding: 50% 0 0;
     position: relative;
   }
+
+  &--black {
+    background-color: #000;
+  }
+
+  &--blue {
+    background-color: #1e98a5;
+  }
+
+  &--orange {
+    background-color: #b9640d;
+  }
+
+  &--red {
+    background-color: #bd1d1d;
+  }
+}
+
+.desk_wrapper {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 1em;
+  margin: 0 0 5em;
 }
 </style>
