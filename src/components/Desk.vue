@@ -148,7 +148,7 @@
     <tbody>
     <tr>
       <td>Whiteboard</td>
-      <td>A4 (210x297 mm</td>
+      <td>A4 (210x297 mm)</td>
     </tr>
 
     <tr>
