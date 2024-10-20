@@ -6,20 +6,36 @@
       <div class="desk_top border rounded" :class="'desk_top--' + model.mainColor">
         <div class="desk_preview__title">Top</div>
 
-        <div class="desk_item desk_item__phone_holder" :class="'desk_item--' + model.bottomColor" v-if="model.phoneHolder.value"></div>
+        <div class="desk_item desk_item__phone_holder"
+             :class="'desk_item--' + model.bottomColor"
+             v-if="model.phoneHolder.position == 'right' || model.phoneHolder.position == 'both'"
+        />
 
-        <div class="desk_item desk_item__phone_holder desk_item__phone_holder--left" :class="'desk_item--' + model.bottomColor" v-if="model.phoneHolder.value"></div>
+        <div class="desk_item desk_item__phone_holder desk_item__phone_holder--left"
+             :class="'desk_item--' + model.bottomColor"
+             v-if="model.phoneHolder.position == 'left' || model.phoneHolder.position == 'both'"
+        />
 
-        <div class="desk_item desk_item__tablet_holder" :class="'desk_item--' + model.bottomColor" v-if="model.tabletHolder.value"></div>
+        <div class="desk_item desk_item__tablet_holder"
+             :class="'desk_item--' + model.bottomColor"
+             v-if="model.tabletHolder.position == 'right' || model.tabletHolder.position == 'both'"
+        />
 
-        <div class="desk_item desk_item__tablet_holder desk_item__tablet_holder--left" :class="'desk_item--' + model.bottomColor" v-if="model.tabletHolder.value"></div>
+        <div class="desk_item desk_item__tablet_holder desk_item__tablet_holder--left"
+             :class="'desk_item--' + model.bottomColor"
+             v-if="model.tabletHolder.position == 'left' || model.tabletHolder.position == 'both'"
+        />
 
-        <div class="desk_item desk_item__whiteboard" v-if="model.whiteboard.value"></div>
+        <div class="desk_item desk_item__whiteboard"
+             v-if="model.whiteboard.position == 'right' || model.whiteboard.position == 'both'"
+        />
 
-        <div class="desk_item desk_item__whiteboard desk_item__whiteboard--left" v-if="model.whiteboard.value"></div>
+        <div class="desk_item desk_item__whiteboard desk_item__whiteboard--left"
+             v-if="model.whiteboard.position == 'left' || model.whiteboard.position == 'both'"
+        />
 
         <div class="desk_holes" v-if="model.ventHoles.value">
-          <span class="desk_holes__item" v-for="item in 35" :key="item"></span>
+          <span class="desk_holes__item" v-for="item in 35" :key="item"/>
         </div>
       </div>
 
@@ -27,38 +43,62 @@
         <div class="desk_preview__title">Side</div>
 
         <div class="desk_side">
-          <div class="desk_side__item" :class="'desk_side__item--' + model.mainColor"></div>
-          <div class="desk_side__item" :class="'desk_side__item--' + model.bottomColor"></div>
+          <div class="desk_side__item" :class="'desk_side__item--' + model.mainColor"/>
+          <div class="desk_side__item" :class="'desk_side__item--' + model.bottomColor"/>
         </div>
       </div>
     </div>
 
     <div class="desk_options">
+      <h3>Whiteboard</h3>
+
+      <el-select
+        v-model="model.whiteboard.position"
+        placeholder="Select"
+        size="large"
+        style="width: 240px"
+      >
+        <el-option
+          v-for="item in positionSelected"
+          :key="item"
+          :label="item"
+          :value="item"
+        />
+      </el-select>
+
+      <h3>Phone holder</h3>
+
+      <el-select
+        v-model="model.phoneHolder.position"
+        placeholder="Select"
+        size="large"
+        style="width: 240px"
+      >
+        <el-option
+          v-for="item in positionSelected"
+          :key="item"
+          :label="item"
+          :value="item"
+        />
+      </el-select>
+
+      <h3>Tablet holder</h3>
+
+      <el-select
+        v-model="model.tabletHolder.position"
+        placeholder="Select"
+        size="large"
+        style="width: 240px"
+      >
+        <el-option
+          v-for="item in positionSelected"
+          :key="item"
+          :label="item"
+          :value="item"
+        />
+      </el-select>
+
       <ul class="desk_options_list">
-        <li>
-          <el-checkbox
-            v-model="model.whiteboard.value"
-            label="Whiteboard"
-            size="large"
-          />
-        </li>
-
-        <li>
-          <el-checkbox
-            v-model="model.phoneHolder.value"
-            label="Phone holder"
-            size="large"
-          />
-        </li>
-
-        <li>
-          <el-checkbox
-            v-model="model.tabletHolder.value"
-            label="Tablet holder"
-            size="large"
-          />
-        </li>
-
         <li>
           <el-checkbox
             v-model="model.ventHoles.value"
@@ -169,7 +209,8 @@ const colorSelected = reactive([
 
 const positionSelected = reactive([
   'left',
-  'right'
+  'right',
+  'both',
 ])
 
 const model = reactive({
@@ -177,27 +218,37 @@ const model = reactive({
   mainColor: 'blue',
   phoneHolder: {
     position: 'right',
-    value: true,
-    price: 20
+    price: 20,
+    value: true
   },
   tabletHolder: {
     position: 'right',
-    value: true,
-    price: 20
+    price: 20,
+    value: true
   },
   ventHoles: {
+    position: 'left',
+    price: 20,
     value: true
   },
   whiteboard: {
     position: 'left',
-    value: true,
-    price: 20
+    price: 20,
+    value: true
   },
 })
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/css/_vars' as *;
+
+h3 {
+  margin: #{$space / 2} 0 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
 
 .desk_description {
   margin: 0 auto #{2 * $space};
@@ -300,12 +351,12 @@ const model = reactive({
     background-color: #fff;
     bottom: calc(1.67% * 1.5);
     height: 49.5%;
-    left: calc(.83% * 1.5);
+    right: calc(.83% * 1.5);
     width: 17.5%;
 
     &--left {
-      left: auto;
-      right: calc(.83% * 1.5);
+      left: calc(.83% * 1.5);
+      right: auto;
     }
   }
 }
