@@ -208,6 +208,7 @@ const colorSelected = reactive([
 ])
 
 const positionSelected = reactive([
+  'none',
   'left',
   'right',
   'both',
@@ -217,12 +218,12 @@ const model = reactive({
   bottomColor: 'black',
   mainColor: 'blue',
   phoneHolder: {
-    position: 'right',
+    position: 'both',
     price: 20,
     value: true
   },
   tabletHolder: {
-    position: 'right',
+    position: 'both',
     price: 20,
     value: true
   },
@@ -232,7 +233,7 @@ const model = reactive({
     value: true
   },
   whiteboard: {
-    position: 'left',
+    position: 'both',
     price: 20,
     value: true
   },
