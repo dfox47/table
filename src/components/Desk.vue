@@ -190,20 +190,28 @@ import { reactive } from "vue"
 
 const colorSelected = reactive([
   {
-    value: 'black',
+    value: 'color_0',
     label: 'Black',
   },
   {
-    value: 'blue',
+    value: 'color_1',
     label: 'Blue'
   },
   {
-    value: 'orange',
+    value: 'color_2',
     label: 'Orange'
   },
   {
-    value: 'red',
+    value: 'color_3',
     label: 'Red'
+  },
+  {
+    value: 'color_4',
+    label: 'Grey'
+  },
+  {
+    value: 'color_5',
+    label: 'Light grey'
   },
 ])
 
@@ -215,8 +223,8 @@ const positionSelected = reactive([
 ])
 
 const model = reactive({
-  bottomColor: 'black',
-  mainColor: 'blue',
+  bottomColor: 'color_3',
+  mainColor: 'color_1',
   phoneHolder: {
     position: 'both',
     price: 20,
@@ -256,7 +264,7 @@ h3 {
   max-width: 500px;
 
   td {
-    padding: 0.2em 0.5em;
+    padding: 1em 2em;
 
     &:nth-child(1) {
       border-right: 4px solid #fff;
@@ -301,20 +309,28 @@ h3 {
   position: absolute;
   z-index: 1;
 
-  &--black {
+  &--color_0 {
     background-color: $c_desk_color_0;
   }
 
-  &--blue {
+  &--color_1 {
     background-color: $c_desk_color_1;
   }
 
-  &--orange {
+  &--color_2 {
     background-color: $c_desk_color_2;
   }
 
-  &--red {
+  &--color_3 {
     background-color: $c_desk_color_3;
+  }
+
+  &--color_4 {
+    background-color: $c_desk_color_4;
+  }
+
+  &--color_5 {
+    background-color: $c_desk_color_5;
   }
 
   // 12x100 mm
@@ -397,20 +413,28 @@ h3 {
       border-top: 0;
     }
 
-    &--black {
+    &--color_0 {
       background-color: $c_desk_color_0;
     }
 
-    &--blue {
+    &--color_1 {
       background-color: $c_desk_color_1;
     }
 
-    &--orange {
+    &--color_2 {
       background-color: $c_desk_color_2;
     }
 
-    &--red {
+    &--color_3 {
       background-color: $c_desk_color_3;
+    }
+
+    &--color_4 {
+      background-color: $c_desk_color_4;
+    }
+
+    &--color_5 {
+      background-color: $c_desk_color_5;
     }
   }
 }
@@ -433,20 +457,28 @@ h3 {
     position: relative;
   }
 
-  &--black {
-    background-color: #000;
+  &--color_0 {
+    background-color: $c_desk_color_0;
   }
 
-  &--blue {
-    background-color: #1e98a5;
+  &--color_1 {
+    background-color: $c_desk_color_1;
   }
 
-  &--orange {
-    background-color: #b9640d;
+  &--color_2 {
+    background-color: $c_desk_color_2;
   }
 
-  &--red {
-    background-color: #bd1d1d;
+  &--color_3 {
+    background-color: $c_desk_color_3;
+  }
+
+  &--color_4 {
+    background-color: $c_desk_color_4;
+  }
+
+  &--color_5 {
+    background-color: $c_desk_color_5;
   }
 }
 
