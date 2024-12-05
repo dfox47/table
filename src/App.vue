@@ -5,14 +5,9 @@ import Header from './components/Header.vue'
 </script>
 
 <template>
-  <div class="p-5">
-    <Header />
+  <Header />
 
-    <RouterView />
+  <RouterView />
 
-    <Footer />
-  </div>
+  <Footer />
 </template>
-
-<style lang="scss" scoped>
-</style>

@@ -1,28 +1,28 @@
 <template>
   <h2 class="h2">Construct your desk</h2>
 
-  <div class="desk_wrapper">
+  <div class="desk_wrapper p-5">
     <div class="desk_preview">
-      <div class="desk_top border rounded" :class="'desk_top--' + model.mainColor">
+      <div class="desk_top border rounded" :class="model.mainColor">
         <div class="desk_preview__title">Top</div>
 
         <div class="desk_item desk_item__phone_holder"
-             :class="'desk_item--' + model.bottomColor"
+             :class="model.bottomColor"
              v-if="model.phoneHolder.position == 'right' || model.phoneHolder.position == 'both'"
         />
 
         <div class="desk_item desk_item__phone_holder desk_item__phone_holder--left"
-             :class="'desk_item--' + model.bottomColor"
+             :class="model.bottomColor"
              v-if="model.phoneHolder.position == 'left' || model.phoneHolder.position == 'both'"
         />
 
         <div class="desk_item desk_item__tablet_holder"
-             :class="'desk_item--' + model.bottomColor"
+             :class="model.bottomColor"
              v-if="model.tabletHolder.position == 'right' || model.tabletHolder.position == 'both'"
         />
 
         <div class="desk_item desk_item__tablet_holder desk_item__tablet_holder--left"
-             :class="'desk_item--' + model.bottomColor"
+             :class="model.bottomColor"
              v-if="model.tabletHolder.position == 'left' || model.tabletHolder.position == 'both'"
         />
 
@@ -35,7 +35,7 @@
         />
 
         <div class="desk_holes" v-if="model.ventHoles.value">
-          <span class="desk_holes__item" v-for="item in 35" :key="item"/>
+          <span class="desk_holes__item" v-for="item in 42" :key="item"/>
         </div>
       </div>
 
@@ -43,8 +43,8 @@
         <div class="desk_preview__title">Side</div>
 
         <div class="desk_side">
-          <div class="desk_side__item" :class="'desk_side__item--' + model.mainColor"/>
-          <div class="desk_side__item" :class="'desk_side__item--' + model.bottomColor"/>
+          <div class="desk_side__item" :class="model.mainColor"/>
+          <div class="desk_side__item" :class="model.bottomColor"/>
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@
         </li>
       </ul>
 
-      <h3>Top color</h3>
+      <h3>Desk | top color</h3>
 
       <el-select
         v-model="model.mainColor"
@@ -124,7 +124,7 @@
         />
       </el-select>
 
-      <h3>Bottom color</h3>
+      <h3>Desk | bottom color</h3>
 
       <el-select
         v-model="model.bottomColor"
@@ -142,46 +142,42 @@
     </div>
   </div>
 
-  <h2 class="h2">Technical description</h2>
+  <div class="my-20">
+    <h2 class="h2">Technical description</h2>
 
-  <table class="desk_description">
-    <tbody>
-    <tr>
-      <td>Whiteboard</td>
-      <td>A4 (210x297 mm)</td>
-    </tr>
+    <table class="desk_description">
+      <tbody>
+      <tr>
+        <td>Whiteboard</td>
+        <td>A4 (210x297 mm)</td>
+      </tr>
 
-    <tr>
-      <td>Height</td>
-      <td>70-117 cm</td>
-    </tr>
+      <tr>
+        <td>Height</td>
+        <td>70-117 cm</td>
+      </tr>
 
-    <tr>
-      <td>Max load</td>
-      <td>100 kg</td>
-    </tr>
+      <tr>
+        <td>Max load</td>
+        <td>100 kg</td>
+      </tr>
 
-    <tr>
-      <td>Size</td>
-      <td>1200x600 mm</td>
-    </tr>
+      <tr>
+        <td>Size</td>
+        <td>1200 x 600 x 36 mm</td>
+      </tr>
 
-    <tr>
-      <td>Guarantee</td>
-      <td>2 years</td>
-    </tr>
+      <tr>
+        <td>Guarantee</td>
+        <td>2 years</td>
+      </tr>
 
-    <tr>
-      <td>Weight</td>
-      <td>50 Kg</td>
-    </tr>
-    </tbody>
-  </table>
-
-  <div class="flex justify-center">
-    <a class="btn btn--main" href="">
-      <span class="font-extralight">Add to cart</span>
-    </a>
+      <tr>
+        <td>Weight</td>
+        <td>50 Kg</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -190,27 +186,27 @@ import { reactive } from "vue"
 
 const colorSelected = reactive([
   {
-    value: 'color_0',
+    value: 'bg_0',
     label: 'Black',
   },
   {
-    value: 'color_1',
+    value: 'bg_1',
     label: 'Blue'
   },
   {
-    value: 'color_2',
+    value: 'bg_2',
     label: 'Orange'
   },
   {
-    value: 'color_3',
+    value: 'bg_3',
     label: 'Red'
   },
   {
-    value: 'color_4',
+    value: 'bg_4',
     label: 'Grey'
   },
   {
-    value: 'color_5',
+    value: 'bg_5',
     label: 'Light grey'
   },
 ])
@@ -223,8 +219,8 @@ const positionSelected = reactive([
 ])
 
 const model = reactive({
-  bottomColor: 'color_3',
-  mainColor: 'color_1',
+  bottomColor: 'bg_3',
+  mainColor: 'bg_1',
   phoneHolder: {
     position: 'both',
     price: 20,
@@ -273,6 +269,8 @@ h3 {
   }
 
   tr {
+    background-color: #fff;
+
     &:nth-child(2n) {
       background-color: rgba(#000, 0.1);
     }
@@ -297,8 +295,13 @@ h3 {
     background-color: #fff;
     border: 1px solid $c_border;
     border-radius: 50%;
-    height: calc(3.7% * 3);
     width: calc(2.6% * 3);
+
+    &::after {
+      content: "";
+      display: block;
+      padding: 100% 0 0;
+    }
   }
 }
 
@@ -308,30 +311,6 @@ h3 {
   border-radius: $border_radius;
   position: absolute;
   z-index: 1;
-
-  &--color_0 {
-    background-color: $c_desk_color_0;
-  }
-
-  &--color_1 {
-    background-color: $c_desk_color_1;
-  }
-
-  &--color_2 {
-    background-color: $c_desk_color_2;
-  }
-
-  &--color_3 {
-    background-color: $c_desk_color_3;
-  }
-
-  &--color_4 {
-    background-color: $c_desk_color_4;
-  }
-
-  &--color_5 {
-    background-color: $c_desk_color_5;
-  }
 
   // 12x100 mm
   &__phone_holder {
@@ -412,30 +391,6 @@ h3 {
       border-radius: 0 0 $border_radius $border_radius;
       border-top: 0;
     }
-
-    &--color_0 {
-      background-color: $c_desk_color_0;
-    }
-
-    &--color_1 {
-      background-color: $c_desk_color_1;
-    }
-
-    &--color_2 {
-      background-color: $c_desk_color_2;
-    }
-
-    &--color_3 {
-      background-color: $c_desk_color_3;
-    }
-
-    &--color_4 {
-      background-color: $c_desk_color_4;
-    }
-
-    &--color_5 {
-      background-color: $c_desk_color_5;
-    }
   }
 }
 
@@ -444,7 +399,6 @@ h3 {
 }
 
 .desk_top {
-  background-color: #fff;
   margin: 0 auto $space;
   max-width: 500px;
   position: relative;
@@ -455,30 +409,6 @@ h3 {
     display: block;
     padding: 50% 0 0;
     position: relative;
-  }
-
-  &--color_0 {
-    background-color: $c_desk_color_0;
-  }
-
-  &--color_1 {
-    background-color: $c_desk_color_1;
-  }
-
-  &--color_2 {
-    background-color: $c_desk_color_2;
-  }
-
-  &--color_3 {
-    background-color: $c_desk_color_3;
-  }
-
-  &--color_4 {
-    background-color: $c_desk_color_4;
-  }
-
-  &--color_5 {
-    background-color: $c_desk_color_5;
   }
 }
 

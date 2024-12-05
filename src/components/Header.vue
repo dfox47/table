@@ -1,17 +1,8 @@
-<script setup lang="ts">
-const menuItems = [
-  {title: 'Home', href: '/#top'},
-  {title: 'About', href: '/#about'},
-  {title: 'Projects', href: '/#projects'},
-  {title: 'Contacts', href: '/#contacts'},
-]
-</script>
-
 <template>
-  <header class="flex items-center">
-    <div class="w-full max-w-36">
+  <header class="flex items-center p-5">
+    <div class="max-w-36 w-full">
       <a class="block" href="/">
-        <img class="w-10 h-10" src="@/assets/i/logo.svg" alt="">
+        <img class="h-10 w-10" src="@/assets/i/logo.svg" alt="">
       </a>
     </div>
 
@@ -30,3 +21,12 @@ const menuItems = [
     </p>
   </header>
 </template>
+
+<script setup lang="ts">
+const menuItems = [
+  {title: 'Home', href: '/#top'},
+  {title: 'About', href: '/#about'},
+  {title: 'Projects', href: '/#projects'},
+  {title: 'Contacts', href: '/#contacts'},
+]
+</script>

@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <footer class="py-10 mt-10 text-center">
-    <div class="text-sm text-nowrap">
+  <footer class="bg-slate-900 py-10 mt-10 text-center">
+    <div class="text-sm text-nowrap text-slate-400">
       <p class="mb-1">
         <a href="tel:+359882744430" title="phone" target="_blank">+359 (88) 27-444-30</a>
       </p>
