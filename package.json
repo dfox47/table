@@ -2,7 +2,7 @@
   "name": "table",
   "version": "0.0.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -15,6 +15,7 @@
   "dependencies": {
     "element-plus": "^2.8.5",
     "pinia": "^2.1.7",
+    "swiper": "^11.1.15",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
