@@ -33,7 +33,7 @@ const conn = getFtpConnection()
 
 
 gulp.task('dist', function () {
-	return gulp.src(localFolder + '**/*')
+	return gulp.src([localFolder + '**/*', '!dist/gallery/**/*', '!dist/favicon/**/*'])
 		.pipe(conn.dest(remoteFolder))
 })
 
