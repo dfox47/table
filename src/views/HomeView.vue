@@ -31,7 +31,7 @@
       </div>
     </form>
 
-    <form @submit.prevent="sendMail">
+    <form @submit.prevent="sendMail" class="send_order_form">
       <input v-model="formData.name" type="text" placeholder="Your Name" required>
       <input v-model="formData.email" type="email" placeholder="Your Email" required>
       <textarea v-model="formData.message" placeholder="Your Message" required>Snow message</textarea>

@@ -52,51 +52,48 @@
     <div class="desk_options">
       <h3>Whiteboard</h3>
 
-      <el-select
+      <el-radio-group
         v-model="model.whiteboard.position"
         placeholder="Select"
         size="large"
-        style="width: 240px"
       >
-        <el-option
+        <el-radio
           v-for="item in positionSelected"
           :key="item"
           :label="item"
           :value="item"
         />
-      </el-select>
+      </el-radio-group>
 
       <h3>Phone holder</h3>
 
-      <el-select
+      <el-radio-group
         v-model="model.phoneHolder.position"
         placeholder="Select"
         size="large"
-        style="width: 240px"
       >
-        <el-option
+        <el-radio
           v-for="item in positionSelected"
           :key="item"
           :label="item"
           :value="item"
         />
-      </el-select>
+      </el-radio-group>
 
       <h3>Tablet holder</h3>
 
-      <el-select
+      <el-radio-group
         v-model="model.tabletHolder.position"
         placeholder="Select"
         size="large"
-        style="width: 240px"
       >
-        <el-option
+        <el-radio
           v-for="item in positionSelected"
           :key="item"
           :label="item"
           :value="item"
         />
-      </el-select>
+      </el-radio-group>
 
       <ul class="desk_options_list">
         <li>
@@ -110,35 +107,37 @@
 
       <h3>Desk | top color</h3>
 
-      <el-select
+      <el-radio-group
         v-model="model.mainColor"
+        validate-event
+        class="desk-colors-selector"
         placeholder="Select"
         size="large"
-        style="width: 240px"
       >
-        <el-option
+        <el-radio-button
           v-for="item in colorSelected"
           :key="item.value"
-          :label="item.label"
           :value="item.value"
+          class="desk-colors-selector__label"
+          :class="'desk-colors-selector__label--' + item.value"
         />
-      </el-select>
+      </el-radio-group>
 
       <h3>Desk | bottom color</h3>
 
-      <el-select
+      <el-radio-group
         v-model="model.bottomColor"
         placeholder="Select"
         size="large"
-        style="width: 240px"
       >
-        <el-option
+        <el-radio-button
           v-for="item in colorSelected"
           :key="item.value"
-          :label="item.label"
           :value="item.value"
+          class="desk-colors-selector__label"
+          :class="'desk-colors-selector__label--' + item.value"
         />
-      </el-select>
+      </el-radio-group>
     </div>
   </div>
 
@@ -209,14 +208,102 @@ const model = reactive({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use '@/assets/css/_vars' as *;
+
+:root {
+  --el-radio-button-checked-border-color: $c_special;
+}
 
 h3 {
   margin: #{0.7 * $space} 0 #{0.1 * $space};
 
   &:first-child {
     margin-top: 0;
+  }
+}
+
+.el-radio-button {
+  &.desk-colors-selector {
+    &__label {
+      &--bg_0 {
+        .el-radio-button__inner {
+          background-color: $c_desk_color_0;
+        }
+      }
+
+      &--bg_1 {
+        .el-radio-button__inner {
+          background-color: $c_desk_color_1;
+        }
+      }
+
+      &--bg_2 {
+        .el-radio-button__inner {
+          background-color: $c_desk_color_2;
+        }
+      }
+
+      &--bg_3 {
+        .el-radio-button__inner {
+          background-color: $c_desk_color_3;
+        }
+      }
+
+      &--bg_4 {
+        .el-radio-button__inner {
+          background-color: $c_desk_color_4;
+        }
+      }
+
+      &--bg_5 {
+        .el-radio-button__inner {
+          background-color: $c_desk_color_5;
+        }
+      }
+    }
+  }
+
+  &.is-active {
+    &.desk-colors-selector {
+      &__label {
+        &--bg_0 {
+          .el-radio-button__original-radio:not(:disabled) + .el-radio-button__inner {
+            background-color: $c_desk_color_0;
+          }
+        }
+
+        &--bg_1 {
+          .el-radio-button__original-radio:not(:disabled) + .el-radio-button__inner {
+            background-color: $c_desk_color_1;
+          }
+        }
+
+        &--bg_2 {
+          .el-radio-button__original-radio:not(:disabled) + .el-radio-button__inner {
+            background-color: $c_desk_color_2;
+          }
+        }
+
+        &--bg_3 {
+          .el-radio-button__original-radio:not(:disabled) + .el-radio-button__inner {
+            background-color: $c_desk_color_3;
+          }
+        }
+
+        &--bg_4 {
+          .el-radio-button__original-radio:not(:disabled) + .el-radio-button__inner {
+            background-color: $c_desk_color_4;
+          }
+        }
+
+        &--bg_5 {
+          .el-radio-button__original-radio:not(:disabled) + .el-radio-button__inner {
+            background-color: $c_desk_color_5;
+          }
+        }
+      }
+    }
   }
 }
 
