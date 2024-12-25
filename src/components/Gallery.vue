@@ -18,9 +18,17 @@
   border: 1rem #fff solid;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin: 0 0 $space;
   width: 100%;
+
+  @media #{$tablet} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media #{$mobile} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   &__img {
     display: block;
