@@ -10,19 +10,22 @@
   <div class="contacts">
     <form @submit.prevent="sendMail" class="send_order_form">
       <label class="send_order_form__label">
-        <input v-model="formData.name" class="send_order_form__input" type="text" placeholder="Your Name" required>
-        <span class="send_order_form__input-title">Your name</span>
+        <input v-model="formData.name" class="send_order_form__input" type="text" required>
+        <span class="send_order_form__input-title">Name</span>
       </label>
 
       <label class="send_order_form__label">
-        <input v-model="formData.email" class="send_order_form__input" type="email" placeholder="Your Email" required>
-        <span class="send_order_form__input-title">Your email</span>
+        <input v-model="formData.email" class="send_order_form__input" type="email" required>
+        <span class="send_order_form__input-title">E-mail</span>
       </label>
 
-      <textarea class="send_order_form__textarea" v-model="formData.message" placeholder="Your Message" required>Snow message</textarea>
+      <div class="send_order_form__label">
+        <textarea class="send_order_form__textarea" v-model="formData.message" required />
+        <span class="send_order_form__input-title">Message</span>
+      </div>
 
       <div class="flex justify-center">
-        <button class="btn btn--main" type="submit">
+        <button class="btn btn--main w-full" type="submit">
           <span class="font-extralight">Submit order</span>
         </button>
       </div>
@@ -81,38 +84,32 @@ onMounted(() => {
 .send_order_form {
   display: grid;
   flex-direction: column;
-  gap: 1em;
+  gap: $space;
   margin: 0 auto $space;
   max-width: 300px;
 
-  &__input {
-    border: 1px solid $c_primary;
+  &__input,
+  &__textarea {
     border-radius: $border_radius;
-    margin: 0 0 0.5em;
-    padding: 1em 2em;
+    border: 1px solid rgba($c_primary, 0.4);
+    padding: 0.7em 1em;
+    resize: none;
     width: 100%;
   }
 
   &__input-title {
-    left: 50%;
+    bottom: 100%;
+    font-size: 0.8em;
+    left: 0;
+    margin: 0 0 0.3em;
+    opacity: 0.7;
     position: absolute;
     text-align: center;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
   }
 
   &__label {
     display: flex;
     position: relative;
-  }
-
-  &__textarea {
-    border: 1px solid $c_primary;
-    border-radius: $border_radius;
-    margin: 0 0 0.5em;
-    padding: 1em 2em;
-    width: 100%;
   }
 }
 </style>
