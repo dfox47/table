@@ -79,8 +79,9 @@ onMounted(() => {
 @use '@/assets/css/_vars' as *;
 
 .send_order_form {
-  display: flex;
+  display: grid;
   flex-direction: column;
+  gap: 1em;
   margin: 0 auto $space;
   max-width: 300px;
 
