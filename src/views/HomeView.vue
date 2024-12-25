@@ -8,34 +8,25 @@
   <h2 class="h2">Cart</h2>
 
   <div class="contacts">
-    <form style="display: none;" class="send_order_form" action="" @submit.prevent="sendMail">
+    <form @submit.prevent="sendMail" class="send_order_form">
       <label class="send_order_form__label">
-        <span class="send_order_form__title">Address</span>
-        <input class="send_order_form__input" type="text">
+        <input v-model="formData.name" class="send_order_form__input" type="text" placeholder="Your Name" required>
+        <span class="send_order_form__input-title">Your name</span>
       </label>
 
       <label class="send_order_form__label">
-        <span class="send_order_form__title">Contact phone</span>
-        <input class="send_order_form__input" type="text">
+        <input v-model="formData.email" class="send_order_form__input" type="email" placeholder="Your Email" required>
+        <span class="send_order_form__input-title">Your email</span>
       </label>
 
-      <label class="send_order_form__label">
-        <span class="send_order_form__title">E-mail</span>
-        <input class="send_order_form__input" type="text">
-      </label>
+      <textarea class="send_order_form__textarea" v-model="formData.message" placeholder="Your Message" required>Snow message</textarea>
 
       <div class="flex justify-center">
-        <a class="btn btn--main" href="">
-          <span class="font-extralight">Add to cart</span>
-        </a>
+        <button class="btn btn--main" type="submit">
+          <span class="font-extralight">Submit order</span>
+        </button>
       </div>
-    </form>
 
-    <form @submit.prevent="sendMail" class="send_order_form">
-      <input v-model="formData.name" type="text" placeholder="Your Name" required>
-      <input v-model="formData.email" type="email" placeholder="Your Email" required>
-      <textarea v-model="formData.message" placeholder="Your Message" required>Snow message</textarea>
-      <button type="submit">Send Email</button>
       <p v-if="emailStatus">{{ emailStatus }}</p>
     </form>
   </div>
@@ -83,3 +74,44 @@ onMounted(() => {
   document.title = 'Home | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })
 </script>
+
+<style lang="scss" scoped>
+@use '@/assets/css/_vars' as *;
+
+.send_order_form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto $space;
+  max-width: 300px;
+
+  &__input {
+    border: 1px solid $c_primary;
+    border-radius: $border_radius;
+    margin: 0 0 0.5em;
+    padding: 1em 2em;
+    width: 100%;
+  }
+
+  &__input-title {
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+  }
+
+  &__label {
+    display: flex;
+    position: relative;
+  }
+
+  &__textarea {
+    border: 1px solid $c_primary;
+    border-radius: $border_radius;
+    margin: 0 0 0.5em;
+    padding: 1em 2em;
+    width: 100%;
+  }
+}
+</style>
