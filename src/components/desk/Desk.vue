@@ -1,5 +1,5 @@
 <template>
-  <h2 class="h2">Construct your desk</h2>
+  <h2 class="h2">Construct desk</h2>
 
   <div class="desk_wrapper p-5">
     <div class="desk_preview">

@@ -1,6 +1,9 @@
 <template>
   <h1 class="h1">Clean desk</h1>
 
+  <div class="subtitle">Work. Play. Enjoy</div>
+  <div class="subtitle-description"></div>
+
   <Desk />
 
   <Gallery />
@@ -37,8 +40,8 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import Desk from '@/components/desk/Desk.vue'
 import Gallery from '@/components/Gallery.vue'
+import Desk from '@/components/desk/Desk.vue'
 
 // Reactive data for form inputs
 const formData = ref({
@@ -54,10 +57,12 @@ const emailStatus = ref('')
 const sendMail = async () => {
   try {
     const response = await fetch('/sendmail.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData.value),
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
     })
+
+    const x = "x";
 
     const rawResponse = await response.text()
     const result = JSON.parse(rawResponse)
@@ -111,5 +116,12 @@ onMounted(() => {
     display: flex;
     position: relative;
   }
+}
+
+.subtitle {
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
 }
 </style>
