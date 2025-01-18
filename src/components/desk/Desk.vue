@@ -54,6 +54,7 @@
 
       <el-radio-group
         v-model="model.whiteboard.position"
+        @input="setWhiteboard"
         placeholder="Select"
         size="large"
       >
@@ -69,6 +70,7 @@
 
       <el-radio-group
         v-model="model.phoneHolder.position"
+        @input="setPhoneHolder"
         placeholder="Select"
         size="large"
       >
@@ -84,6 +86,7 @@
 
       <el-radio-group
         v-model="model.tabletHolder.position"
+        @input="setTabletHolder"
         placeholder="Select"
         size="large"
       >
@@ -99,6 +102,7 @@
         <li>
           <el-checkbox
             v-model="model.ventHoles.value"
+            @input="setVentHoles"
             label="Vent holes"
             size="large"
           />
@@ -109,6 +113,7 @@
 
       <el-radio-group
         v-model="model.mainColor"
+        @input="setMainColor"
         validate-event
         class="desk-colors-selector"
         placeholder="Select"
@@ -127,6 +132,7 @@
 
       <el-radio-group
         v-model="model.bottomColor"
+        @input="setBottomColor"
         placeholder="Select"
         size="large"
       >
@@ -144,9 +150,42 @@
   <DeskDescription />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { reactive } from "vue"
 import DeskDescription from '@/components/desk/DeskDescription.vue'
+
+const emit = defineEmits([
+  'updateBottomColor',
+  'updateMainColor',
+  'updatePhoneHolder',
+  'updateTabletHolder',
+  'updateVentHoles',
+  'updateWhiteboard'
+])
+
+const setBottomColor = () => {
+  emit('updateBottomColor', model.bottomColor)
+}
+
+const setMainColor = () => {
+  emit('updateMainColor', model.mainColor)
+}
+
+const setPhoneHolder = () => {
+  emit('updatePhoneHolder', model.phoneHolder.position)
+}
+
+const setTabletHolder = () => {
+  emit('updateTabletHolder', model.tabletHolder.position)
+}
+
+const setVentHoles = () => {
+  emit('updateVentHoles', model.ventHoles.value)
+}
+
+const setWhiteboard = () => {
+  emit('updateWhiteboard', model.whiteboard.position)
+}
 
 const colorSelected = reactive([
   {

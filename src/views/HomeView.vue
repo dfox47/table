@@ -4,9 +4,16 @@
   <div class="subtitle">Work. Play. Enjoy</div>
   <div class="subtitle-description"></div>
 
-  <Desk />
+  <Desk
+  @updateBottomColor="setBottomColor"
+  @updateMainColor="setMainColor"
+  @updatePhoneHolder="setPhoneHolder"
+  @updateTabletHolder="setTabletHolder"
+  @updateVentHoles="setVentHoles"
+  @updateWhiteboard="setWhiteboard"
+   />
 
-  <Gallery />
+  <!-- <Gallery /> -->
 
   <h2 class="h2">Cart</h2>
 
@@ -27,6 +34,13 @@
         <span class="send_order_form__input-title">Message</span>
       </div>
 
+      <input type="hidden" v-model="formData.bottomColor">
+      <input type="hidden" v-model="formData.mainColor">
+      <input type="hidden" v-model="formData.phoneHolder">
+      <input type="hidden" v-model="formData.tabletHolder">
+      <input type="hidden" v-model="formData.ventHoles">
+      <input type="hidden" v-model="formData.whiteboard">
+
       <div class="flex justify-center">
         <button class="btn btn--main w-full" type="submit">
           <span class="font-extralight">Submit order</span>
@@ -45,10 +59,40 @@ import Desk from '@/components/desk/Desk.vue'
 
 // Reactive data for form inputs
 const formData = ref({
+  bottomColor: '',
   email: 'xx@xx.xx',
+  mainColor: '',
   message: 'test',
   name: 'Test name',
+  phoneHolder: '',
+  tabletHolder: '',
+  ventHoles: false,
+  whiteboard: ''
 })
+
+const setBottomColor = (value:string) => {
+  formData.value.bottomColor = value
+}
+
+const setMainColor = (value:string) => {
+  formData.value.mainColor = value
+}
+
+const setPhoneHolder = (value:string) => {
+  formData.value.phoneHolder = value
+}
+
+const setTabletHolder = (value:string) => {
+  formData.value.tabletHolder = value
+}
+
+const setVentHoles = (value:boolean) => {
+  formData.value.ventHoles = value
+}
+
+const setWhiteboard = (value:string) => {
+  formData.value.whiteboard = value
+}
 
 // Reactive variable for email status message
 const emailStatus = ref('')
@@ -61,8 +105,6 @@ const sendMail = async () => {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
     })
-
-    const x = "x";
 
     const rawResponse = await response.text()
     const result = JSON.parse(rawResponse)
