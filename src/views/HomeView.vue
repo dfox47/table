@@ -4,14 +4,7 @@
   <div class="subtitle">Work. Play. Enjoy</div>
   <div class="subtitle-description"></div>
 
-  <Desk
-  @updateBottomColor="setBottomColor"
-  @updateMainColor="setMainColor"
-  @updatePhoneHolder="setPhoneHolder"
-  @updateTabletHolder="setTabletHolder"
-  @updateVentHoles="setVentHoles"
-  @updateWhiteboard="setWhiteboard"
-   />
+  <Desk v-model="model" />
 
   <!-- <Gallery /> -->
 
@@ -20,26 +13,19 @@
   <div class="contacts">
     <form @submit.prevent="sendMail" class="send_order_form">
       <label class="send_order_form__label">
-        <input v-model="formData.name" class="send_order_form__input" type="text" required>
+        <input v-model="name" class="send_order_form__input" type="text" required />
         <span class="send_order_form__input-title">Name</span>
       </label>
 
       <label class="send_order_form__label">
-        <input v-model="formData.email" class="send_order_form__input" type="email" required>
+        <input v-model="email" class="send_order_form__input" type="email" required />
         <span class="send_order_form__input-title">E-mail</span>
       </label>
 
       <div class="send_order_form__label">
-        <textarea class="send_order_form__textarea" v-model="formData.message" required />
+        <textarea class="send_order_form__textarea" v-model="message" required />
         <span class="send_order_form__input-title">Message</span>
       </div>
-
-      <input type="hidden" v-model="formData.bottomColor">
-      <input type="hidden" v-model="formData.mainColor">
-      <input type="hidden" v-model="formData.phoneHolder">
-      <input type="hidden" v-model="formData.tabletHolder">
-      <input type="hidden" v-model="formData.ventHoles">
-      <input type="hidden" v-model="formData.whiteboard">
 
       <div class="flex justify-center">
         <button class="btn btn--main w-full" type="submit">
@@ -53,57 +39,63 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import Gallery from '@/components/Gallery.vue'
-import Desk from '@/components/desk/Desk.vue'
+import { onMounted, reactive, ref } from "vue"
+import Gallery from "@/components/Gallery.vue"
+import Desk from "@/components/desk/Desk.vue"
+import type { Product } from "../types"
 
-// Reactive data for form inputs
-const formData = ref({
-  bottomColor: '',
-  email: 'xx@xx.xx',
-  mainColor: '',
-  message: 'test',
-  name: 'Test name',
-  phoneHolder: '',
-  tabletHolder: '',
-  ventHoles: false,
-  whiteboard: ''
+const model = reactive<Product>({
+  bottomColor: "bg_3",
+  mainColor: "bg_1",
+  phoneHolder: {
+    position: "both",
+    price: 20,
+    value: true
+  },
+  tabletHolder: {
+    position: "both",
+    price: 20,
+    value: true
+  },
+  ventHoles: {
+    position: "left",
+    price: 20,
+    value: true
+  },
+  whiteboard: {
+    position: "both",
+    price: 20,
+    value: true
+  }
 })
 
-const setBottomColor = (value:string) => {
-  formData.value.bottomColor = value
-}
+const email = ref("xx@xx.xx")
+const message = ref("test")
+const name = ref("Test name")
 
-const setMainColor = (value:string) => {
-  formData.value.mainColor = value
-}
-
-const setPhoneHolder = (value:string) => {
-  formData.value.phoneHolder = value
-}
-
-const setTabletHolder = (value:string) => {
-  formData.value.tabletHolder = value
-}
-
-const setVentHoles = (value:boolean) => {
-  formData.value.ventHoles = value
-}
-
-const setWhiteboard = (value:string) => {
-  formData.value.whiteboard = value
-}
 
 // Reactive variable for email status message
-const emailStatus = ref('')
+const emailStatus = ref("")
 
 // Function to send email
 const sendMail = async () => {
   try {
-    const response = await fetch('/sendmail.php', {
-      body: JSON.stringify(formData.value),
-      headers: { 'Content-Type': 'application/json' },
-      method: 'POST',
+    const formData = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+      bottomColor: model.bottomColor,
+      mainColor: model.mainColor,
+      phoneHolder: model.phoneHolder,
+      tabletHolder: model.tabletHolder,
+      ventHoles: model.ventHoles,
+      whiteboard: model.whiteboard
+    }
+
+    const response = await fetch("/sendmail.php", {
+      body: JSON.stringify(formData),
+      headers: { "Content-Type": "application/json" },
+      method: "POST"
     })
 
     const rawResponse = await response.text()
@@ -115,18 +107,19 @@ const sendMail = async () => {
       emailStatus.value = `Error: ${result.message}`
     }
   } catch (error) {
-    console.error('Failed to send email:', error)
-    emailStatus.value = 'An error occurred while sending the email.'
+    console.error("Failed to send email:", error)
+    emailStatus.value = "An error occurred while sending the email."
   }
 }
 
 onMounted(() => {
-  document.title = 'Home | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
+  document.title =
+    "Home | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk."
 })
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/css/_vars' as *;
+@use "@/assets/css/_vars" as *;
 
 .send_order_form {
   display: grid;
