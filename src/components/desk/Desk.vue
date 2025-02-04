@@ -6,36 +6,42 @@
       <div class="desk_top border rounded" :class="model.mainColor">
         <div class="desk_preview__title">Top</div>
 
-        <div class="desk_item desk_item__phone_holder"
-             :class="model.bottomColor"
-             v-if="model.phoneHolder.position == 'right' || model.phoneHolder.position == 'both'"
+        <div
+          class="desk_item desk_item__phone_holder"
+          :class="model.bottomColor"
+          v-if="model.phoneHolder.position == 'right' || model.phoneHolder.position == 'both'"
         />
 
-        <div class="desk_item desk_item__phone_holder desk_item__phone_holder--left"
-             :class="model.bottomColor"
-             v-if="model.phoneHolder.position == 'left' || model.phoneHolder.position == 'both'"
+        <div
+          class="desk_item desk_item__phone_holder desk_item__phone_holder--left"
+          :class="model.bottomColor"
+          v-if="model.phoneHolder.position == 'left' || model.phoneHolder.position == 'both'"
         />
 
-        <div class="desk_item desk_item__tablet_holder"
-             :class="model.bottomColor"
-             v-if="model.tabletHolder.position == 'right' || model.tabletHolder.position == 'both'"
+        <div
+          class="desk_item desk_item__tablet_holder"
+          :class="model.bottomColor"
+          v-if="model.tabletHolder.position == 'right' || model.tabletHolder.position == 'both'"
         />
 
-        <div class="desk_item desk_item__tablet_holder desk_item__tablet_holder--left"
-             :class="model.bottomColor"
-             v-if="model.tabletHolder.position == 'left' || model.tabletHolder.position == 'both'"
+        <div
+          class="desk_item desk_item__tablet_holder desk_item__tablet_holder--left"
+          :class="model.bottomColor"
+          v-if="model.tabletHolder.position == 'left' || model.tabletHolder.position == 'both'"
         />
 
-        <div class="desk_item desk_item__whiteboard"
-             v-if="model.whiteboard.position == 'right' || model.whiteboard.position == 'both'"
+        <div
+          class="desk_item desk_item__whiteboard"
+          v-if="model.whiteboard.position == 'right' || model.whiteboard.position == 'both'"
         />
 
-        <div class="desk_item desk_item__whiteboard desk_item__whiteboard--left"
-             v-if="model.whiteboard.position == 'left' || model.whiteboard.position == 'both'"
+        <div
+          class="desk_item desk_item__whiteboard desk_item__whiteboard--left"
+          v-if="model.whiteboard.position == 'left' || model.whiteboard.position == 'both'"
         />
 
         <div class="desk_holes" v-if="model.ventHoles.value">
-          <span class="desk_holes__item" v-for="item in 42" :key="item"/>
+          <span class="desk_holes__item" v-for="item in 42" :key="item" />
         </div>
       </div>
 
@@ -43,8 +49,8 @@
         <div class="desk_preview__title">Side</div>
 
         <div class="desk_side">
-          <div class="desk_side__item" :class="model.mainColor"/>
-          <div class="desk_side__item" :class="model.bottomColor"/>
+          <div class="desk_side__item" :class="model.mainColor" />
+          <div class="desk_side__item" :class="model.bottomColor" />
         </div>
       </div>
     </div>
@@ -52,60 +58,25 @@
     <div class="desk_options">
       <h3>Whiteboard</h3>
 
-      <el-radio-group
-        v-model="model.whiteboard.position"
-        @input="setWhiteboard"
-        placeholder="Select"
-        size="large"
-      >
-        <el-radio
-          v-for="item in positionSelected"
-          :key="item"
-          :label="item"
-          :value="item"
-        />
+      <el-radio-group v-model="model.whiteboard.position" placeholder="Select" size="large">
+        <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
       <h3>Phone holder</h3>
 
-      <el-radio-group
-        v-model="model.phoneHolder.position"
-        @input="setPhoneHolder"
-        placeholder="Select"
-        size="large"
-      >
-        <el-radio
-          v-for="item in positionSelected"
-          :key="item"
-          :label="item"
-          :value="item"
-        />
+      <el-radio-group v-model="model.phoneHolder.position" placeholder="Select" size="large">
+        <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
       <h3>Tablet holder</h3>
 
-      <el-radio-group
-        v-model="model.tabletHolder.position"
-        @input="setTabletHolder"
-        placeholder="Select"
-        size="large"
-      >
-        <el-radio
-          v-for="item in positionSelected"
-          :key="item"
-          :label="item"
-          :value="item"
-        />
+      <el-radio-group v-model="model.tabletHolder.position" placeholder="Select" size="large">
+        <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
       <ul class="desk_options_list">
         <li>
-          <el-checkbox
-            v-model="model.ventHoles.value"
-            @input="setVentHoles"
-            label="Vent holes"
-            size="large"
-          />
+          <el-checkbox v-model="model.ventHoles.value" label="Vent holes" size="large" />
         </li>
       </ul>
 
@@ -113,7 +84,6 @@
 
       <el-radio-group
         v-model="model.mainColor"
-        @input="setMainColor"
         validate-event
         class="desk-colors-selector"
         placeholder="Select"
@@ -130,12 +100,7 @@
 
       <h3>Desk | bottom color</h3>
 
-      <el-radio-group
-        v-model="model.bottomColor"
-        @input="setBottomColor"
-        placeholder="Select"
-        size="large"
-      >
+      <el-radio-group v-model="model.bottomColor" placeholder="Select" size="large">
         <el-radio-button
           v-for="item in colorSelected"
           :key="item.value"
@@ -152,103 +117,43 @@
 
 <script setup lang="ts">
 import { reactive } from "vue"
-import DeskDescription from '@/components/desk/DeskDescription.vue'
-
-const emit = defineEmits([
-  'updateBottomColor',
-  'updateMainColor',
-  'updatePhoneHolder',
-  'updateTabletHolder',
-  'updateVentHoles',
-  'updateWhiteboard'
-])
-
-const setBottomColor = () => {
-  emit('updateBottomColor', model.bottomColor)
-}
-
-const setMainColor = () => {
-  emit('updateMainColor', model.mainColor)
-}
-
-const setPhoneHolder = () => {
-  emit('updatePhoneHolder', model.phoneHolder.position)
-}
-
-const setTabletHolder = () => {
-  emit('updateTabletHolder', model.tabletHolder.position)
-}
-
-const setVentHoles = () => {
-  emit('updateVentHoles', model.ventHoles.value)
-}
-
-const setWhiteboard = () => {
-  emit('updateWhiteboard', model.whiteboard.position)
-}
+import DeskDescription from "@/components/desk/DeskDescription.vue"
+import type { Product } from "../../types"
 
 const colorSelected = reactive([
   {
-    value: 'bg_0',
-    label: 'Black',
+    value: "bg_0",
+    label: "Black"
   },
   {
-    value: 'bg_1',
-    label: 'Blue'
+    value: "bg_1",
+    label: "Blue"
   },
   {
-    value: 'bg_2',
-    label: 'Orange'
+    value: "bg_2",
+    label: "Orange"
   },
   {
-    value: 'bg_3',
-    label: 'Red'
+    value: "bg_3",
+    label: "Red"
   },
   {
-    value: 'bg_4',
-    label: 'Grey'
+    value: "bg_4",
+    label: "Grey"
   },
   {
-    value: 'bg_5',
-    label: 'Light grey'
-  },
+    value: "bg_5",
+    label: "Light grey"
+  }
 ])
 
-const positionSelected = reactive([
-  'none',
-  'left',
-  'right',
-  'both',
-])
+const positionSelected = reactive(["none", "left", "right", "both"])
 
-const model = reactive({
-  bottomColor: 'bg_3',
-  mainColor: 'bg_1',
-  phoneHolder: {
-    position: 'both',
-    price: 20,
-    value: true
-  },
-  tabletHolder: {
-    position: 'both',
-    price: 20,
-    value: true
-  },
-  ventHoles: {
-    position: 'left',
-    price: 20,
-    value: true
-  },
-  whiteboard: {
-    position: 'both',
-    price: 20,
-    value: true
-  },
-})
+const model = defineModel<Product>()
 </script>
 
 <style lang="scss">
-@use '@/assets/css/_vars' as *;
+@use "@/assets/css/_vars" as *;
 
 :root {
   --el-radio-button-checked-border-color: $c_special;
@@ -358,7 +263,7 @@ h3 {
   position: absolute;
   top: 10%;
   transform: translateX(-50%);
-  width: calc(.83% * 39);
+  width: calc(0.83% * 39);
 
   &__item {
     background-color: #fff;
@@ -384,13 +289,13 @@ h3 {
   // 12x100 mm
   &__phone_holder {
     height: 1.67%;
-    right: calc(.83% * 26);
+    right: calc(0.83% * 26);
     top: calc(1.67% * 3.5);
     transform: rotate(30deg);
     width: 7%;
 
     &--left {
-      left: calc(.83% * 26);
+      left: calc(0.83% * 26);
       right: auto;
       transform: rotate(-30deg);
     }
@@ -399,13 +304,13 @@ h3 {
   // 12x200 mm
   &__tablet_holder {
     height: 1.67%;
-    right: calc(.83%);
+    right: calc(0.83%);
     top: calc(1.67% * 8);
     transform: rotate(30deg);
     width: 21%;
 
     &--left {
-      left: calc(.83%);
+      left: calc(0.83%);
       right: auto;
       transform: rotate(-30deg);
     }
@@ -416,11 +321,11 @@ h3 {
     background-color: #fff;
     bottom: calc(1.67% * 1.5);
     height: 49.5%;
-    right: calc(.83% * 1.5);
+    right: calc(0.83% * 1.5);
     width: 17.5%;
 
     &--left {
-      left: calc(.83% * 1.5);
+      left: calc(0.83% * 1.5);
       right: auto;
     }
   }
@@ -440,7 +345,7 @@ h3 {
     bottom: 100%;
     font-size: 0.7em;
     left: 0;
-    opacity: .5;
+    opacity: 0.5;
     position: absolute;
     text-transform: uppercase;
     z-index: 3;
