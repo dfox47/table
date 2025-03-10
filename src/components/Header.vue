@@ -35,6 +35,6 @@ const menuItems = [
 @use '@/assets/css/_vars' as *;
 
 .header {
-  padding: $space / 2;
+  padding: calc($space / 2);
 }
 </style>

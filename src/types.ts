@@ -1,5 +1,5 @@
 export interface Holder {
-  position: 'both' | 'left';
+  position: 'both' | 'left' | "right";
   price: number;
   value: boolean;
 }
