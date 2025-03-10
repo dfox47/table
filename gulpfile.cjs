@@ -13,7 +13,7 @@ const password = config.password
 const port = config.port
 const user = config.user
 
-const remoteFolder = '/domains/foxartbox.com/public_html/subdomains/table/'
+const remoteFolder = '/domains/simplythedesk.net/public_html/'
 const localFolder = 'dist/'
 
 function getFtpConnection() {
