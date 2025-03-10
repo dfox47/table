@@ -1,10 +1,10 @@
 <template>
-  <h1 class="h1">Clean desk</h1>
+  <h1 class="h1">Simply the desk</h1>
 
-  <div class="subtitle">Work. Play. Enjoy</div>
+  <div class="subtitle">Work. Learn. Play</div>
   <div class="subtitle-description"></div>
 
-  <Desk v-model="model" />
+  <DeskConstructor v-model="model" />
 
   <!-- <Gallery /> -->
 
@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from "vue"
 import Gallery from "@/components/Gallery.vue"
-import Desk from "@/components/desk/Desk.vue"
+import DeskConstructor from "@/components/desk/DeskConstructor.vue"
 import type { Product } from "../types"
 
 const model = reactive<Product>({
@@ -72,7 +72,6 @@ const model = reactive<Product>({
 const email = ref("xx@xx.xx")
 const message = ref("test")
 const name = ref("Test name")
-
 
 // Reactive variable for email status message
 const emailStatus = ref("")
@@ -156,6 +155,8 @@ onMounted(() => {
 .subtitle {
   font-size: 3em;
   font-weight: 700;
+  margin: 0 0 3em;
+  opacity: 0.5;
   text-align: center;
   text-transform: uppercase;
 }
