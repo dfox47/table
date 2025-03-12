@@ -22,6 +22,7 @@
 
     <p class="w-full max-w-36 text-sm text-right">
       <a class="block text-nowrap" :href="`tel:${appConfig.phone.replace(/[\s()]/g, '')}`" title="phone" target="_blank">{{ appConfig.phone }}</a>
+      <a class="block text-nowrap" :href="`tel:${appConfig.phone.replace(/[\s()]/g, '')}`" title="phone" target="_blank">{{ appConfig.phone }}</a>
     </p>
 
     <LanguageSwitcher @changeLanguage="handleLanguageChange" />
