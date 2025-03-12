@@ -1,5 +1,5 @@
 <template>
-  <h2 class="h2">Construct desk</h2>
+  <h2 class="h2">Construct your own desk</h2>
 
   <div class="desk_wrapper p-5">
     <div class="desk_preview">
@@ -9,38 +9,38 @@
         <div
           class="desk_item desk_item__phone_holder"
           :class="model.bottomColor"
-          v-if="model.phoneHolder.position == 'right' || model.phoneHolder.position == 'both'"
+          v-if="phoneHolderPosition == 'right' || phoneHolderPosition == 'both'"
         />
 
         <div
           class="desk_item desk_item__phone_holder desk_item__phone_holder--left"
           :class="model.bottomColor"
-          v-if="model.phoneHolder.position == 'left' || model.phoneHolder.position == 'both'"
+          v-if="phoneHolderPosition == 'left' || phoneHolderPosition == 'both'"
         />
 
         <div
           class="desk_item desk_item__tablet_holder"
           :class="model.bottomColor"
-          v-if="model.tabletHolder.position == 'right' || model.tabletHolder.position == 'both'"
+          v-if="tabletHolderPosition == 'right' || tabletHolderPosition == 'both'"
         />
 
         <div
           class="desk_item desk_item__tablet_holder desk_item__tablet_holder--left"
           :class="model.bottomColor"
-          v-if="model.tabletHolder.position == 'left' || model.tabletHolder.position == 'both'"
+          v-if="tabletHolderPosition == 'left' || tabletHolderPosition == 'both'"
         />
 
         <div
           class="desk_item desk_item__whiteboard"
-          v-if="model.whiteboard.position == 'right' || model.whiteboard.position == 'both'"
+          v-if="whiteboardPosition == 'right' || whiteboardPosition == 'both'"
         />
 
         <div
           class="desk_item desk_item__whiteboard desk_item__whiteboard--left"
-          v-if="model.whiteboard.position == 'left' || model.whiteboard.position == 'both'"
+          v-if="whiteboardPosition == 'left' || whiteboardPosition == 'both'"
         />
 
-        <div class="desk_holes" v-if="model.ventHoles.value">
+        <div class="desk_holes" v-if="ventHolesValue">
           <span class="desk_holes__item" v-for="item in 42" :key="item" />
         </div>
       </div>
@@ -58,25 +58,25 @@
     <div class="desk_options">
       <h3>Whiteboard</h3>
 
-      <el-radio-group v-model="model.whiteboard.position" placeholder="Select" size="large">
+      <el-radio-group v-model="whiteboardPosition" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
       <h3>Phone holder</h3>
 
-      <el-radio-group v-model="model.phoneHolder.position" placeholder="Select" size="large">
+      <el-radio-group v-model="phoneHolderPosition" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
       <h3>Tablet holder</h3>
 
-      <el-radio-group v-model="model.tabletHolder.position" placeholder="Select" size="large">
+      <el-radio-group v-model="tabletHolderPosition" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
       <ul class="desk_options_list">
         <li>
-          <el-checkbox v-model="model.ventHoles.value" label="Vent holes" size="large" />
+          <el-checkbox v-model="ventHolesValue" label="Vent holes" size="large" />
         </li>
       </ul>
 
@@ -116,9 +116,34 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue"
+import { computed, reactive } from "vue"
 import DeskDescription from "@/components/desk/DeskDescription.vue"
 import type { Product } from "../../types"
+
+const model = reactive<Product>({
+  mainColor: "bg_1",
+  bottomColor: "bg_0",
+  phoneHolder: {
+    position: "both",
+    price: 0,
+    value: true
+  },
+  tabletHolder: {
+    position: "both",
+    price: 0,
+    value: true
+  },
+  ventHoles: {
+    position: "both",
+    price: 0,
+    value: true
+  },
+  whiteboard: {
+    position: "both",
+    price: 0,
+    value: true
+  },
+})
 
 const colorSelected = reactive([
   {
@@ -147,9 +172,43 @@ const colorSelected = reactive([
   }
 ])
 
-const positionSelected = reactive(["none", "left", "right", "both"])
+const ventHolesValue = computed({
+  get: () => model.ventHoles?.value ?? true,
+  set: (val) => {
+    if (model.ventHoles) {
+      model.ventHoles.value = val;
+    }
+  },
+});
 
-const model = defineModel<Product>()
+const tabletHolderPosition = computed({
+  get: () => model.tabletHolder?.position ?? 'both',
+  set: (val) => {
+    if (model.tabletHolder) {
+      model.tabletHolder.position = val;
+    }
+  },
+});
+
+const phoneHolderPosition = computed({
+  get: () => model.phoneHolder?.position ?? 'both',
+  set: (val) => {
+    if (model.phoneHolder) {
+      model.phoneHolder.position = val;
+    }
+  },
+});
+
+const whiteboardPosition = computed({
+  get: () => model.whiteboard?.position ?? 'both',
+  set: (val) => {
+    if (model.whiteboard) {
+      model.whiteboard.position = val;
+    }
+  },
+});
+
+const positionSelected = reactive(["none", "left", "right", "both"])
 </script>
 
 <style lang="scss">

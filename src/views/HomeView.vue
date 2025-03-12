@@ -6,7 +6,7 @@
 
   <DeskConstructor v-model="model" />
 
-  <!-- <Gallery /> -->
+  <Gallery />
 
   <h2 class="h2">Cart</h2>
 

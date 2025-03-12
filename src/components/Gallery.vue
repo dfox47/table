@@ -2,8 +2,7 @@
   <h2>Gallery</h2>
 
   <div class="gallery">
-<!--    <div v-for="item in 84" class="gallery__item">-->
-    <div v-for="item in 20" class="gallery__item">
+    <div v-for="item in 20" class="gallery__item" :key="item">
       <img class="gallery__img" :src="'/gallery/' + item + '.jpg'" alt="">
     </div>
   </div>
@@ -18,12 +17,12 @@
   border: 1rem #fff solid;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin: 0 0 $space;
   width: 100%;
 
   @media #{$tablet} {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   @media #{$mobile} {
