@@ -7,10 +7,10 @@
     </div>
 
     <nav v-if="menuItems" class="font-bold w-full">
-      <ul class="flex justify-center uppercase font-extralight">
+      <ul class="flex font-extralight justify-center text-nowrap uppercase">
         <li v-for="item in menuItems" :key="item.title">
           <a
-            class="py-3 px-5 block hover:bg-sky-700 hover:text-white transition-all"
+            class="block hover:bg-sky-700 hover:text-white py-3 px-5 transition-all"
             :href="item.href"
             @click="scrollToSection(item.href.replace('/#', ''), $event)"
           >
@@ -21,18 +21,34 @@
     </nav>
 
     <p class="w-full max-w-36 text-sm text-right">
-      <a class="block text-nowrap" href="tel:+359882744430" title="phone" target="_blank">+359 (88) 27 444 30</a>
+      <a class="block text-nowrap" :href="`tel:${appConfig.phone.replace(/[\s()]/g, '')}`" title="phone" target="_blank">{{ appConfig.phone }}</a>
     </p>
+
+    <LanguageSwitcher @changeLanguage="handleLanguageChange" />
   </header>
 </template>
 
 <script setup lang="ts">
-const menuItems = [
-  {title: 'Home', href: '/#top'},
-  {title: 'Technical description', href: '/#technical-description'},
-  {title: 'Gallery', href: '/#gallery'},
-  {title: 'Cart', href: '/#cart'},
-]
+import { ref, computed } from 'vue'
+import { appConfig } from '@/config'
+import { translations } from '@/translations'
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
+
+const currentLang = ref<keyof typeof translations>('en')
+
+const menuItems = computed(() => [
+  { title: translations[currentLang.value]?.home, href: '/#top' },
+  {
+    title: translations[currentLang.value]?.technicalDescription,
+    href: '/#technical-description',
+  },
+  { title: translations[currentLang.value]?.gallery, href: '/#gallery' },
+  { title: translations[currentLang.value]?.cart, href: '/#cart' },
+]);
+
+const handleLanguageChange = (lang: string) => {
+  currentLang.value = lang;
+};
 
 const emit = defineEmits(['scrollTo']);
 

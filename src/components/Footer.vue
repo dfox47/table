@@ -1,25 +1,28 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <footer class="footer py-10 text-center">
     <div class="text-sm text-nowrap text-slate-400">
       <p class="mb-1">
-        <a href="tel:+359882744430" title="phone" target="_blank">+359 (88) 27-444-30</a>
+        <a :href="`tel:${appConfig.phone.replace(/[\s()]/g, '')}`" title="phone" target="_blank">{{ appConfig.phone }}</a>
       </p>
 
       <p>
-        <a href="mailto:info@simplythedesk.net" target="_blank">info@simplythedesk.net</a>
+        <a :href="`mailto:${appConfig.email}`" target="_blank">{{ appConfig.email }}</a>
       </p>
     </div>
 
     <div class="text-xs text-slate-400 uppercase text-nowrap mt-5">
+      <div>Sofia, Bulgaria</div>
+
       <div>stay true</div>
 
       <div>© 2020 - {{ new Date().getFullYear() }}</div>
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import { appConfig } from "@/config";
+</script>
 
 <style lang="scss" scoped>
 @use '@/assets/css/_vars' as *;

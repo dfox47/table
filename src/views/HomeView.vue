@@ -1,7 +1,7 @@
 <template>
-  <h1 class="h1">Simply the desk</h1>
+  <h1 class="h1">Simply the | {{ currentLang }}</h1>
 
-  <div class="subtitle">Work. Learn. Play</div>
+  <div class="subtitle">{{ sloganMain }}</div>
 
   <DeskConstructor v-model="model" />
 
@@ -38,42 +38,53 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive, ref } from "vue"
-import TableGallery from "@/components/TableGallery.vue"
-import DeskConstructor from "@/components/desk/DeskConstructor.vue"
-import type { Product } from "../types"
+import { onMounted, reactive, ref } from 'vue'
+import TableGallery from '@/components/TableGallery.vue'
+import DeskConstructor from '@/components/desk/DeskConstructor.vue'
+import type { Product } from '../types'
+import { translations } from '@/translations'
+
+const currentLang = ref<keyof typeof translations>('ru')
+
+const sloganMain = translations[currentLang.value]?.slogan
+
+console.log("currentLang | ", currentLang.value)
 
 const model = reactive<Product>({
-  bottomColor: "bg_3",
-  mainColor: "bg_1",
+  bottomColor: 'bg_3',
+  mainColor: 'bg_1',
   phoneHolder: {
-    position: "both",
+    position: 'both',
     price: 20,
     value: true
   },
   tabletHolder: {
-    position: "both",
+    position: 'both',
     price: 20,
     value: true
   },
   ventHoles: {
-    position: "left",
+    position: 'left',
     price: 20,
     value: true
   },
   whiteboard: {
-    position: "both",
+    position: 'both',
     price: 20,
     value: true
   }
 })
 
-const email = ref("xx@xx.xx")
-const message = ref("test")
-const name = ref("Test name")
+const email = ref('xx@xx.xx')
+const message = ref('test')
+const name = ref('Test name')
 
 // Reactive variable for email status message
-const emailStatus = ref("")
+const emailStatus = ref('')
+
+const handleLanguageChange = (lang: string) => {
+  currentLang.value = lang;
+};
 
 // Function to send email
 const sendMail = async () => {
@@ -112,7 +123,7 @@ const sendMail = async () => {
 
 onMounted(() => {
   document.title =
-    "Home | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk."
+    'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })
 </script>
 
