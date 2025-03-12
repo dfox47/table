@@ -9,7 +9,11 @@
     <nav v-if="menuItems" class="font-bold w-full">
       <ul class="flex justify-center uppercase font-extralight">
         <li v-for="item in menuItems" :key="item.title">
-          <a class="py-3 px-5 block hover:bg-sky-700 hover:text-white transition-all" :href="item.href">
+          <a
+            class="py-3 px-5 block hover:bg-sky-700 hover:text-white transition-all"
+            :href="item.href"
+            @click="scrollToSection(item.href.replace('/#', ''), $event)"
+          >
             <span class="">{{ item.title }}</span>
           </a>
         </li>
@@ -29,12 +33,20 @@ const menuItems = [
   {title: 'Gallery', href: '/#gallery'},
   {title: 'Cart', href: '/#cart'},
 ]
+
+const emit = defineEmits(['scrollTo']);
+
+const scrollToSection = (id: string, event: Event) => {
+  event.preventDefault()
+  emit("scrollTo", id)
+}
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/css/_vars' as *;
 
 .header {
+  box-shadow: 0 0 10px rgba(#000, 0.3);
   padding: calc($space / 2);
 }
 </style>

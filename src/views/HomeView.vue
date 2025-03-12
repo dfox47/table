@@ -2,13 +2,12 @@
   <h1 class="h1">Simply the desk</h1>
 
   <div class="subtitle">Work. Learn. Play</div>
-  <div class="subtitle-description"></div>
 
   <DeskConstructor v-model="model" />
 
-  <!-- <Gallery /> -->
+  <TableGallery />
 
-  <h2 class="h2">Cart</h2>
+  <h2 id="cart" class="h2">Cart</h2>
 
   <div class="contacts">
     <form @submit.prevent="sendMail" class="send_order_form">
@@ -40,7 +39,7 @@
 
 <script setup lang="ts">
 import { onMounted, reactive, ref } from "vue"
-import Gallery from "@/components/Gallery.vue"
+import TableGallery from "@/components/TableGallery.vue"
 import DeskConstructor from "@/components/desk/DeskConstructor.vue"
 import type { Product } from "../types"
 
@@ -159,5 +158,17 @@ onMounted(() => {
   opacity: 0.5;
   text-align: center;
   text-transform: uppercase;
+
+  @media #{$tablet} {
+    font-size: 2.5em;
+  }
+
+  @media #{$mobile} {
+    font-size: 2em;
+  }
+
+  @media #{$mobile_s} {
+    font-size: 1.1em;
+  }
 }
 </style>

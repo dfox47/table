@@ -9,7 +9,7 @@
       </p>
 
       <p>
-        <a href="mailto:info@foxartbox.com" target="_blank">info@foxartbox.com</a>
+        <a href="mailto:info@simplythedesk.net" target="_blank">info@simplythedesk.net</a>
       </p>
     </div>
 

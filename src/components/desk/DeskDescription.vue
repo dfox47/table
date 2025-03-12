@@ -1,6 +1,6 @@
 <template>
   <div class="my-20">
-    <h2 class="h2">Technical description</h2>
+    <h2 id="technical-description" class="h2 my-20">Technical description</h2>
 
     <table class="desk_description">
       <tbody>
