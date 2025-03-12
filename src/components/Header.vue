@@ -21,12 +21,14 @@
     </nav>
 
     <p class="w-full max-w-36 text-sm text-right">
-      <a class="block text-nowrap" href="tel:+359882744430" title="phone" target="_blank">+359 (88) 27 444 30</a>
+      <a class="block text-nowrap" :href="`tel:${appConfig.phone.replace(/[\s()]/g, '')}`" title="phone" target="_blank">{{ appConfig.phone }}</a>
     </p>
   </header>
 </template>
 
 <script setup lang="ts">
+import { appConfig } from "@/config";
+
 const menuItems = [
   {title: 'Home', href: '/#top'},
   {title: 'Technical description', href: '/#technical-description'},
