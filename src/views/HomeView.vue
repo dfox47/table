@@ -44,7 +44,7 @@ import DeskConstructor from '@/components/desk/DeskConstructor.vue'
 import type { Product } from '../types'
 import { translations } from '@/translations'
 
-const currentLang = ref<keyof typeof translations>('ru')
+const currentLang = ref<keyof typeof translations>('en')
 
 const sloganMain = translations[currentLang.value]?.slogan
 
@@ -82,9 +82,9 @@ const name = ref('Test name')
 // Reactive variable for email status message
 const emailStatus = ref('')
 
-const handleLanguageChange = (lang: string) => {
-  currentLang.value = lang;
-};
+// const handleLanguageChange = (lang: string) => {
+//   currentLang.value = lang;
+// };
 
 // Function to send email
 const sendMail = async () => {

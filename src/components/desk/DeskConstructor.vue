@@ -41,7 +41,7 @@
         />
 
         <div class="desk_holes" v-if="ventHolesValue">
-          <span class="desk_holes__item" v-for="item in 42" :key="item" />
+          <span class="desk_holes__item" v-for="item in 48" :key="item" />
         </div>
       </div>
 
@@ -51,6 +51,9 @@
         <div class="desk_side">
           <div class="desk_side__item" :class="model.mainColor" />
           <div class="desk_side__item" :class="model.bottomColor" />
+          <div class="desk_side__legs">
+            <img src="@/assets/i/legs_with_controller.png" alt="">
+          </div>
         </div>
       </div>
     </div>
@@ -328,7 +331,7 @@ h3 {
     background-color: #fff;
     border: 1px solid $c_border;
     border-radius: 50%;
-    width: calc(2.6% * 3);
+    width: 5.9%;
 
     &::after {
       content: "";
@@ -419,11 +422,10 @@ h3 {
     &:first-child {
       border-radius: $border_radius $border_radius 0 0;
     }
+  }
 
-    &:last-child {
-      border-radius: 0 0 $border_radius $border_radius;
-      border-top: 0;
-    }
+  &__legs {
+    width: 100%;
   }
 }
 
