@@ -11,12 +11,22 @@
 
       <tr>
         <td>Height</td>
-        <td>70-117 cm</td>
+        <td>72-116 cm</td>
       </tr>
 
       <tr>
         <td>Max load</td>
-        <td>100 kg</td>
+        <td>80 kg</td>
+      </tr>
+
+      <tr>
+        <td>Mechanism sound</td>
+        <td>48 decibels</td>
+      </tr>
+
+      <tr>
+        <td>Drive speed</td>
+        <td>21 mm/s</td>
       </tr>
 
       <tr>
@@ -30,8 +40,18 @@
       </tr>
 
       <tr>
-        <td>Weight</td>
-        <td>50 Kg</td>
+        <td>Tabletop weight</td>
+        <td>17 Kg</td>
+      </tr>
+
+      <tr>
+        <td>Legs weight</td>
+        <td>23 Kg</td>
+      </tr>
+
+      <tr>
+        <td>Total weight</td>
+        <td>40 Kg</td>
       </tr>
       </tbody>
     </table>
