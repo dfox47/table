@@ -11,7 +11,7 @@
     </div>
 
     <div class="text-xs text-slate-400 uppercase text-nowrap mt-5">
-      <div>Sofia, Bulgaria</div>
+      <div><a class="footer__map_link" href="//maps.app.goo.gl/PYsvjZMqVFr4qjtv6" target="_blank">Bansko</a>, Bulgaria</div>
 
       <div>stay true</div>
 
@@ -30,5 +30,9 @@ import { appConfig } from "@/config";
 .footer {
   background-color: $c_primary;
   margin: $space 0 0;
+
+  &__map_link {
+    color: $c_special;
+  }
 }
 </style>
