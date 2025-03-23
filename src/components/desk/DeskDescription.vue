@@ -6,12 +6,22 @@
       <tbody>
       <tr>
         <td>Whiteboard</td>
-        <td>A4 (210x297 mm)</td>
+        <td>A4 (210 x 297 mm)</td>
+      </tr>
+
+      <tr>
+        <td>Phone holder</td>
+        <td>127 x 11 mm</td>
+      </tr>
+
+      <tr>
+        <td>Tablet holder</td>
+        <td>310 x 11 mm</td>
       </tr>
 
       <tr>
         <td>Height</td>
-        <td>72-116 cm</td>
+        <td>720 - 1160 mm</td>
       </tr>
 
       <tr>
