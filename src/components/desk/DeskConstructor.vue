@@ -41,7 +41,7 @@
         />
 
         <div class="desk_holes" v-if="ventHolesValue">
-          <span class="desk_holes__item" v-for="item in 48" :key="item" />
+          <span class="desk_holes__item" v-for="item in 48" :key="item" :class="model.bottomColor" />
         </div>
       </div>
 
@@ -182,36 +182,36 @@ const ventHolesValue = computed({
       model.ventHoles.value = val;
     }
   },
-});
+})
 
 const tabletHolderPosition = computed({
   get: () => model.tabletHolder?.position ?? 'both',
   set: (val) => {
     if (model.tabletHolder) {
-      model.tabletHolder.position = val;
+      model.tabletHolder.position = val
     }
   },
-});
+})
 
 const phoneHolderPosition = computed({
   get: () => model.phoneHolder?.position ?? 'both',
   set: (val) => {
     if (model.phoneHolder) {
-      model.phoneHolder.position = val;
+      model.phoneHolder.position = val
     }
   },
-});
+})
 
 const whiteboardPosition = computed({
   get: () => model.whiteboard?.position ?? 'both',
   set: (val) => {
     if (model.whiteboard) {
-      model.whiteboard.position = val;
+      model.whiteboard.position = val
     }
   },
-});
+})
 
-const positionSelected = reactive(["none", "left", "right", "both"])
+const positionSelected = reactive(['none', 'left', 'right', 'both'])
 </script>
 
 <style lang="scss">
@@ -332,6 +332,30 @@ h3 {
     border: 1px solid $c_border;
     border-radius: 50%;
     width: 5.9%;
+
+    &.bg_0 {
+      border-color: $c_desk_color_0;
+    }
+
+    &.bg_1 {
+      border-color: $c_desk_color_1;
+    }
+
+    &.bg_2 {
+      border-color: $c_desk_color_2;
+    }
+
+    &.bg_3 {
+      border-color: $c_desk_color_3;
+    }
+
+    &.bg_4 {
+      border-color: $c_desk_color_4;
+    }
+
+    &.bg_5 {
+      border-color: $c_desk_color_5;
+    }
 
     &::after {
       content: "";
