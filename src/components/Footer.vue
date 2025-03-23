@@ -8,6 +8,10 @@
       <p>
         <a :href="`mailto:${appConfig.email}`" target="_blank">{{ appConfig.email }}</a>
       </p>
+
+      <p class="my-5">
+        <a href="//www.instagram.com/simplythedesk_net/" target="_blank"><img class="inline-block" src="@/assets/i/instagram.svg" alt=""></a>
+      </p>
     </div>
 
     <div class="text-xs text-slate-400 uppercase text-nowrap mt-5">
