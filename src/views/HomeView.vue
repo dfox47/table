@@ -1,7 +1,9 @@
 <template>
-  <h1 class="h1">Simply the | {{ currentLang }}</h1>
+  <div class="hero">
+    <h1 class="h1">Simply the | {{ currentLang }}</h1>
 
-  <div class="subtitle">{{ sloganMain }}</div>
+    <div class="subtitle">{{ sloganMain }}</div>
+  </div>
 
   <DeskConstructor v-model="model" />
 
@@ -47,8 +49,6 @@ import { translations } from '@/translations'
 const currentLang = ref<keyof typeof translations>('en')
 
 const sloganMain = translations[currentLang.value]?.slogan
-
-console.log("currentLang | ", currentLang.value)
 
 const model = reactive<Product>({
   bottomColor: 'bg_3',
@@ -130,6 +130,22 @@ onMounted(() => {
 <style lang="scss" scoped>
 @use "@/assets/css/_vars" as *;
 
+.h1 {
+  text-shadow: 0 0 10px #fff;
+}
+
+.hero {
+  align-items: center;
+  background: url('@/assets/i/hero.png') no-repeat center scroll;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  min-height: 80vh;
+}
+
 .send_order_form {
   display: grid;
   flex-direction: column;
@@ -165,9 +181,9 @@ onMounted(() => {
 .subtitle {
   font-size: 3em;
   font-weight: 700;
-  margin: 0 0 3em;
-  opacity: 0.5;
+  opacity: 0.8;
   text-align: center;
+  text-shadow: 0 0 3px #fff;
   text-transform: uppercase;
 
   @media #{$tablet} {

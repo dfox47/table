@@ -1,7 +1,7 @@
 <template>
-  <header class="header flex items-center p-5 shadow-slate-50">
+  <header class="flex items-center py-2 px-5 shadow-slate-50">
     <div class="max-w-36 w-full">
-      <a class="block" href="/">
+      <a class="block h-10 w-10" href="/">
         <img class="h-10 w-10" src="@/assets/i/logo.svg" alt="">
       </a>
     </div>
@@ -57,12 +57,3 @@ const scrollToSection = (id: string, event: Event) => {
   emit("scrollTo", id)
 }
 </script>
-
-<style lang="scss" scoped>
-@use '@/assets/css/_vars' as *;
-
-.header {
-  box-shadow: 0 0 10px rgba(#000, 0.3);
-  padding: calc($space / 2);
-}
-</style>
