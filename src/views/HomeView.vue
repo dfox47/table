@@ -1,8 +1,8 @@
 <template>
   <div class="hero">
-    <h1 class="h1">Simply the  {{ $t('welcome') }}</h1>
+    <h1 class="h1">{{ $t('homepage.banner.title') }}</h1>
 
-    <div class="subtitle">{{ sloganMain }}</div>
+    <div class="subtitle">{{ $t('homepage.banner.description') }}</div>
   </div>
 
   <DeskConstructor v-model="model" />
