@@ -12,7 +12,7 @@
   <h2 id="cart" class="h2">Cart</h2>
 
   <div class="contacts">
-    <SendForm />
+    <SendForm :additional-data="model" />
   </div>
 </template>
 

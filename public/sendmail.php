@@ -23,7 +23,7 @@ if (
   $ventHoles = htmlspecialchars($data['ventHoles']);
   $whiteboard = htmlspecialchars($data['whiteboard']);
 
-  $to = "a9942212@gmail.com";
+  $to = "andrejskvorocov@gmail.com";
   $subject = "Message from $name";
   $body = "Name: $name\n
   Email: $email\n
