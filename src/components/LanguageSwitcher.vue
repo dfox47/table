@@ -30,7 +30,7 @@ const languages = [
 
 const currentLanguage = ref(locale.value);
 
-const changeLanguage = (lang: string) => {
+const changeLanguage = (lang: any) => {
   locale.value = lang; 
   localStorage.setItem('lang', lang); 
 };
