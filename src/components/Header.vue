@@ -32,7 +32,7 @@
 import { ref, computed } from 'vue'
 import { appConfig } from '@/config'
 import { translations } from '@/translations'
-import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
+import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const currentLang = ref<keyof typeof translations>('en')
 
