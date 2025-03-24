@@ -1,84 +1,52 @@
 <template>
-  <div class="lang_switcher">
-    <div class="lang_switcher__current">{{ currentLanguage }}</div>
-
-    <div class="lang_switcher_list">
-      <button
-        v-for="lang in filteredLanguages"
-        :key="lang.code"
-        class="lang_switcher_list__item"
-        @click="changeLanguage(lang.code)"
-        :title="lang.title"
-      >
-        {{ lang.code }}
-      </button>
-    </div>
-  </div>
+  <el-select 
+    v-model="currentLanguage"
+    @change="changeLanguage"
+    placeholder="Select Language"
+    size="small" 
+    class="lang-switch" 
+  >
+    <el-option
+      v-for="lang in languages"
+      :key="lang.code"
+      :label="lang.label"
+      :value="lang.code">
+    </el-option>
+  </el-select>
 </template>
 
-<script setup lang="ts">
-import { defineEmits, computed, ref } from 'vue'
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const emit = defineEmits<{
-  (e: 'changeLanguage', lang: string): void
-}>()
+const { locale } = useI18n();
 
-const currentLanguage = ref('en');
-
-const changeLanguage = (lang: string) => {
-  currentLanguage.value = lang;
-  emit('changeLanguage', lang)
-}
-
+// Доступные языки
 const languages = [
-  { code: 'en', title: 'English' },
-  { code: 'bg', title: 'Български' },
-  { code: 'ru', title: 'Русский' }
-]
+  { code: 'en', label: 'EN' },
+  { code: 'bg', label: 'BG' },
+  { code: 'ru', label: 'RU' }
+];
 
-const filteredLanguages = computed(() => {
-  return languages.filter(lang => lang.code !== currentLanguage.value);
-})
+const currentLanguage = ref(locale.value);
+
+const changeLanguage = (lang) => {
+  locale.value = lang; 
+  localStorage.setItem('lang', lang); 
+};
+
+onMounted(() => {
+  const savedLanguage = localStorage.getItem('lang');
+  if (savedLanguage) {
+    locale.value = savedLanguage;
+    currentLanguage.value = savedLanguage;
+  }
+});
 </script>
 
-<style lang="scss" scoped>
-@use '@/assets/css/_vars' as *;
-
-.lang_switcher {
-  cursor: pointer;
-  margin: 0 0 0 1em;
-  position: relative;
-
-  &:hover {
-    .lang_switcher_list {
-      display: flex;
-    }
-  }
-
-  &__current {
-    background-color: #000;
-    color: #fff;
-    padding: 1em;
-  }
-}
-
-.lang_switcher_list {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  width: 100%;
-
-  &__item {
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
-    border-bottom: 1px solid #000;
-    padding: 1em;
-    transition: $transition;
-
-    &:hover {
-      background-color: #000;
-      color: #fff;
-    }
-  }
+<style scoped>
+.lang-switch {
+  margin-left: 24px;
+  width: 120px;
 }
 </style>
