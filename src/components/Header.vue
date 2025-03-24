@@ -24,7 +24,7 @@
       <a class="block text-nowrap" :href="`tel:${appConfig.phone.replace(/[\s()]/g, '')}`" title="phone" target="_blank">{{ appConfig.phone }}</a>
     </p>
 
-    <!-- <LanguageSwitcher @changeLanguage="handleLanguageChange" /> -->
+    <LanguageSwitcher />
   </header>
 </template>
 
@@ -32,7 +32,7 @@
 import { ref, computed } from 'vue'
 import { appConfig } from '@/config'
 import { translations } from '@/translations'
-// import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
 
 const currentLang = ref<keyof typeof translations>('en')
 
@@ -45,10 +45,6 @@ const menuItems = computed(() => [
   { title: translations[currentLang.value]?.gallery, href: '/#gallery' },
   { title: translations[currentLang.value]?.cart, href: '/#cart' },
 ]);
-
-// const handleLanguageChange = (lang: string) => {
-  // currentLang.value = lang;
-// };
 
 const emit = defineEmits(['scrollTo']);
 

@@ -1,6 +1,6 @@
 <template>
   <div class="hero">
-    <h1 class="h1">Simply the | {{ currentLang }}</h1>
+    <h1 class="h1">Simply the  {{ $t('welcome') }}</h1>
 
     <div class="subtitle">{{ sloganMain }}</div>
   </div>
@@ -43,12 +43,8 @@
 import { onMounted, reactive, ref } from 'vue'
 import TableGallery from '@/components/TableGallery.vue'
 import DeskConstructor from '@/components/desk/DeskConstructor.vue'
+
 import type { Product } from '../types'
-import { translations } from '@/translations'
-
-const currentLang = ref<keyof typeof translations>('en')
-
-const sloganMain = translations[currentLang.value]?.slogan
 
 const model = reactive<Product>({
   bottomColor: 'bg_3',
