@@ -51,7 +51,7 @@
         <div class="desk_side">
           <div class="desk_side__item" :class="model.mainColor" />
           <div class="desk_side__item" :class="model.bottomColor" />
-          <div class="desk_side__legs">
+          <div v-if="deskLegsValue" class="desk_side__legs">
             <img src="@/assets/i/legs_with_controller.png" alt="">
           </div>
         </div>
@@ -80,6 +80,7 @@
       <ul class="desk_options_list">
         <li>
           <el-checkbox v-model="ventHolesValue" label="Vent holes" size="large" />
+          <el-checkbox v-model="deskLegsValue" label="Legs" size="large" />
         </li>
       </ul>
 
@@ -124,8 +125,13 @@ import DeskDescription from "@/components/desk/DeskDescription.vue"
 import type { Product } from "../../types"
 
 const model = reactive<Product>({
-  mainColor: "bg_1",
   bottomColor: "bg_0",
+  deskLegs: {
+    position: "both",
+    price: 0,
+    value: true
+  },
+  mainColor: "bg_1",
   phoneHolder: {
     position: "both",
     price: 0,
@@ -175,11 +181,20 @@ const colorSelected = reactive([
   }
 ])
 
+const deskLegsValue = computed({
+  get: () => model.deskLegs?.value ?? true,
+  set: (val) => {
+    if (model.deskLegs) {
+      model.deskLegs.value = val
+    }
+  },
+})
+
 const ventHolesValue = computed({
   get: () => model.ventHoles?.value ?? true,
   set: (val) => {
     if (model.ventHoles) {
-      model.ventHoles.value = val;
+      model.ventHoles.value = val
     }
   },
 })

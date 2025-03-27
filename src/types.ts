@@ -6,6 +6,7 @@ export interface Holder {
 
 export interface Product {
   bottomColor?: string;
+  deskLegs?: Holder;
   mainColor?: string;
   phoneHolder?: Holder;
   tabletHolder?: Holder;

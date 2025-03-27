@@ -32,9 +32,9 @@ import { ref } from 'vue'
 const sendMail = async () => {
  try {
    const formData = {
-    //  name: name.value,
-    //  email: email.value,
-    //  message: message.value,
+     name: name.value,
+     email: email.value,
+     message: message.value,
     //  bottomColor: model.bottomColor,
     //  mainColor: model.mainColor,
     //  phoneHolder: model.phoneHolder,
