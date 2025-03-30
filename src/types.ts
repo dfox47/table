@@ -6,10 +6,10 @@ export interface Holder {
 
 export interface Product {
   bottomColor?: string;
-  deskLegs?: Holder;
+  deskLegs?: boolean;
+  ventHoles?: boolean;
   mainColor?: string;
   phoneHolder?: Holder;
   tabletHolder?: Holder;
-  ventHoles?: Holder;
   whiteboard?: Holder;
 }

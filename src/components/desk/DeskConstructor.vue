@@ -40,7 +40,7 @@
           v-if="whiteboardPosition == 'left' || whiteboardPosition == 'both'"
         />
 
-        <div class="desk_holes" v-if="ventHolesValue">
+        <div class="desk_holes" v-if="model.ventHoles">
           <span class="desk_holes__item" v-for="item in 48" :key="item" :class="model.bottomColor" />
         </div>
       </div>
@@ -51,7 +51,7 @@
         <div class="desk_side">
           <div class="desk_side__item" :class="model.mainColor" />
           <div class="desk_side__item" :class="model.bottomColor" />
-          <div v-if="deskLegsValue" class="desk_side__legs">
+          <div v-if="model.deskLegs" class="desk_side__legs">
             <img src="@/assets/i/legs_with_controller.png" alt="">
           </div>
         </div>
@@ -79,8 +79,8 @@
 
       <ul class="desk_options_list">
         <li>
-          <el-checkbox v-model="ventHolesValue" label="Vent holes" size="large" />
-          <el-checkbox v-model="deskLegsValue" label="Legs" size="large" />
+          <el-checkbox v-model="model.ventHoles" label="Vent holes" size="large" />
+          <el-checkbox v-model="model.deskLegs" label="Legs" size="large" />
         </li>
       </ul>
 
@@ -113,6 +113,10 @@
           :class="'desk-colors-selector__label--' + item.value"
         />
       </el-radio-group>
+
+      <h3>Price: {{ commonPrice }}</h3>
+
+      <div></div>
     </div>
   </div>
 
@@ -126,11 +130,6 @@ import type { Product } from "../../types"
 
 const model = reactive<Product>({
   bottomColor: "bg_0",
-  deskLegs: {
-    position: "both",
-    price: 0,
-    value: true
-  },
   mainColor: "bg_1",
   phoneHolder: {
     position: "both",
@@ -142,11 +141,8 @@ const model = reactive<Product>({
     price: 0,
     value: true
   },
-  ventHoles: {
-    position: "both",
-    price: 0,
-    value: true
-  },
+  ventHoles: true,
+  deskLegs: true,
   whiteboard: {
     position: "both",
     price: 0,
@@ -181,23 +177,8 @@ const colorSelected = reactive([
   }
 ])
 
-const deskLegsValue = computed({
-  get: () => model.deskLegs?.value ?? true,
-  set: (val) => {
-    if (model.deskLegs) {
-      model.deskLegs.value = val
-    }
-  },
-})
+const positionSelected = ['none', 'left', 'right', 'both']
 
-const ventHolesValue = computed({
-  get: () => model.ventHoles?.value ?? true,
-  set: (val) => {
-    if (model.ventHoles) {
-      model.ventHoles.value = val
-    }
-  },
-})
 
 const tabletHolderPosition = computed({
   get: () => model.tabletHolder?.position ?? 'both',
@@ -226,7 +207,35 @@ const whiteboardPosition = computed({
   },
 })
 
-const positionSelected = reactive(['none', 'left', 'right', 'both'])
+// PRICE
+
+const positionPrices = {
+  none: 0,
+  left: 5,
+  right: 5,
+  both: 10,
+};
+
+const commonPrice = computed(() => {
+  let price = 100;
+
+  price += priceHandle('phoneHolder')
+  price += priceHandle('tabletHolder')
+  price += priceHandle('ventHoles')
+  price += priceHandle('deskLegs')
+  price += priceHandle('whiteboard')
+
+  return price;
+});
+
+const priceHandle = (nameField: keyof Pick<Product, 'phoneHolder' | 'tabletHolder' | 'whiteboard' | 'deskLegs' | 'ventHoles'>) => {
+  if (nameField === 'ventHoles' || nameField === 'deskLegs') {
+    return model[nameField] ? 1 : 0
+  }
+
+  return model[nameField]?.position ? positionPrices[model[nameField]?.position] : 0;
+}
+
 </script>
 
 <style lang="scss">
