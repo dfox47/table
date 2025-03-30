@@ -1,5 +1,5 @@
 <template>
-  <div class="xaxaxa">
+  <div class="contacts">
     <form @submit.prevent="sendMail" class="send_order_form">
       <label class="send_order_form__label">
         <input v-model="name" class="send_order_form__input" type="text" required />

@@ -6,7 +6,7 @@
       </a>
     </div>
 
-    <nav v-if="menuItems" class="font-bold w-full">
+    <nav v-if="menuItems.length" class="font-bold w-full">
       <ul class="flex font-extralight justify-center text-nowrap uppercase">
         <li v-for="item in menuItems" :key="item.title">
           <a
@@ -14,7 +14,7 @@
             :href="item.href"
             @click="scrollToSection(item.href.replace('/#', ''), $event)"
           >
-            <span class="">{{ item.title }}</span>
+            <span class="">{{ $t(item.title) }}</span>
           </a>
         </li>
       </ul>
@@ -29,21 +29,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { appConfig } from '@/config'
-import { translations } from '@/translations'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 
-const currentLang = ref<keyof typeof translations>('en')
-
-const menuItems = computed(() => [
-  { title: translations[currentLang.value]?.home, href: '/#top' },
+const menuItems = ref([
+  { 
+    title: 'header.home',
+    href: '/#top' 
+  },
   {
-    title: translations[currentLang.value]?.technicalDescription,
+    title: 'header.technicalDescription',
     href: '/#technical-description',
   },
-  { title: translations[currentLang.value]?.gallery, href: '/#gallery' },
-  { title: translations[currentLang.value]?.cart, href: '/#cart' },
+  { 
+    title: 'header.gallery',
+    href: '/#gallery'
+  },
+  { 
+    title: 'header.cart',
+    href: '/#cart'
+  },
 ]);
 
 const emit = defineEmits(['scrollTo']);
