@@ -1,8 +1,9 @@
 {
-  "homepage": {
-    "banner": {
-      "title": "Welcome to our website",
-      "description": "description"
-    }
-  }
+  "homepage.banner.title": "Welcome to our website",
+  "homepage.banner.description": "description",
+  "header.cart": "Cart",
+  "header.gallery": "Gallery",
+  "header.home": "Home",
+  "header.technicalDescription": "Description",
+  "header.slogan": "Work. Learn. Play"
 }

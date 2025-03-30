@@ -11,9 +11,7 @@
 
   <h2 id="cart" class="h2">Cart</h2>
 
-  <div class="contacts">
-    <SendForm />
-  </div>
+  <SendForm />
 </template>
 
 <script setup lang="ts">
@@ -21,7 +19,8 @@ import { onMounted, reactive } from 'vue'
 import TableGallery from '@/components/TableGallery.vue'
 import DeskConstructor from '@/components/desk/DeskConstructor.vue'
 import { SendForm } from '@/components/widgets/send-form'
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 import type { Product } from '../types'
 
 const model = reactive<Product>({
@@ -50,6 +49,7 @@ const model = reactive<Product>({
 })
 
 onMounted(() => {
+  console.log('t', t('homepage.banner.title'))
   document.title =
     'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })
