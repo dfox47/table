@@ -9,35 +9,35 @@
         <div
           class="desk_item desk_item__phone_holder"
           :class="model.bottomColor"
-          v-if="phoneHolderPosition == 'right' || phoneHolderPosition == 'both'"
+          v-if="model.phoneHolder == 'right' || model.phoneHolder == 'both'"
         />
 
         <div
           class="desk_item desk_item__phone_holder desk_item__phone_holder--left"
           :class="model.bottomColor"
-          v-if="phoneHolderPosition == 'left' || phoneHolderPosition == 'both'"
+          v-if="model.phoneHolder == 'left' || model.phoneHolder == 'both'"
         />
 
         <div
           class="desk_item desk_item__tablet_holder"
           :class="model.bottomColor"
-          v-if="tabletHolderPosition == 'right' || tabletHolderPosition == 'both'"
+          v-if="model.tabletHolder == 'right' || model.tabletHolder == 'both'"
         />
 
         <div
           class="desk_item desk_item__tablet_holder desk_item__tablet_holder--left"
           :class="model.bottomColor"
-          v-if="tabletHolderPosition == 'left' || tabletHolderPosition == 'both'"
+          v-if="model.tabletHolder == 'left' || model.tabletHolder == 'both'"
         />
 
         <div
           class="desk_item desk_item__whiteboard"
-          v-if="whiteboardPosition == 'right' || whiteboardPosition == 'both'"
+          v-if="model.whiteboard == 'right' || model.whiteboard == 'both'"
         />
 
         <div
           class="desk_item desk_item__whiteboard desk_item__whiteboard--left"
-          v-if="whiteboardPosition == 'left' || whiteboardPosition == 'both'"
+          v-if="model.whiteboard == 'left' || model.whiteboard == 'both'"
         />
 
         <div class="desk_holes" v-if="model.ventHoles">
@@ -61,19 +61,19 @@
     <div class="desk_options">
       <h3>Whiteboard</h3>
 
-      <el-radio-group v-model="whiteboardPosition" placeholder="Select" size="large">
+      <el-radio-group v-model="model.whiteboard" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
       <h3>Phone holder</h3>
 
-      <el-radio-group v-model="phoneHolderPosition" placeholder="Select" size="large">
+      <el-radio-group v-model="model.phoneHolder" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
       <h3>Tablet holder</h3>
 
-      <el-radio-group v-model="tabletHolderPosition" placeholder="Select" size="large">
+      <el-radio-group v-model="model.tabletHolder" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
@@ -115,8 +115,6 @@
       </el-radio-group>
 
       <h3>Price: {{ commonPrice }}</h3>
-
-      <div></div>
     </div>
   </div>
 
@@ -124,33 +122,24 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from "vue"
-import DeskDescription from "@/components/desk/DeskDescription.vue"
-import type { Product } from "../../types"
+import { computed } from "vue"
+import { DeskDescription } from "@/components/widgets"
+import type { Product } from "@/types"
+import { Position } from '@/types'
 
-const model = reactive<Product>({
-  bottomColor: "bg_0",
-  mainColor: "bg_1",
-  phoneHolder: {
-    position: "both",
-    price: 0,
-    value: true
-  },
-  tabletHolder: {
-    position: "both",
-    price: 0,
-    value: true
-  },
-  ventHoles: true,
-  deskLegs: true,
-  whiteboard: {
-    position: "both",
-    price: 0,
-    value: true
-  },
+const model = defineModel<Product>({
+  default: {
+    bottomColor: "bg_0",
+    mainColor: "bg_1",
+    ventHoles: true,
+    deskLegs: true,
+    phoneHolder: Position.BOTH,
+    tabletHolder:  Position.BOTH,
+    whiteboard: Position.BOTH,
+  }
 })
 
-const colorSelected = reactive([
+const colorSelected = [
   {
     value: "bg_0",
     label: "Black"
@@ -175,66 +164,53 @@ const colorSelected = reactive([
     value: "bg_5",
     label: "Light grey"
   }
-])
+]
 
-const positionSelected = ['none', 'left', 'right', 'both']
+const positionSelected = [Position.NONE, Position.LEFT, Position.RIGHT, Position.BOTH]
 
+const phoneHolderPrice = {
+  [Position.NONE]: 0,
+  [Position.LEFT]: 5,
+  [Position.RIGHT]: 5,
+  [Position.BOTH]: 10
+}
 
-const tabletHolderPosition = computed({
-  get: () => model.tabletHolder?.position ?? 'both',
-  set: (val) => {
-    if (model.tabletHolder) {
-      model.tabletHolder.position = val
-    }
-  },
-})
+const tabletHolderPrice = {
+  [Position.NONE]: 0,
+  [Position.LEFT]: 5,
+  [Position.RIGHT]: 5,
+  [Position.BOTH]: 10
+}
 
-const phoneHolderPosition = computed({
-  get: () => model.phoneHolder?.position ?? 'both',
-  set: (val) => {
-    if (model.phoneHolder) {
-      model.phoneHolder.position = val
-    }
-  },
-})
-
-const whiteboardPosition = computed({
-  get: () => model.whiteboard?.position ?? 'both',
-  set: (val) => {
-    if (model.whiteboard) {
-      model.whiteboard.position = val
-    }
-  },
-})
-
-// PRICE
-
-const positionPrices = {
-  none: 0,
-  left: 5,
-  right: 5,
-  both: 10,
-};
+const whiteboardPrice = {
+  [Position.NONE]: 0,
+  [Position.LEFT]: 5,
+  [Position.RIGHT]: 5,
+  [Position.BOTH]: 10
+}
 
 const commonPrice = computed(() => {
   let price = 100;
 
-  price += priceHandle('phoneHolder')
-  price += priceHandle('tabletHolder')
-  price += priceHandle('ventHoles')
-  price += priceHandle('deskLegs')
-  price += priceHandle('whiteboard')
+  if (model.value.ventHoles) {
+    price += model.value.ventHoles ? 1 : 0;
+  }
+
+  if (model.value.deskLegs) {
+    price += model.value.deskLegs ? 1 : 0;
+  }
+
+  // Убедитесь, что значения имеют правильный тип
+  const phoneHolder = model.value.phoneHolder as Position;
+  const tabletHolder = model.value.tabletHolder as Position;
+  const whiteboard = model.value.whiteboard as Position;
+
+  price += phoneHolderPrice[phoneHolder];
+  price += tabletHolderPrice[tabletHolder];
+  price += whiteboardPrice[whiteboard];
 
   return price;
 });
-
-const priceHandle = (nameField: keyof Pick<Product, 'phoneHolder' | 'tabletHolder' | 'whiteboard' | 'deskLegs' | 'ventHoles'>) => {
-  if (nameField === 'ventHoles' || nameField === 'deskLegs') {
-    return model[nameField] ? 1 : 0
-  }
-
-  return model[nameField]?.position ? positionPrices[model[nameField]?.position] : 0;
-}
 
 </script>
 

@@ -1,0 +1,1 @@
+export { default as DeskConstructor } from './DeskConstructor.vue'

@@ -1,7 +1,12 @@
+export enum Position {
+  BOTH = 'both',
+  NONE = 'none',
+  LEFT = 'left',
+  RIGHT = 'right'
+}
+
 export interface Holder {
-  position: 'both' | 'left' | "right";
-  price: number;
-  value: boolean;
+  position: Position;
 }
 
 export interface Product {
@@ -9,7 +14,7 @@ export interface Product {
   deskLegs?: boolean;
   ventHoles?: boolean;
   mainColor?: string;
-  phoneHolder?: Holder;
-  tabletHolder?: Holder;
-  whiteboard?: Holder;
+  phoneHolder?: string;
+  tabletHolder?: string;
+  whiteboard?: string;
 }

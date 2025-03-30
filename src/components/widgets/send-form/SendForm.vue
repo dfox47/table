@@ -28,20 +28,27 @@
 </template>
 
 <script lang="ts" setup>
+import type { Product } from '@/types';
 import { ref } from 'vue'
+
+const props = defineProps<{ sendFormData: Product }>()
+
 const sendMail = async () => {
  try {
    const formData = {
-     name: name.value,
-     email: email.value,
-     message: message.value,
-    //  bottomColor: model.bottomColor,
-    //  mainColor: model.mainColor,
-    //  phoneHolder: model.phoneHolder,
-    //  tabletHolder: model.tabletHolder,
-    //  ventHoles: model.ventHoles,
-    //  whiteboard: model.whiteboard
+      name: name.value,
+      email: email.value,
+      message: message.value,
+      bottomColor: props.sendFormData.bottomColor,
+      mainColor: props.sendFormData.mainColor,
+      ventHoles: props.sendFormData.ventHoles,
+      deskLegs: props.sendFormData.deskLegs,
+      phoneHolder: props.sendFormData.phoneHolder,
+      tabletHolder: props.sendFormData.tabletHolder,
+      whiteboard: props.sendFormData.whiteboard,
    }
+
+   console.log('formData', formData)
 
    const response = await fetch("/sendmail.php", {
      body: JSON.stringify(formData),

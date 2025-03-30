@@ -11,42 +11,25 @@
 
   <h2 id="cart" class="h2">Cart</h2>
 
-  <div class="contacts">
-    <SendForm />
-  </div>
+  <SendForm :send-form-data="model" />
 </template>
 
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
 import TableGallery from '@/components/TableGallery.vue'
-import DeskConstructor from '@/components/desk/DeskConstructor.vue'
-import { SendForm } from '@/components/widgets/send-form'
+import { SendForm, DeskConstructor } from '@/components/widgets'
 
-import type { Product } from '../types'
+import type { Product } from '@/types'
+import { Position } from '@/types'
 
 const model = reactive<Product>({
-  bottomColor: 'bg_3',
-  mainColor: 'bg_1',
-  phoneHolder: {
-    position: 'both',
-    price: 20,
-    value: true
-  },
-  tabletHolder: {
-    position: 'both',
-    price: 20,
-    value: true
-  },
-  ventHoles: {
-    position: 'left',
-    price: 20,
-    value: true
-  },
-  whiteboard: {
-    position: 'both',
-    price: 20,
-    value: true
-  }
+  bottomColor: "bg_0",
+  mainColor: "bg_1",
+  ventHoles: true,
+  deskLegs: true,
+  phoneHolder: Position.BOTH,
+  tabletHolder: Position.BOTH,
+  whiteboard: Position.BOTH,
 })
 
 onMounted(() => {
