@@ -1,8 +1,9 @@
 {
-  "homepage": {
-    "banner": {
-      "title": "Добро пожаловать на наш сайт",
-      "description": "описание"
-    }
-  }
+  "homepage.banner.title": "Добро пожаловать на наш сайт",
+  "homepage.banner.description": "description",
+  "header.cart": "Корзина",
+  "header.gallery": "Галерия",
+  "header.home": "Главная",
+  "header.technicalDescription": "Описание",
+  "header.slogan": "Работай. Учись. Играй."
 }
