@@ -1,8 +1,22 @@
 {
-  "homepage.banner.title": "Добре дошли в нашия уебсайт",
-  "homepage.banner.description": "Работа. Научете. Играйте",
-  "header.technicalDescription": "Описание",
-  "header.home": "Начало",
+  "header.cart": "Количка",
   "header.gallery": "Галерия",
-  "header.cart": "Количка"
+  "header.home": "Начало",
+  "header.technicalDescription": "Описание",
+  "homepage.banner.description": "Работа. Научете. Играйте",
+  "homepage.banner.title": "Добре дошли в нашия уебсайт",
+  "position.both": "Both",
+  "position.left": "Лявата страна",
+  "position.none": "None",
+  "position.right": "Right",
+  "position.side": "Side",
+  "position.top": "Изглед отгоре",
+  "price.total": "Обща цена",
+  "table.description.title": "Конструирай свое собствено бюро",
+  "whiteboard": "Бяла дъска",
+  "holder.phone": "Phone holder",
+  "holder.tablet": "Tablet holder",
+  "desk.color.top": "Desk | top color",
+  "desk.color.bottom": "Desk | bottom color",
+  "vent.holes": "Vent holes"
 }

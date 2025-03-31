@@ -1,10 +1,10 @@
 <template>
-  <h2 class="h2">Construct your own desk</h2>
+  <h2 class="h2">{{ $t('table.description.title') }}</h2>
 
   <div class="desk_wrapper p-5">
     <div class="desk_preview">
       <div class="desk_top border rounded" :class="model.mainColor">
-        <div class="desk_preview__title">Top</div>
+        <div class="desk_preview__title">{{ $t('position.top') }}</div>
 
         <div
           class="desk_item desk_item__phone_holder"
@@ -46,7 +46,7 @@
       </div>
 
       <div class="desk_side_wrapper">
-        <div class="desk_preview__title">Side</div>
+        <div class="desk_preview__title">{{ $t('position.side') }}</div>
 
         <div class="desk_side">
           <div class="desk_side__item" :class="model.mainColor" />
@@ -59,19 +59,19 @@
     </div>
 
     <div class="desk_options">
-      <h3>Whiteboard</h3>
+      <h3>{{ $t('whiteboard') }}</h3>
 
       <el-radio-group v-model="model.whiteboard" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
-      <h3>Phone holder</h3>
+      <h3>{{ $t('holder.phone') }}</h3>
 
       <el-radio-group v-model="model.phoneHolder" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
       </el-radio-group>
 
-      <h3>Tablet holder</h3>
+      <h3>{{ $t('holder.tablet') }}</h3>
 
       <el-radio-group v-model="model.tabletHolder" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
@@ -79,12 +79,12 @@
 
       <ul class="desk_options_list">
         <li>
-          <el-checkbox v-model="model.ventHoles" label="Vent holes" size="large" />
-          <el-checkbox v-model="model.deskLegs" label="Legs" size="large" />
+          <el-checkbox v-model="model.ventHoles" :label="$t('vent.holes')" size="large" />
+          <el-checkbox v-model="model.deskLegs" :label="$t('desk.legs')" size="large" />
         </li>
       </ul>
 
-      <h3>Desk | top color</h3>
+      <h3>{{ $t('desk.color.top') }}</h3>
 
       <el-radio-group
         v-model="model.mainColor"
@@ -102,7 +102,7 @@
         />
       </el-radio-group>
 
-      <h3>Desk | bottom color</h3>
+      <h3>{{ $t('desk.color.bottom') }}</h3>
 
       <el-radio-group v-model="model.bottomColor" placeholder="Select" size="large">
         <el-radio-button
@@ -114,7 +114,7 @@
         />
       </el-radio-group>
 
-      <h3>Price: {{ commonPrice }} €</h3>
+      <h3 class="text-2xl">{{ $t('price.total') }}: <span class="font-black">{{ commonPrice }} €</span></h3>
     </div>
   </div>
 
@@ -141,28 +141,28 @@ const model = defineModel<Product>({
 
 const colorSelected = [
   {
-    value: "bg_0",
-    label: "Black"
+    value: 'bg_0',
+    label: 'Black'
   },
   {
-    value: "bg_1",
-    label: "Blue"
+    value: 'bg_1',
+    label: 'Blue'
   },
   {
-    value: "bg_2",
-    label: "Orange"
+    value: 'bg_2',
+    label: 'Orange'
   },
   {
-    value: "bg_3",
-    label: "Red"
+    value: 'bg_3',
+    label: 'Red'
   },
   {
-    value: "bg_4",
-    label: "Grey"
+    value: 'bg_4',
+    label: 'Grey'
   },
   {
-    value: "bg_5",
-    label: "Light grey"
+    value: 'bg_5',
+    label: 'Light grey'
   }
 ]
 

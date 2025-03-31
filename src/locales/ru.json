@@ -1,8 +1,22 @@
 {
-  "homepage.banner.title": "Просто стол",
-  "homepage.banner.description": "Работай. Учись. Играй.",
-  "header.technicalDescription": "Описание",
-  "header.home": "Главная",
+  "header.cart": "Корзина",
   "header.gallery": "Галерия",
-  "header.cart": "Корзина"
+  "header.home": "Главная",
+  "header.technicalDescription": "Описание",
+  "homepage.banner.description": "Работай. Учись. Играй.",
+  "homepage.banner.title": "Просто стол",
+  "position.both": "С обеих сторон",
+  "position.left": "Слева",
+  "position.none": "Нет",
+  "position.right": "Справа",
+  "position.side": "Вид сбоку",
+  "position.top": "Вид сверху",
+  "price.total": "Итоговая цена",
+  "table.description.title": "Собери свой собственный стол",
+  "whiteboard": "Белая доска",
+  "holder.phone": "Подставка под телефон",
+  "holder.tablet": "Подставка под планшет",
+  "desk.color.top": "Цвет верхней панели стола",
+  "desk.color.bottom": "Цвет нижней панели стола",
+  "vent.holes": "Вентиляционные отверстия"
 }

@@ -1,8 +1,23 @@
 {
-  "homepage.banner.title": "Simply the desk",
-  "homepage.banner.description": "Work. Learn. Play",
-  "header.technicalDescription": "Description",
-  "header.home": "Home",
+  "header.cart": "Cart",
   "header.gallery": "Gallery",
-  "header.cart": "Cart"
+  "header.home": "Home",
+  "header.technicalDescription": "Description",
+  "homepage.banner.description": "Work. Learn. Play",
+  "homepage.banner.title": "Simply the desk",
+  "position.both": "Both",
+  "position.left": "Left",
+  "position.none": "None",
+  "position.right": "Right",
+  "position.side": "Side",
+  "position.top": "Top",
+  "price.total": "Total price",
+  "table.description.title": "Construct your own desk",
+  "whiteboard": "Whiteboard",
+  "holder.phone": "Phone holder",
+  "holder.tablet": "Tablet holder",
+  "desk.color.top": "Desk | top color",
+  "desk.color.bottom": "Desk | bottom color",
+  "desk.legs": "Legs",
+  "vent.holes": "Vent holes"
 }
