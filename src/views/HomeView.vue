@@ -11,45 +11,28 @@
 
   <h2 id="cart" class="h2">Cart</h2>
 
-  <SendForm />
+  <SendForm :send-form-data="model" />
 </template>
 
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
 import TableGallery from '@/components/TableGallery.vue'
-import DeskConstructor from '@/components/desk/DeskConstructor.vue'
-import { SendForm } from '@/components/widgets/send-form'
-import { useI18n } from 'vue-i18n';
-const { t } = useI18n();
-import type { Product } from '../types'
+import { SendForm, DeskConstructor } from '@/components/widgets'
+
+import type { Product } from '@/types'
+import { Position } from '@/types'
 
 const model = reactive<Product>({
-  bottomColor: 'bg_3',
-  mainColor: 'bg_1',
-  phoneHolder: {
-    position: 'both',
-    price: 20,
-    value: true
-  },
-  tabletHolder: {
-    position: 'both',
-    price: 20,
-    value: true
-  },
-  ventHoles: {
-    position: 'left',
-    price: 20,
-    value: true
-  },
-  whiteboard: {
-    position: 'both',
-    price: 20,
-    value: true
-  }
+  bottomColor: "bg_0",
+  mainColor: "bg_1",
+  ventHoles: true,
+  deskLegs: true,
+  phoneHolder: Position.BOTH,
+  tabletHolder: Position.BOTH,
+  whiteboard: Position.BOTH,
 })
 
 onMounted(() => {
-  console.log('t', t('homepage.banner.title'))
   document.title =
     'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })

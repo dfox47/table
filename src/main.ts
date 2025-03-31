@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import { i18n } from './plugins/i18n'; // Импорт i18n
+import i18n from './plugins/i18n';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import './assets/css/_styles.scss';

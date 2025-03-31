@@ -1,0 +1,1 @@
+export { default as DeskDescription } from './DeskDescription.vue'
