@@ -1,9 +1,8 @@
 {
-  "homepage.banner.title": "Welcome to our website",
-  "homepage.banner.description": "description",
-  "header.cart": "Cart",
-  "header.gallery": "Gallery",
-  "header.home": "Home",
+  "homepage.banner.title": "Simply the desk",
+  "homepage.banner.description": "Work. Learn. Play",
   "header.technicalDescription": "Description",
-  "header.slogan": "Work. Learn. Play"
+  "header.home": "Home",
+  "header.gallery": "Gallery",
+  "header.cart": "Cart"
 }

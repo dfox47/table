@@ -23,8 +23,8 @@ import type { Product } from '@/types'
 import { Position } from '@/types'
 
 const model = reactive<Product>({
-  bottomColor: "bg_0",
-  mainColor: "bg_1",
+  bottomColor: 'bg_0',
+  mainColor: 'bg_1',
   ventHoles: true,
   deskLegs: true,
   phoneHolder: Position.BOTH,
