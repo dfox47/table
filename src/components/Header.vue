@@ -28,34 +28,34 @@
   </header>
 </template>
 
-<script setup lang="ts">
+<script setup lang='ts'>
 import { ref } from 'vue'
 import { appConfig } from '@/config'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const menuItems = ref([
-  { 
+  {
     title: 'header.home',
-    href: '/#top' 
+    href: '/#top'
   },
   {
     title: 'header.technicalDescription',
     href: '/#technical-description',
   },
-  { 
+  {
     title: 'header.gallery',
     href: '/#gallery'
   },
-  { 
+  {
     title: 'header.cart',
     href: '/#cart'
   },
-]);
+])
 
-const emit = defineEmits(['scrollTo']);
+const emit = defineEmits(['scrollTo'])
 
 const scrollToSection = (id: string, event: Event) => {
   event.preventDefault()
-  emit("scrollTo", id)
+  emit('scrollTo', id)
 }
 </script>

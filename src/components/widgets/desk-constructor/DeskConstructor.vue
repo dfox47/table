@@ -114,7 +114,7 @@
         />
       </el-radio-group>
 
-      <h3>Price: {{ commonPrice }}</h3>
+      <h3>Price: {{ commonPrice }} €</h3>
     </div>
   </div>
 
@@ -129,8 +129,8 @@ import { Position } from '@/types'
 
 const model = defineModel<Product>({
   default: {
-    bottomColor: "bg_0",
-    mainColor: "bg_1",
+    bottomColor: 'bg_0',
+    mainColor: 'bg_1',
     ventHoles: true,
     deskLegs: true,
     phoneHolder: Position.BOTH,
@@ -184,20 +184,20 @@ const tabletHolderPrice = {
 
 const whiteboardPrice = {
   [Position.NONE]: 0,
-  [Position.LEFT]: 5,
-  [Position.RIGHT]: 5,
-  [Position.BOTH]: 10
+  [Position.LEFT]: 10,
+  [Position.RIGHT]: 10,
+  [Position.BOTH]: 20
 }
 
 const commonPrice = computed(() => {
-  let price = 100;
+  let price = 400;
 
   if (model.value.ventHoles) {
-    price += model.value.ventHoles ? 1 : 0;
+    price += model.value.ventHoles ? 20 : 0;
   }
 
   if (model.value.deskLegs) {
-    price += model.value.deskLegs ? 1 : 0;
+    price += model.value.deskLegs ? 270 : 0;
   }
 
   // Убедитесь, что значения имеют правильный тип
@@ -209,9 +209,8 @@ const commonPrice = computed(() => {
   price += tabletHolderPrice[tabletHolder];
   price += whiteboardPrice[whiteboard];
 
-  return price;
-});
-
+  return price
+})
 </script>
 
 <style lang="scss">

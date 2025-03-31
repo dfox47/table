@@ -19,7 +19,7 @@
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { locale } = useI18n();
+const { locale } = useI18n()
 
 const languages = [
   { code: 'en', label: 'EN' },
