@@ -1,5 +1,5 @@
 <template>
-  <h2 id="gallery">Gallery</h2>
+  <h2 id="gallery">{{ $t('header.gallery') }}</h2>
 
   <div class="gallery">
     <div v-for="item in 20" class="gallery__item" :key="item">

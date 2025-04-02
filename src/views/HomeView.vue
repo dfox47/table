@@ -9,7 +9,7 @@
 
   <TableGallery />
 
-  <h2 id="cart" class="h2">Cart</h2>
+  <h2 id="cart" class="h2">{{ $t('header.cart') }}</h2>
 
   <SendForm :send-form-data="model" />
 </template>

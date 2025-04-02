@@ -1,67 +1,67 @@
 <template>
   <div class="my-20">
-    <h2 id="technical-description" class="h2 my-20">Technical description</h2>
+    <h2 id="technical-description" class="h2 my-20">{{ $t('technical.description') }}</h2>
 
     <table class="desk_description">
       <tbody>
       <tr>
-        <td>Whiteboard</td>
-        <td>A4 (210 x 297 mm)</td>
+        <td>{{ $t('whiteboard') }}</td>
+        <td>A4 (210 x 297 {{ $t('units.mm') }})</td>
       </tr>
 
       <tr>
-        <td>Phone holder</td>
-        <td>127 x 11 mm</td>
+        <td>{{ $t('holder.phone') }}</td>
+        <td>127 x 11 {{ $t('units.mm') }}</td>
       </tr>
 
       <tr>
-        <td>Tablet holder</td>
-        <td>310 x 11 mm</td>
+        <td>{{ $t('holder.tablet') }}</td>
+        <td>310 x 11 {{ $t('units.mm') }}</td>
       </tr>
 
       <tr>
-        <td>Height</td>
-        <td>720 - 1160 mm</td>
+        <td>{{ $t('description.height') }}</td>
+        <td>720 - 1160 {{ $t('units.mm') }}</td>
       </tr>
 
       <tr>
-        <td>Max load</td>
-        <td>80 kg</td>
+        <td>{{ $t('description.max.load') }}</td>
+        <td>80 {{ $t('units.kg') }}</td>
       </tr>
 
       <tr>
-        <td>Mechanism sound</td>
-        <td>48 decibels</td>
+        <td>{{ $t('description.mechanism.sound') }}</td>
+        <td>48 {{ $t('units.decibels') }}</td>
       </tr>
 
       <tr>
-        <td>Drive speed</td>
-        <td>21 mm/s</td>
+        <td>{{ $t('description.drive.speed') }}</td>
+        <td>21 {{ $t('units.mm.s') }}</td>
       </tr>
 
       <tr>
-        <td>Size</td>
-        <td>1200 x 600 x 36 mm</td>
+        <td>{{ $t('description.size') }}</td>
+        <td>1200 x 600 x 36 {{ $t('units.mm') }}</td>
       </tr>
 
       <tr>
-        <td>Guarantee</td>
-        <td>2 years</td>
+        <td>{{ $t('description.guarantee') }}</td>
+        <td>2 {{ $t('units.years') }}</td>
       </tr>
 
       <tr>
-        <td>Tabletop weight</td>
-        <td>17 Kg</td>
+        <td>{{ $t('description.tabletop.weight') }}</td>
+        <td>17 {{ $t('units.kg') }}</td>
       </tr>
 
       <tr>
-        <td>Legs weight</td>
-        <td>23 Kg</td>
+        <td>{{ $t('description.legs.weight') }}</td>
+        <td>23 {{ $t('units.kg') }}</td>
       </tr>
 
       <tr>
-        <td>Total weight</td>
-        <td>40 Kg</td>
+        <td>{{ $t('description.total.weight') }}</td>
+        <td>40 {{ $t('units.kg') }}</td>
       </tr>
       </tbody>
     </table>
