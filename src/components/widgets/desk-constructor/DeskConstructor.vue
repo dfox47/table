@@ -156,14 +156,15 @@ const colorSelected = [
     value: 'bg_3',
     label: 'Red'
   },
-  {
-    value: 'bg_4',
-    label: 'Grey'
-  },
-  {
-    value: 'bg_5',
-    label: 'Light grey'
-  }
+  // Maybe we will use it later | don't delete it
+  // {
+  //   value: 'bg_4',
+  //   label: 'Grey'
+  // },
+  // {
+  //   value: 'bg_5',
+  //   label: 'Light grey'
+  // }
 ]
 
 const positionSelected = [Position.NONE, Position.LEFT, Position.RIGHT, Position.BOTH]
@@ -190,11 +191,11 @@ const whiteboardPrice = {
 }
 
 // change price here
-const ventHolesPrice = 20
 const legsPrice = 270
+const ventHolesPrice = 20
 
 const commonPrice = computed(() => {
-  let price = 400;
+  let price = 399;
 
   if (model.value.ventHoles) {
     price += model.value.ventHoles ? ventHolesPrice : 0;
@@ -312,6 +313,12 @@ h3 {
           }
         }
       }
+    }
+  }
+
+  &--large {
+    &.el-radio-button__inner {
+      padding: 30px;
     }
   }
 }
