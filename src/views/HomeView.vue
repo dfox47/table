@@ -1,8 +1,10 @@
 <template>
   <div class="hero">
-    <h1 class="h1">{{ $t('homepage.banner.title') }}</h1>
+    <div class="hero__content">
+      <h1 class="h1">{{ $t('homepage.banner.title') }}</h1>
 
-    <div class="subtitle">{{ $t('homepage.banner.description') }}</div>
+      <div class="subtitle">{{ $t('homepage.banner.description') }}</div>
+    </div>
   </div>
 
   <DeskConstructor v-model="model" />
@@ -41,28 +43,44 @@ onMounted(() => {
 <style lang="scss" scoped>
 @use "@/assets/css/_vars" as *;
 
-.h1 {
-  text-shadow: 0 0 10px #fff;
-}
-
 .hero {
-  align-items: center;
-  background: url('@/assets/i/hero.png') no-repeat center scroll;
+  align-items: flex-end;
+  background: url('@/assets/i/hero.png') no-repeat center scroll #000;
   background-size: cover;
+  color: #fff;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   position: relative;
   min-height: 80vh;
+  text-shadow: 0 0 10px #000;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    height: 100%;
+    background: linear-gradient(to top, #000 0%, rgba(#000, 0.5) 30%, rgba(#000, 0) 100%);
+    width: 100%;
+  }
+
+  h1 {
+    text-align: left;
+  }
+
+  &__content {
+    padding: $space;
+    position: relative;
+    z-index: 3;
+  }
 }
 
 .subtitle {
   font-size: 3em;
   font-weight: 700;
-  opacity: 0.8;
-  text-align: center;
-  text-shadow: 0 0 3px #fff;
+  text-shadow: 0 0 3px #000;
   text-transform: uppercase;
 
   @media #{$tablet} {
