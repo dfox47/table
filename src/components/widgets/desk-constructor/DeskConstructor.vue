@@ -62,25 +62,25 @@
       <h3>{{ $t('whiteboard') }}</h3>
 
       <el-radio-group v-model="model.whiteboard" placeholder="Select" size="large">
-        <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
+        <el-radio v-for="item in positionSelected" :key="item" :label="$t('whiteboard.position.' + item) + ' (+' + phoneHolderPrice[item] + ' €)'" :value="item" />
       </el-radio-group>
 
       <h3>{{ $t('holder.phone') }}</h3>
 
       <el-radio-group v-model="model.phoneHolder" placeholder="Select" size="large">
-        <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
+        <el-radio v-for="item in positionSelected" :key="item" :label="$t('phone.position.' + item) + ' (+' + phoneHolderPrice[item] + ' €)'" :value="item" />
       </el-radio-group>
 
       <h3>{{ $t('holder.tablet') }}</h3>
 
       <el-radio-group v-model="model.tabletHolder" placeholder="Select" size="large">
-        <el-radio v-for="item in positionSelected" :key="item" :label="item" :value="item" />
+        <el-radio v-for="item in positionSelected" :key="item" :label="$t('tablet.position.' + item) + ' (+' + phoneHolderPrice[item] + ' €)'" :value="item" />
       </el-radio-group>
 
       <ul class="desk_options_list">
         <li>
-          <el-checkbox v-model="model.ventHoles" :label="$t('vent.holes')" size="large" />
-          <el-checkbox v-model="model.deskLegs" :label="$t('desk.legs')" size="large" />
+          <el-checkbox v-model="model.ventHoles" :label="$t('vent.holes') + ' (+' + ventHolesPrice + ' €)'"  size="large" />
+          <el-checkbox v-model="model.deskLegs" :label="$t('desk.legs') + ' (+' + legsPrice + ' €)'" size="large" />
         </li>
       </ul>
 
@@ -189,15 +189,19 @@ const whiteboardPrice = {
   [Position.BOTH]: 20
 }
 
+// change price here
+const ventHolesPrice = 20
+const legsPrice = 270
+
 const commonPrice = computed(() => {
   let price = 400;
 
   if (model.value.ventHoles) {
-    price += model.value.ventHoles ? 20 : 0;
+    price += model.value.ventHoles ? ventHolesPrice : 0;
   }
 
   if (model.value.deskLegs) {
-    price += model.value.deskLegs ? 270 : 0;
+    price += model.value.deskLegs ? legsPrice : 0;
   }
 
   // Убедитесь, что значения имеют правильный тип
@@ -417,7 +421,7 @@ h3 {
 }
 
 .desk_options {
-  max-width: 320px;
+  max-width: 440px;
   width: 100%;
 }
 
