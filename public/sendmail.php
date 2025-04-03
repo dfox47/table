@@ -4,6 +4,8 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Methods: POST");
 
+// Include the email template function
+require_once "email_template.php";
 
 // Get the data from the request
 $data = json_decode(file_get_contents("php://input"), true);
@@ -13,38 +15,30 @@ if (
   isset($data['message']) &&
   isset($data['name'])
 ) {
-  $bottomColor = htmlspecialchars($data['bottomColor']);
-  $email = htmlspecialchars($data['email']);
-  $mainColor = htmlspecialchars($data['mainColor']);
-  $message = htmlspecialchars($data['message']);
-  $name = htmlspecialchars($data['name']);
-  $phoneHolder = htmlspecialchars($data['phoneHolder']);
-  $tabletHolder = htmlspecialchars($data['tabletHolder']);
-  $ventHoles = htmlspecialchars($data['ventHoles']);
-  $whiteboard = htmlspecialchars($data['whiteboard']);
+  // Sanitize input
+  $data = array_map('htmlspecialchars', $data);
 
-  $currentDate = date("Y-m-d");
+  // Get current date and time
+  $currentDate = date("Y-m-d | H:i:s");
 
-  $recipients = ["a9942212@gmail.com", $email];
+  // Recipients list
+  $recipients = ["a9942212@gmail.com", $data['email']];
 
-  $subject = "[simplythedesk.net] $currentDate | $name";
-  $body = "Name: $name\n
-  Email: $email\n
-  Message: $message\n
-  Bottom color: $bottomColor\n
-  Main color: $mainColor\n
-  Phone holder: $phoneHolder\n
-  Tablet holder: $tabletHolder\n
-  Vent holes: $ventHoles\n
-  Whiteboard: $whiteboard\n
-  ";
+  // Email subject
+  $subject = "[simplythedesk.net] $currentDate | {$data['name']}";
+
+  // Get the email body from the template
+  $body = getEmailTemplate($data, $currentDate);
+
+  $successCount = 0;
+  $errorCount = 0;
 
   // Send a separate email to each recipient
   foreach ($recipients as $to) {
-    $headers = "From: info@simplythedesk.net" . "\r\n" .
-      "Reply-To: info@simplythedesk.net" . "\r\n" .
-      "MIME-Version: 1.0" . "\r\n" .
-      "Content-Type: text/html; charset=UTF-8" . "\r\n" .
+    $headers = "From: info@simplythedesk.net\r\n" .
+      "Reply-To: info@simplythedesk.net\r\n" .
+      "MIME-Version: 1.0\r\n" .
+      "Content-Type: text/html; charset=UTF-8\r\n" .
       "X-Mailer: PHP/" . phpversion();
 
     if (mail($to, $subject, $body, $headers)) {
@@ -54,6 +48,7 @@ if (
     }
   }
 
+  // Return response
   if ($successCount > 0) {
     http_response_code(200);
     echo json_encode([
