@@ -22,13 +22,14 @@ if (
   $currentDate = date("Y-m-d | H:i:s");
 
   // Recipients list
-  $recipients = ["a9942212@gmail.com", $data['email']];
+  // $recipients = ["a9942212@gmail.com", $data['email']];
+  $recipients = ["a9942212@gmail.com"];
 
   // Email subject
   $subject = "[simplythedesk.net] $currentDate | {$data['name']}";
 
   // Get the email body from the template
-  $body = getEmailTemplate($data, $currentDate);
+  $body = getEmailTemplate($data);
 
   $successCount = 0;
   $errorCount = 0;
