@@ -12,7 +12,7 @@ if (
   isset($data['email']) &&
   isset($data['message']) &&
   isset($data['name'])
-  ) {
+) {
   $bottomColor = htmlspecialchars($data['bottomColor']);
   $email = htmlspecialchars($data['email']);
   $mainColor = htmlspecialchars($data['mainColor']);
@@ -23,8 +23,11 @@ if (
   $ventHoles = htmlspecialchars($data['ventHoles']);
   $whiteboard = htmlspecialchars($data['whiteboard']);
 
-  $to = "a9942212@gmail.com";
-  $subject = "Message from $name";
+  $currentDate = date("Y-m-d");
+
+  $recipients = ["a9942212@gmail.com", $email];
+
+  $subject = "[simplythedesk.net] $currentDate | $name";
   $body = "Name: $name\n
   Email: $email\n
   Message: $message\n
@@ -36,15 +39,35 @@ if (
   Whiteboard: $whiteboard\n
   ";
 
-  // Use PHP's mail function (for basic use) or PHPMailer for better email handling
-  if (mail($to, $subject, $body, "From: $email")) {
+  // Send a separate email to each recipient
+  foreach ($recipients as $to) {
+    $headers = "From: info@simplythedesk.net" . "\r\n" .
+      "Reply-To: info@simplythedesk.net" . "\r\n" .
+      "MIME-Version: 1.0" . "\r\n" .
+      "Content-Type: text/html; charset=UTF-8" . "\r\n" .
+      "X-Mailer: PHP/" . phpversion();
+
+    if (mail($to, $subject, $body, $headers)) {
+      $successCount++;
+    } else {
+      $errorCount++;
+    }
+  }
+
+  if ($successCount > 0) {
     http_response_code(200);
-    echo json_encode(["status" => "success", "message" => "Email sent successfully!"]);
+    echo json_encode([
+      "status" => "success",
+      "message" => "Emails sent successfully",
+    ]);
   } else {
     http_response_code(500);
-    echo json_encode(["status" => "error", "message" => "Failed to send email."]);
+    echo json_encode([
+      "status" => "error",
+      "message" => "Failed to send emails.",
+    ]);
   }
 } else {
   http_response_code(400);
   echo json_encode(["status" => "error", "message" => "Invalid input."]);
-} ?>
+}
