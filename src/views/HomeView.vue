@@ -14,7 +14,7 @@
       <button
         v-for="(tab, index) in tabs"
         :key="index"
-        class="btn btn--main btn--s font-extralight"
+        class="btn btn--main btn--s"
         :class="{ 'active': activeTab === index }"
         @click="activeTab = index"
       >
