@@ -17,7 +17,7 @@
       :class="{ 'active': activeTab === index }"
       @click="activeTab = index"
     >
-      <span>{{ tab.label }}</span>
+      <span>{{ $t(tab.label) }}</span>
     </button>
   </div>
 
@@ -39,12 +39,9 @@
 import { onMounted, reactive, ref } from 'vue'
 import TableGallery from '@/components/TableGallery.vue'
 import { SendForm, DeskConstructor, DeskDescription, DeskWhy } from '@/components/widgets'
-import { useI18n } from 'vue-i18n'
 
 import type { Product } from '@/types'
 import { Position } from '@/types'
-
-const { t } = useI18n()
 
 const model = reactive<Product>({
   bottomColor: 'bg_0',
@@ -64,10 +61,10 @@ onMounted(() => {
 const activeTab = ref(0)
 
 const tabs = [
-  { label: t('header.gallery') },
-  { label: t('technical.description') },
-  { label: t('header.why') },
-  { label: t('header.cart') }
+  { label: 'header.gallery' },
+  { label: 'technical.description' },
+  { label: 'header.why' },
+  { label: 'header.cart' }
 ]
 </script>
 

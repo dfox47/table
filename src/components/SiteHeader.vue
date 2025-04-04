@@ -34,10 +34,10 @@ import { appConfig } from '@/config'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const menuItems = ref([
-  {
-    title: 'header.home',
-    href: '/#top'
-  },
+  // {
+  //   title: 'header.home',
+  //   href: '/#top'
+  // },
   {
     title: 'header.technicalDescription',
     href: '/#technical-description',
@@ -45,6 +45,10 @@ const menuItems = ref([
   {
     title: 'header.gallery',
     href: '/#gallery'
+  },
+  {
+    title: 'header.why',
+    href: '/#why'
   },
   {
     title: 'header.cart',
