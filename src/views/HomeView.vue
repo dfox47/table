@@ -14,23 +14,23 @@
       v-for="(tab, index) in tabs"
       :key="index"
       class="btn btn--main btn--s"
-      :class="{ 'active': activeTab === index }"
-      @click="activeTab = index"
+      :class="{ 'active': tabStore.activeTab === index }"
+      @click="tabStore.setTab(index)"
     >
       <span>{{ $t(tab.label) }}</span>
     </button>
   </div>
 
-  <div v-if="activeTab === 0">
+  <div v-if="tabStore.activeTab === 0">
     <TableGallery />
   </div>
-  <div v-if="activeTab === 1">
+  <div v-if="tabStore.activeTab === 1">
     <DeskDescription />
   </div>
-  <div v-if="activeTab === 2">
+  <div v-if="tabStore.activeTab === 2">
     <DeskWhy />
   </div>
-  <div v-if="activeTab === 3">
+  <div v-if="tabStore.activeTab === 3">
     <SendForm :send-form-data="model" />
   </div>
 </template>
@@ -57,6 +57,10 @@ onMounted(() => {
   document.title =
     'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })
+
+import { useTabStore } from '@/stores/useTabStore'
+
+const tabStore = useTabStore()
 
 const activeTab = ref(0)
 

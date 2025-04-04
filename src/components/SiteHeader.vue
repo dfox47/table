@@ -8,11 +8,11 @@
 
     <nav v-if="menuItems.length" class="font-bold w-full">
       <ul class="flex font-extralight justify-center text-nowrap uppercase">
-        <li v-for="item in menuItems" :key="item.title">
+        <li v-for="(item, index) in menuItems" :key="item.title">
           <a
             class="block hover:bg-sky-700 hover:text-white py-3 px-5 transition-all"
             :href="item.href"
-            @click="scrollToSection(item.href.replace('/#', ''), $event)"
+            @click="scrollToSection(item.href.replace('/#', ''), $event); switchTab(index)"
           >
             <span class="">{{ $t(item.title) }}</span>
           </a>
@@ -39,12 +39,12 @@ const menuItems = ref([
   //   href: '/#top'
   // },
   {
-    title: 'header.technicalDescription',
-    href: '/#tabs',
-  },
-  {
     title: 'header.gallery',
     href: '/#tabs'
+  },
+  {
+    title: 'header.technicalDescription',
+    href: '/#tabs',
   },
   {
     title: 'header.why',
@@ -61,5 +61,13 @@ const emit = defineEmits(['scrollTo'])
 const scrollToSection = (id: string, event: Event) => {
   event.preventDefault()
   emit('scrollTo', id)
+}
+
+import { useTabStore } from '@/stores/useTabStore'
+
+const tabStore = useTabStore()
+
+const switchTab = (index: number) => {
+  tabStore.setTab(index)
 }
 </script>
