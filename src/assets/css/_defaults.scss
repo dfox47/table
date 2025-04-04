@@ -17,7 +17,6 @@
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
   overflow: hidden;
   position: relative;
   text-transform: uppercase;
@@ -39,7 +38,8 @@
       width: 0;
     }
 
-    &:hover {
+    &:hover,
+    &.active {
       &::after {
         right: auto;
         left: 0;
@@ -62,6 +62,12 @@
       transition: $transition;
       width: 100%;
       z-index: 20;
+    }
+  }
+
+  &--s {
+    span {
+      font-size: 0.8em;
     }
   }
 }

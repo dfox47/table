@@ -9,16 +9,16 @@
 
   <DeskConstructor v-model="model" />
 
-  <div class="tabs text-center">
+  <div class="text-center">
     <div class="flex justify-center gap-5">
       <button
         v-for="(tab, index) in tabs"
         :key="index"
-        class="tabs__button py-2 px-4 rounded text-white uppercase"
+        class="btn btn--main btn--s font-extralight"
         :class="{ 'active': activeTab === index }"
         @click="activeTab = index"
       >
-        {{ tab.label }}
+        <span>{{ tab.label }}</span>
       </button>
     </div>
 
@@ -122,17 +122,6 @@ const tabs = [
 
   @media #{$mobile_s} {
     font-size: 1.1em;
-  }
-}
-
-.tabs {
-  &__button {
-    background-color: $c_primary;
-
-    &.active {
-      background-color: $c_special;
-      color: #000;
-    }
   }
 }
 </style>
