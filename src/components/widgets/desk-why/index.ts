@@ -1,0 +1,1 @@
+export { default as DeskWhy } from './DeskWhy.vue'

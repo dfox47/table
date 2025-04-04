@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
@@ -42,6 +42,11 @@ onMounted(() => {
     currentLanguage.value = savedLanguage
   }
 })
+
+watch(locale, (newLang) => {
+  document.documentElement.setAttribute('lang', newLang)
+  document.body.className = `lang--${newLang}`
+}, { immediate: true })
 </script>
 
 <style scoped>

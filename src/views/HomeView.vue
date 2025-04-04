@@ -9,35 +9,36 @@
 
   <DeskConstructor v-model="model" />
 
-  <div class="text-center">
-    <div class="flex justify-center gap-5">
-      <button
-        v-for="(tab, index) in tabs"
-        :key="index"
-        class="btn btn--main btn--s"
-        :class="{ 'active': activeTab === index }"
-        @click="activeTab = index"
-      >
-        <span>{{ tab.label }}</span>
-      </button>
-    </div>
+  <div class="flex flex-wrap justify-center gap-5">
+    <button
+      v-for="(tab, index) in tabs"
+      :key="index"
+      class="btn btn--main btn--s"
+      :class="{ 'active': activeTab === index }"
+      @click="activeTab = index"
+    >
+      <span>{{ tab.label }}</span>
+    </button>
+  </div>
 
-    <div v-if="activeTab === 0">
-      <TableGallery />
-    </div>
-    <div v-if="activeTab === 1">
-      <DeskDescription />
-    </div>
-    <div v-if="activeTab === 2">
-      <SendForm :send-form-data="model" />
-    </div>
+  <div v-if="activeTab === 0">
+    <TableGallery />
+  </div>
+  <div v-if="activeTab === 1">
+    <DeskDescription />
+  </div>
+  <div v-if="activeTab === 2">
+    <DeskWhy />
+  </div>
+  <div v-if="activeTab === 3">
+    <SendForm :send-form-data="model" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, reactive, ref } from 'vue'
 import TableGallery from '@/components/TableGallery.vue'
-import { SendForm, DeskConstructor, DeskDescription } from '@/components/widgets'
+import { SendForm, DeskConstructor, DeskDescription, DeskWhy } from '@/components/widgets'
 import { useI18n } from 'vue-i18n'
 
 import type { Product } from '@/types'
@@ -65,6 +66,7 @@ const activeTab = ref(0)
 const tabs = [
   { label: t('header.gallery') },
   { label: t('technical.description') },
+  { label: t('header.why') },
   { label: t('header.cart') }
 ]
 </script>

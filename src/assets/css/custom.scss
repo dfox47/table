@@ -26,12 +26,8 @@ html {
 }
 // Standart class [END]
 
-
-
 // ID [START]
 // ID [END]
-
-
 
 // help classes [START]
 .bg_0 {
@@ -56,5 +52,31 @@ html {
 
 .bg_5 {
   background-color: $c_desk_color_5;
+}
+
+.lang {
+  &--en {
+    .lang--en_only {
+      display: block;
+    }
+  }
+
+  &--bg {
+    .lang--bg_only {
+      display: block;
+    }
+  }
+
+  &--ru {
+    .lang--ru_only {
+      display: block;
+    }
+  }
+
+  &--bg_only,
+  &--en_only,
+  &--ru_only {
+    display: none;
+  }
 }
 // help classes [END]
