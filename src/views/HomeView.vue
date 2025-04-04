@@ -9,7 +9,7 @@
 
   <DeskConstructor v-model="model" />
 
-  <div class="flex flex-wrap justify-center gap-5">
+  <div id="tabs" class="flex flex-wrap justify-center gap-5 pt-10">
     <button
       v-for="(tab, index) in tabs"
       :key="index"

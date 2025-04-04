@@ -40,19 +40,19 @@ const menuItems = ref([
   // },
   {
     title: 'header.technicalDescription',
-    href: '/#technical-description',
+    href: '/#tabs',
   },
   {
     title: 'header.gallery',
-    href: '/#gallery'
+    href: '/#tabs'
   },
   {
     title: 'header.why',
-    href: '/#why'
+    href: '/#tabs'
   },
   {
     title: 'header.cart',
-    href: '/#cart'
+    href: '/#tabs'
   },
 ])
 
