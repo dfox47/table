@@ -65,6 +65,8 @@
       </tr>
       </tbody>
     </table>
+
+    <div class="text-center">* {{ $t('production.time') }}</div>
   </div>
 </template>
 
