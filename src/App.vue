@@ -7,7 +7,7 @@ const scrollTo = (id: string) => {
   const element = document.getElementById(id)
 
   if (element) {
-    element.scrollIntoView({ behavior: "smooth" })
+    element.scrollIntoView({ behavior: 'smooth' })
   }
 }
 </script>
@@ -15,7 +15,7 @@ const scrollTo = (id: string) => {
 <template>
   <SiteHeader @scrollTo="scrollTo" />
 
-  <RouterView />
+  <RouterView @scrollTo="scrollTo" />
 
   <SiteFooter />
 </template>

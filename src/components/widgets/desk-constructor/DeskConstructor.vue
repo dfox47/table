@@ -1,5 +1,5 @@
 <template>
-  <h2 class="h2">{{ $t('table.description.title') }}</h2>
+  <h2 id="desk-desciption-title" class="h2">{{ $t('table.description.title') }}</h2>
 
   <div class="desk_wrapper p-5">
     <div class="desk_preview">

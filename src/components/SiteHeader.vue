@@ -29,15 +29,12 @@
 </template>
 
 <script setup lang='ts'>
-import { ref } from 'vue'
 import { appConfig } from '@/config'
+import { ref } from 'vue'
+import { useTabStore } from '@/stores/useTabStore'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const menuItems = ref([
-  // {
-  //   title: 'header.home',
-  //   href: '/#top'
-  // },
   {
     title: 'header.gallery',
     href: '/#tabs'
@@ -62,8 +59,6 @@ const scrollToSection = (id: string, event: Event) => {
   event.preventDefault()
   emit('scrollTo', id)
 }
-
-import { useTabStore } from '@/stores/useTabStore'
 
 const tabStore = useTabStore()
 

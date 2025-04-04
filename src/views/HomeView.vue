@@ -3,7 +3,11 @@
     <div class="hero__content">
       <h1 class="h1">{{ $t('homepage.banner.title') }}</h1>
 
-      <div class="subtitle">{{ $t('homepage.banner.description') }}</div>
+      <div class="hero__subtitle font-bold mb-5 uppercase">{{ $t('homepage.banner.description') }}</div>
+
+      <button class="btn btn--main btn--border" @click="scrollToSection('desk-desciption-title', $event)">
+        <span>{{ $t('table.description.title') }}</span>
+      </button>
     </div>
   </div>
 
@@ -36,12 +40,19 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive, ref } from 'vue'
-import TableGallery from '@/components/TableGallery.vue'
-import { SendForm, DeskConstructor, DeskDescription, DeskWhy } from '@/components/widgets'
-
+import { onMounted, reactive } from 'vue'
+import { DeskConstructor, DeskDescription, DeskWhy, SendForm } from '@/components/widgets'
 import type { Product } from '@/types'
 import { Position } from '@/types'
+import { useTabStore } from '@/stores/useTabStore'
+import TableGallery from '@/components/TableGallery.vue'
+
+const emit = defineEmits(['scrollTo'])
+
+const scrollToSection = (id: string, event: Event) => {
+  event.preventDefault()
+  emit('scrollTo', id)
+}
 
 const model = reactive<Product>({
   bottomColor: 'bg_0',
@@ -58,11 +69,7 @@ onMounted(() => {
     'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })
 
-import { useTabStore } from '@/stores/useTabStore'
-
 const tabStore = useTabStore()
-
-const activeTab = ref(0)
 
 const tabs = [
   { label: 'header.gallery' },
@@ -107,24 +114,22 @@ const tabs = [
     position: relative;
     z-index: 3;
   }
-}
 
-.subtitle {
-  font-size: 3em;
-  font-weight: 700;
-  text-shadow: 0 0 3px #000;
-  text-transform: uppercase;
+  &__subtitle {
+    font-size: 3em;
+    text-shadow: 0 0 3px #000;
 
-  @media #{$tablet} {
-    font-size: 2.5em;
-  }
+    @media #{$tablet} {
+      font-size: 2.5em;
+    }
 
-  @media #{$mobile} {
-    font-size: 2em;
-  }
+    @media #{$mobile} {
+      font-size: 2em;
+    }
 
-  @media #{$mobile_s} {
-    font-size: 1.1em;
+    @media #{$mobile_s} {
+      font-size: 1.1em;
+    }
   }
 }
 </style>
