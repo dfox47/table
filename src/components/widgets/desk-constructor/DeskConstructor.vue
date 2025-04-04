@@ -117,13 +117,10 @@
       <h3 class="text-2xl">{{ $t('price.total') }}: <span class="font-black">{{ commonPrice }} €</span></h3>
     </div>
   </div>
-
-  <DeskDescription />
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue"
-import { DeskDescription } from "@/components/widgets"
 import type { Product } from "@/types"
 import { Position } from '@/types'
 

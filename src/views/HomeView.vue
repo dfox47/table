@@ -9,20 +9,41 @@
 
   <DeskConstructor v-model="model" />
 
-  <TableGallery />
+  <div class="tabs text-center">
+    <div class="flex justify-center gap-5">
+      <button
+        v-for="(tab, index) in tabs"
+        :key="index"
+        class="tabs__button py-2 px-4 rounded text-white uppercase"
+        :class="{ 'active': activeTab === index }"
+        @click="activeTab = index"
+      >
+        {{ tab.label }}
+      </button>
+    </div>
 
-  <h2 id="cart" class="h2">{{ $t('header.cart') }}</h2>
-
-  <SendForm :send-form-data="model" />
+    <div v-if="activeTab === 0">
+      <TableGallery />
+    </div>
+    <div v-if="activeTab === 1">
+      <DeskDescription />
+    </div>
+    <div v-if="activeTab === 2">
+      <SendForm :send-form-data="model" />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import TableGallery from '@/components/TableGallery.vue'
-import { SendForm, DeskConstructor } from '@/components/widgets'
+import { SendForm, DeskConstructor, DeskDescription } from '@/components/widgets'
+import { useI18n } from 'vue-i18n'
 
 import type { Product } from '@/types'
 import { Position } from '@/types'
+
+const { t } = useI18n()
 
 const model = reactive<Product>({
   bottomColor: 'bg_0',
@@ -38,6 +59,14 @@ onMounted(() => {
   document.title =
     'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })
+
+const activeTab = ref(0)
+
+const tabs = [
+  { label: t('header.gallery') },
+  { label: t('technical.description') },
+  { label: t('header.cart') }
+]
 </script>
 
 <style lang="scss" scoped>
@@ -93,6 +122,17 @@ onMounted(() => {
 
   @media #{$mobile_s} {
     font-size: 1.1em;
+  }
+}
+
+.tabs {
+  &__button {
+    background-color: $c_primary;
+
+    &.active {
+      background-color: $c_special;
+      color: #000;
+    }
   }
 }
 </style>

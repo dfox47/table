@@ -1,4 +1,6 @@
 <template>
+  <h2 id="cart" class="h2">{{ $t('header.cart') }}</h2>
+
   <div class="contacts">
     <form @submit.prevent="sendMail" class="send_order_form">
       <label class="send_order_form__label">
