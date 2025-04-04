@@ -6,11 +6,11 @@
       </a>
     </div>
 
-    <nav v-if="menuItems.length" class="font-bold w-full">
-      <ul class="flex font-extralight justify-center text-nowrap uppercase">
+    <nav v-if="menuItems.length" class="text-nowrap uppercase w-full">
+      <ul class="flex justify-center gap-5">
         <li v-for="(item, index) in menuItems" :key="item.title">
           <a
-            class="block hover:bg-sky-700 hover:text-white py-3 px-5 transition-all"
+            class="btn btn--secondary btn--s transition-all"
             :href="item.href"
             @click="scrollToSection(item.href.replace('/#', ''), $event); switchTab(index)"
           >

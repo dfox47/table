@@ -65,6 +65,45 @@
     }
   }
 
+  &--secondary {
+    border-radius: 5px;
+
+    &::after {
+      background-color: $c_special;
+      content: " ";
+      height: 100%;
+      position: absolute;
+      right: 0;
+      transition: $transition;
+      width: 0;
+    }
+
+    &:hover,
+    &.active {
+      &::after {
+        right: auto;
+        left: 0;
+        width: 100%;
+      }
+
+      span {
+        color: $c_primary;
+        animation: scaleUp 0.3s ease-in-out;
+      }
+    }
+
+    span {
+      font-size: 1.1em;
+      letter-spacing: 0.3em;
+      padding: 1em 1.5em;
+      text-align: center;
+      text-decoration: none;
+      transition: $transition;
+      width: 100%;
+      z-index: 10;
+    }
+  }
+
   &--s {
     span {
       font-size: 0.8em;
