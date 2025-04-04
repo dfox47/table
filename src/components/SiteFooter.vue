@@ -5,9 +5,11 @@
         <a :href="`tel:${appConfig.phone.replace(/[\s()]/g, '')}`" title="phone" target="_blank">{{ appConfig.phone }}</a>
       </p>
 
-      <p>
+      <p class="mb-5">
         <a :href="`mailto:${appConfig.email}`" target="_blank">{{ appConfig.email }}</a>
       </p>
+
+      <LanguageSwitcher />
 
       <p class="my-5">
         <a href="//www.instagram.com/simplythedesk_net/" target="_blank"><img class="inline-block" src="@/assets/i/instagram.svg" alt=""></a>
@@ -26,6 +28,8 @@
 
 <script setup lang="ts">
 import { appConfig } from "@/config";
+
+import LanguageSwitcher from './LanguageSwitcher.vue'
 </script>
 
 <style lang="scss" scoped>

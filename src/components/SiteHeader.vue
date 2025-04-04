@@ -20,7 +20,7 @@
       </ul>
     </nav>
 
-    <p class="w-full max-w-36 text-sm text-right">
+    <p class="pr-10 w-full max-w-36 text-sm text-right">
       <a class="block text-nowrap" :href="`tel:${appConfig.phone.replace(/[\s()]/g, '')}`" title="phone" target="_blank">{{ appConfig.phone }}</a>
     </p>
 

@@ -46,7 +46,7 @@ onMounted(() => {
 
 <style scoped>
 .lang-switch {
-  margin-left: 24px;
-  width: 120px;
+  min-width: 60px;
+  width: 60px;
 }
 </style>

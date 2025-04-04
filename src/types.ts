@@ -1,7 +1,7 @@
 export enum Position {
   BOTH = 'both',
-  NONE = 'none',
   LEFT = 'left',
+  NONE = 'none',
   RIGHT = 'right'
 }
 
@@ -12,9 +12,9 @@ export interface Holder {
 export interface Product {
   bottomColor?: string;
   deskLegs?: boolean;
-  ventHoles?: boolean;
   mainColor?: string;
   phoneHolder?: string;
   tabletHolder?: string;
+  ventHoles?: boolean;
   whiteboard?: string;
 }

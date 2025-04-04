@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import Footer from './components/Footer.vue'
-import Header from './components/Header.vue'
+import SiteFooter from './components/SiteFooter.vue'
+import SiteHeader from './components/SiteHeader.vue'
 
 const scrollTo = (id: string) => {
   const element = document.getElementById(id)
@@ -13,9 +13,9 @@ const scrollTo = (id: string) => {
 </script>
 
 <template>
-  <Header @scrollTo="scrollTo" />
+  <SiteHeader @scrollTo="scrollTo" />
 
   <RouterView />
 
-  <Footer />
+  <SiteFooter />
 </template>
