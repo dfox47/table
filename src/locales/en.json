@@ -48,7 +48,7 @@
   "units.decibels": "decibels",
   "units.kg": "kg",
   "units.mm": "mm",
-  "units.mmPerSecond": "mm/s",
+  "units.mms.s": "mm/s",
   "units.year": "year",
   "units.years": "years",
   "vent.holes": "Vent holes",
