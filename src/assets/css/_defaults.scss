@@ -63,6 +63,14 @@
       transition: $transition;
       width: 100%;
       z-index: 10;
+
+      @media #{$tablet} {
+        font-size: 0.9em;
+      }
+
+      @media #{$mobile} {
+        font-size: 0.7em;
+      }
     }
   }
 
@@ -121,7 +129,7 @@ h1,
   font-size: 6em;
   font-weight: 900;
   line-height: 1.1;
-  margin: 1em 0 0;
+  margin: 1em 0 0.3em;
   text-align: center;
   text-transform: uppercase;
 
@@ -134,7 +142,7 @@ h1,
   }
 
   @media #{$mobile_s} {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 }
 

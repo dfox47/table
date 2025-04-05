@@ -255,6 +255,8 @@
 @use "@/assets/css/_vars" as *;
 
 .desk_why {
+  padding: 0 1em;
+
   p {
     margin: 0 0 2em;
   }

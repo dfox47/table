@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive } from 'vue'
+import { reactive } from 'vue'
 import { DeskConstructor, DeskDescription, DeskWhy, SendForm } from '@/components/widgets'
 import type { Product } from '@/types'
 import { Position } from '@/types'
@@ -62,11 +62,6 @@ const model = reactive<Product>({
   phoneHolder: Position.BOTH,
   tabletHolder: Position.BOTH,
   whiteboard: Position.BOTH,
-})
-
-onMounted(() => {
-  // document.title =
-    // 'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })
 
 const tabStore = useTabStore()
@@ -113,6 +108,10 @@ const tabs = [
     padding: $space;
     position: relative;
     z-index: 3;
+
+    @media #{$tablet} {
+      padding: calc($space / 2);
+    }
   }
 
   &__subtitle {
