@@ -23,10 +23,3 @@ app
   .use(i18n)
 
 app.mount('#app')
-
-watch(() => i18n.global.locale.value, () => {
-  const route = router.currentRoute.value
-  if (route.meta?.titleKey) {
-    document.title = i18n.global.t(route.meta.titleKey)
-  }
-})
