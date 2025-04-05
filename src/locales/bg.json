@@ -99,5 +99,9 @@
   },
   "vent": {
     "holes": "Вентилационни отвори"
+  },
+  "titles": {
+    "home": "Home 2 - SimplyTheDesk",
+    "about": "About Us - SimplyTheDesk"
   }
 }
