@@ -1,58 +1,106 @@
 {
   "cart": "Cart",
-  "contacts.email": "E-mail",
-  "contacts.message": "Message",
-  "contacts.name": "Name",
-  "contacts.submit": "Submit order",
-  "description.drive.speed": "Drive speed",
-  "description.guarantee": "Guarantee",
-  "description.height": "Height",
-  "description.legs.weight": "Legs weight",
-  "description.max.load": "Max load",
-  "description.mechanism.sound": "Mechanism sound",
-  "description.size": "Size",
-  "description.tabletop.weight": "Tabletop weight",
-  "description.total.weight": "Total weight",
-  "desk.color.bottom": "Bottom color",
-  "desk.color.top": "Top color",
-  "desk.legs": "Legs",
-  "header.cart": "Cart",
-  "header.gallery": "Gallery",
-  "header.home": "Home",
-  "header.technicalDescription": "Description",
-  "header.why": "Why",
-  "holder.phone": "Phone holder",
-  "holder.tablet": "Tablet holder",
-  "homepage.banner.description": "Work. Learn. Play",
-  "homepage.banner.title": "Simply the desk",
-  "phone.position.both": "Both",
-  "phone.position.left": "Left",
-  "phone.position.none": "None",
-  "phone.position.right": "Right",
-  "position.both": "Both",
-  "position.left": "Left",
-  "position.none": "None",
-  "position.right": "Right",
-  "position.side": "Side",
-  "position.top": "Top",
-  "price.total": "Price",
-  "production.time": "Production time: 10 working days",
-  "table.description.title": "Construct your desk",
-  "tablet.position.both": "Both",
-  "tablet.position.left": "Left",
-  "tablet.position.none": "None",
-  "tablet.position.right": "Right",
-  "technical.description": "Technical description",
-  "units.decibels": "decibels",
-  "units.kg": "kg",
-  "units.mm": "mm",
-  "units.mm.s": "mm/s",
-  "units.year": "year",
-  "units.years": "years",
-  "vent.holes": "Vent holes",
-  "whiteboard": "Whiteboard",
-  "whiteboard.position.both": "Both",
-  "whiteboard.position.left": "Left",
-  "whiteboard.position.none": "None",
-  "whiteboard.position.right": "Right"
+  "contacts": {
+    "email": "E-mail",
+    "message": "Message",
+    "name": "Name",
+    "submit": "Submit order"
+  },
+  "description": {
+    "drive": { "speed": "Drive speed" },
+    "guarantee": "Guarantee",
+    "height": "Height",
+    "legs": { "weight": "Legs weight" },
+    "maxLoad": "Max load",
+    "mechanism": { "sound": "Mechanism sound" },
+    "size": "Size",
+    "tabletop": { "weight": "Tabletop weight" },
+    "totalWeight": "Total weight"
+  },
+  "desk": {
+    "color": {
+      "bottom": "Bottom color",
+      "top": "Top color"
+    },
+    "legs": "Legs"
+  },
+  "header": {
+    "cart": "Cart",
+    "gallery": "Gallery",
+    "home": "Home",
+    "technicalDescription": "Description",
+    "why": "Why"
+  },
+  "holder": {
+    "phone": "Phone holder",
+    "tablet": "Tablet holder"
+  },
+  "homepage": {
+    "banner": {
+      "description": "Work. Learn. Play",
+      "title": "Simply the desk"
+    }
+  },
+  "position": {
+    "both": "Both",
+    "left": "Left",
+    "none": "None",
+    "right": "Right",
+    "side": "Side",
+    "top": "Top"
+  },
+  "phone": {
+    "position": {
+      "both": "Both",
+      "left": "Left",
+      "none": "None",
+      "right": "Right"
+    }
+  },
+  "tablet": {
+    "position": {
+      "both": "Both",
+      "left": "Left",
+      "none": "None",
+      "right": "Right"
+    }
+  },
+  "whiteboard": {
+    "label": "Whiteboard",
+    "position": {
+      "both": "Both",
+      "left": "Left",
+      "none": "None",
+      "right": "Right"
+    }
+  },
+  "price": {
+    "total": "Price"
+  },
+  "production": {
+    "time": "Production time: 10 working days"
+  },
+  "table": {
+    "description": {
+      "title": "Construct your desk"
+    }
+  },
+  "technical": {
+    "description": "Technical description"
+  },
+  "units": {
+    "decibels": "decibels",
+    "kg": "kg",
+    "mm": "mm",
+    "mmPerSecond": "mm/s",
+    "year": "year",
+    "years": "years"
+  },
+  "vent": {
+    "holes": "Vent holes"
+  },
+  "titles": {
+    "home": "Home 2 - SimplyTheDesk",
+    "about": "About Us - SimplyTheDesk"
+  }
 }

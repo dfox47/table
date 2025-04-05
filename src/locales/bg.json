@@ -1,59 +1,103 @@
 {
   "cart": "Количка",
-  "contacts.email": "E-mail",
-  "contacts.message": "Съобщение",
-  "contacts.name": "Име",
-  "contacts.submit": "Изпрати",
-  "description.drive.speed": "Скорост на шофиране",
-  "description.guarantee": "Гаранция",
-  "description.height": "Височина",
-  "description.legs.weight": "Тегло на краката",
-  "description.max.load": "Максимално натоварване",
-  "description.mechanism.sound": "Звук на механизма",
-  "description.size": "Размер",
-  "description.tabletop.weight": "Тегло на плота",
-  "description.total.weight": "Общо тегло",
-  "desk.color.bottom": "Цвят на дъното бюро",
-  "desk.color.top": "Горен цвят бюро",
-  "desk.legs": "Крака",
+  "contacts": {
+    "email": "E-mail",
+    "message": "Съобщение",
+    "name": "Име",
+    "submit": "Изпрати"
+  },
+  "description": {
+    "drive": { "speed": "Скорост на шофиране" },
+    "guarantee": "Гаранция",
+    "height": "Височина",
+    "legs": { "weight": "Тегло на краката" },
+    "maxLoad": "Максимално натоварване",
+    "mechanism": { "sound": "Звук на механизма" },
+    "size": "Размер",
+    "tabletop": { "weight": "Тегло на плота" },
+    "totalWeight": "Общо тегло"
+  },
+  "desk": {
+    "color": {
+      "bottom": "Цвят на дъното бюро",
+      "top": "Горен цвят бюро"
+    },
+    "legs": "Крака"
+  },
   "gallery": "Галерия",
-  "header.cart": "Количка",
-  "header.gallery": "Галерия",
-  "header.home": "Начало",
-  "header.technicalDescription": "Описание",
-  "header.why": "Защо",
-  "holder.phone": "Стойка за телефон",
-  "holder.tablet": "Стойка за таблет",
-  "homepage.banner.description": "Работа. Научете. Играй",
-  "homepage.banner.title": "Просто маса",
-  "phone.position.both": "От двете страни",
-  "phone.position.left": "Слева",
-  "phone.position.none": "Няма",
-  "phone.position.right": "Дясно",
-  "position.both": "И двете страни",
-  "position.left": "Лявата страна",
-  "position.none": "Няма",
-  "position.right": "Дясна страна",
-  "position.side": "Страна",
-  "position.top": "Изглед отгоре",
-  "price.total": "Цена",
-  "production.time": "Срок за изработка: 10 работни дни",
-  "table.description.title": "Конструирай свое бюро",
-  "tablet.position.both": "От двете страни",
-  "tablet.position.left": "Слева",
-  "tablet.position.none": "Няма",
-  "tablet.position.right": "Дясно",
-  "technical.description": "Техническо описание",
-  "units.decibels": "децибел",
-  "units.kg": "кг",
-  "units.mm": "мм",
-  "units.mm.s": "мм/с",
-  "units.year": "година",
-  "units.years": "години",
-  "vent.holes": "Вентилационни отвори",
-  "whiteboard": "Бяла дъска",
-  "whiteboard.position.both": "От двете страни",
-  "whiteboard.position.left": "Слева",
-  "whiteboard.position.none": "Няма",
-  "whiteboard.position.right": "Дясно"
+  "header": {
+    "cart": "Количка",
+    "gallery": "Галерия",
+    "home": "Начало",
+    "technicalDescription": "Описание",
+    "why": "Защо"
+  },
+  "holder": {
+    "phone": "Стойка за телефон",
+    "tablet": "Стойка за таблет"
+  },
+  "homepage": {
+    "banner": {
+      "description": "Работа. Научете. Играй",
+      "title": "Просто маса"
+    }
+  },
+  "position": {
+    "both": "И двете страни",
+    "left": "Лявата страна",
+    "none": "Няма",
+    "right": "Дясна страна",
+    "side": "Страна",
+    "top": "Изглед отгоре"
+  },
+  "phone": {
+    "position": {
+      "both": "От двете страни",
+      "left": "Слева",
+      "none": "Няма",
+      "right": "Дясно"
+    }
+  },
+  "tablet": {
+    "position": {
+      "both": "От двете страни",
+      "left": "Слева",
+      "none": "Няма",
+      "right": "Дясно"
+    }
+  },
+  "whiteboard": {
+    "label": "Бяла дъска",
+    "position": {
+      "both": "От двете страни",
+      "left": "Слева",
+      "none": "Няма",
+      "right": "Дясно"
+    }
+  },
+  "price": {
+    "total": "Цена"
+  },
+  "production": {
+    "time": "Срок за изработка: 10 работни дни"
+  },
+  "table": {
+    "description": {
+      "title": "Конструирай свое бюро"
+    }
+  },
+  "technical": {
+    "description": "Техническо описание"
+  },
+  "units": {
+    "decibels": "децибел",
+    "kg": "кг",
+    "mm": "мм",
+    "mmPerSecond": "мм/с",
+    "year": "година",
+    "years": "години"
+  },
+  "vent": {
+    "holes": "Вентилационни отвори"
+  }
 }
