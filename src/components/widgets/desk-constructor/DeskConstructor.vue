@@ -59,7 +59,7 @@
     </div>
 
     <div class="desk_options">
-      <h3>{{ $t('whiteboard') }}</h3>
+      <h3>{{ $t('whiteboard.label') }}</h3>
 
       <el-radio-group v-model="model.whiteboard" placeholder="Select" size="large">
         <el-radio v-for="item in positionSelected" :key="item" :label="$t('whiteboard.position.' + item) + ' (+' + phoneHolderPrice[item] + ' €)'" :value="item" />
@@ -189,7 +189,7 @@ const whiteboardPrice = {
 
 // change price here
 const legsPrice = 270
-const ventHolesPrice = 20
+const ventHolesPrice = 10
 
 const commonPrice = computed(() => {
   let price = 399;

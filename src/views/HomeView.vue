@@ -65,8 +65,8 @@ const model = reactive<Product>({
 })
 
 onMounted(() => {
-  document.title =
-    'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
+  // document.title =
+    // 'Simply the desk | Order comfortable & simple desk for development, design, gaming. IT desk. Game desk.'
 })
 
 const tabStore = useTabStore()

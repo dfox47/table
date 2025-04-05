@@ -8,6 +8,10 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: {
+        title: 'About Us 2 | SimplyTheDesk',
+        titleKey: 'titles.home'
+      }
     },
     {
       path: '/about',
