@@ -17,7 +17,7 @@
     </div>
 
     <div class="text-xs text-slate-400 uppercase text-nowrap mt-5">
-      <div><a class="footer__map_link" href="//maps.app.goo.gl/PYsvjZMqVFr4qjtv6" target="_blank">Bansko</a>, Bulgaria</div>
+      <div>Made in <a class="c_special" href="//maps.app.goo.gl/G79jQBCJBzRYv6Ys8" target="_blank">Bulgaria</a></div>
 
       <div>stay true</div>
 
@@ -38,9 +38,5 @@ import LanguageSwitcher from './LanguageSwitcher.vue'
 .footer {
   background-color: $c_primary;
   margin: $space 0 0;
-
-  &__map_link {
-    color: $c_special;
-  }
 }
 </style>
