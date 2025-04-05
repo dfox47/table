@@ -11,8 +11,9 @@ import router from './router'
 const app = createApp(App)
 
 router.afterEach((to) => {
-  if (to.meta?.titleKey) {
-    document.title = i18n.global.t(to.meta.titleKey)
+  const titleKey = to.meta?.titleKey as string | undefined
+  if (titleKey) {
+    document.title = i18n.global.t(titleKey)
   }
 })
 
