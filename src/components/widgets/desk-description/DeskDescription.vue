@@ -5,7 +5,7 @@
     <table class="desk_description">
       <tbody>
       <tr>
-        <td>{{ $t('whiteboard.label') }}</td>
+        <td>{{ $t('description.whiteboard') }}</td>
         <td>A4 (210 x 297 {{ $t('units.mm') }})</td>
       </tr>
 
