@@ -1,107 +1,61 @@
 {
   "cart": "Корзина",
-  "contacts": {
-    "email": "E-mail",
-    "message": "Сообщение",
-    "name": "Имя",
-    "submit": "Отправить"
-  },
-  "description": {
-    "drive": { "speed": "Скорость движения" },
-    "guarantee": "Гарантия",
-    "height": "Высота",
-    "legs": { "weight": "Вес ножек стола" },
-    "maxLoad": "Максимальная нагрузка",
-    "mechanism": { "sound": "Звук механизма" },
-    "size": "Размер",
-    "tabletop": { "weight": "Вес столешницы" },
-    "totalWeight": "Общий вес"
-  },
-  "desk": {
-    "color": {
-      "bottom": "Цвет нижней панели стола",
-      "top": "Цвет верхней панели стола"
-    },
-    "legs": "Ножки стола"
-  },
+  "contacts.email": "E-mail",
+  "contacts.message": "Сообщение",
+  "contacts.name": "Имя",
+  "contacts.submit": "Отправить",
+  "description.drive.speed": "Скорость движения",
+  "description.guarantee": "Гарантия",
+  "description.height": "Высота",
+  "description.legs.weight": "Вес ножек стола",
+  "description.maxLoad": "Максимальная нагрузка",
+  "description.mechanism.sound": "Звук механизма",
+  "description.size": "Размер",
+  "description.tabletop.weight": "Вес столешницы",
+  "description.totalWeight": "Общий вес",
+  "desk.color.bottom": "Цвет нижней панели стола",
+  "desk.color.top": "Цвет верхней панели стола",
+  "desk.legs": "Ножки стола",
   "gallery": "Галерея",
-  "header": {
-    "cart": "Корзина",
-    "gallery": "Галерея",
-    "home": "Главная",
-    "technicalDescription": "Описание",
-    "why": "Почему"
-  },
-  "holder": {
-    "phone": "Подставка под телефон",
-    "tablet": "Подставка под планшет"
-  },
-  "homepage": {
-    "banner": {
-      "description": "Работай. Учись. Играй.",
-      "title": "Просто стол"
-    }
-  },
-  "position": {
-    "both": "С обеих сторон",
-    "left": "Слева",
-    "none": "Нет",
-    "right": "Справа",
-    "side": "Вид сбоку",
-    "top": "Вид сверху"
-  },
-  "phone": {
-    "position": {
-      "both": "С обеих сторон",
-      "left": "Слева",
-      "none": "Нет",
-      "right": "Справа"
-    }
-  },
-  "tablet": {
-    "position": {
-      "both": "С обеих сторон",
-      "left": "Слева",
-      "none": "Нет",
-      "right": "Справа"
-    }
-  },
-  "whiteboard": {
-    "label": "Маркерная доска",
-    "position": {
-      "both": "С обеих сторон",
-      "left": "Слева",
-      "none": "Нет",
-      "right": "Справа"
-    }
-  },
-  "price": {
-    "total": "Цена"
-  },
-  "production": {
-    "time": "Срок изготовления: 10 рабочих дней"
-  },
-  "table": {
-    "description": {
-      "title": "Собери свой стол"
-    }
-  },
-  "technical": {
-    "description": "Техническое описание"
-  },
-  "units": {
-    "decibels": "децибел",
-    "kg": "кг",
-    "mm": "мм",
-    "mmPerSecond": "мм/с",
-    "year": "год",
-    "years": "года"
-  },
-  "vent": {
-    "holes": "Вентиляционные отверстия"
-  },
-  "titles": {
-    "home": "Home 2 - SimplyTheDesk",
-    "about": "About Us - SimplyTheDesk"
-  }
+  "header.cart": "Корзина",
+  "header.gallery": "Галерея",
+  "header.home": "Главная",
+  "header.technicalDescription": "Описание",
+  "header.why": "Почему",
+  "holder.phone": "Подставка под телефон",
+  "holder.tablet": "Подставка под планшет",
+  "homepage.banner.description": "Работай. Учись. Играй.",
+  "homepage.banner.title": "Просто стол",
+  "position.both": "С обеих сторон",
+  "position.left": "Слева",
+  "position.none": "Нет",
+  "position.right": "Справа",
+  "position.side": "Вид сбоку",
+  "position.top": "Вид сверху",
+  "phone.position.both": "С обеих сторон",
+  "phone.position.left": "Слева",
+  "phone.position.none": "Нет",
+  "phone.position.right": "Справа",
+  "tablet.position.both": "С обеих сторон",
+  "tablet.position.left": "Слева",
+  "tablet.position.none": "Нет",
+  "tablet.position.right": "Справа",
+  "whiteboard.label": "Маркерная доска",
+  "whiteboard.position.both": "С обеих сторон",
+  "whiteboard.position.left": "Слева",
+  "whiteboard.position.none": "Нет",
+  "whiteboard.position.right": "Справа",
+  "price.total": "Цена",
+  "production.time": "Срок изготовления: 10 рабочих дней",
+  "table.description.title": "Собери свой стол",
+  "technical.description": "Техническое описание",
+  "units.decibels": "децибел",
+  "units.kg": "кг",
+  "units.mm": "мм",
+  "units.mmPerSecond": "мм/с",
+  "units.year": "год",
+  "units.years": "года",
+  "vent.holes": "Вентиляционные отверстия",
+  "titles.home": "Home 2 - SimplyTheDesk",
+  "titles.about": "About Us - SimplyTheDesk"
 }
