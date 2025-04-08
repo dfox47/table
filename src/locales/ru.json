@@ -1,8 +1,9 @@
 {
   "cart": "Корзина",
   "contacts.email": "E-mail",
-  "contacts.message": "Сообщение",
+  "contacts.message": "Адрес и сообщение",
   "contacts.name": "Имя",
+  "contacts.number": "Телефон",
   "contacts.submit": "Отправить",
   "description.drive.speed": "Скорость движения",
   "description.guarantee": "Гарантия",

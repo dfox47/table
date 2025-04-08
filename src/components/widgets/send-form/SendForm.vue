@@ -13,6 +13,11 @@
         <span class="send_order_form__input-title">{{ $t('contacts.email') }}</span>
       </label>
 
+      <label class="send_order_form__label">
+        <input v-model="number" class="send_order_form__input" type="text" required />
+        <span class="send_order_form__input-title">{{ $t('contacts.number') }}</span>
+      </label>
+
       <div class="send_order_form__label">
         <textarea class="send_order_form__textarea" v-model="message" required />
         <span class="send_order_form__input-title">{{ $t('contacts.message') }}</span>
@@ -35,22 +40,27 @@ import { ref } from 'vue'
 
 const props = defineProps<{ sendFormData: Product }>()
 
+const email = ref()
+const emailStatus = ref('')
+const message = ref()
+const name = ref()
+const number = ref()
+
 const sendMail = async () => {
  try {
    const formData = {
-      name: name.value,
-      email: email.value,
-      message: message.value,
       bottomColor: props.sendFormData.bottomColor,
-      mainColor: props.sendFormData.mainColor,
-      ventHoles: props.sendFormData.ventHoles,
       deskLegs: props.sendFormData.deskLegs,
+      email: email.value,
+      mainColor: props.sendFormData.mainColor,
+      message: message.value,
+      name: name.value,
+      number: number.value,
       phoneHolder: props.sendFormData.phoneHolder,
       tabletHolder: props.sendFormData.tabletHolder,
+      ventHoles: props.sendFormData.ventHoles,
       whiteboard: props.sendFormData.whiteboard,
    }
-
-   console.log('formData', formData)
 
    const response = await fetch('/sendmail.php', {
      body: JSON.stringify(formData),
@@ -67,21 +77,9 @@ const sendMail = async () => {
      emailStatus.value = `Error: ${result.message}`
    }
  } catch (error) {
-   console.error("Failed to send email:", error)
    emailStatus.value = "An error occurred while sending the email."
  }
 }
-
-const email = ref()
-const message = ref()
-const name = ref()
-
-// const email = ref('xx@xx.xx')
-// const message = ref('test')
-// const name = ref('Test name')
-
-// Reactive variable for email status message
-const emailStatus = ref('')
 </script>
 
 <style lang="scss">
@@ -101,6 +99,10 @@ const emailStatus = ref('')
     padding: 0.7em 1em;
     resize: none;
     width: 100%;
+  }
+
+  &__textarea {
+    min-height: 100px;
   }
 
   &__input-title {

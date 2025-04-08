@@ -1,8 +1,9 @@
 {
   "cart": "Количка",
   "contacts.email": "E-mail",
-  "contacts.message": "Съобщение",
+  "contacts.message": "Адрес и съобщение",
   "contacts.name": "Име",
+  "contacts.number": "Телефон",
   "contacts.submit": "Изпрати",
   "description.drive.speed": "Скорост на шофиране",
   "description.guarantee": "Гаранция",

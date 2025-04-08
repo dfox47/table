@@ -1,8 +1,9 @@
 {
   "cart": "Cart",
   "contacts.email": "E-mail",
-  "contacts.message": "Message",
+  "contacts.message": "Address & message",
   "contacts.name": "Name",
+  "contacts.number": "Phone",
   "contacts.submit": "Submit order",
   "description.drive.speed": "Drive speed",
   "description.guarantee": "Guarantee",
