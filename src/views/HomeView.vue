@@ -41,11 +41,10 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { DeskConstructor, DeskDescription, DeskWhy, SendForm } from '@/components/widgets'
+import { DeskConstructor, DeskDescription, DeskWhy, SendForm, TableGallery } from '@/components/widgets'
 import type { Product } from '@/types'
 import { Position } from '@/types'
 import { useTabStore } from '@/stores/useTabStore'
-import TableGallery from '@/components/TableGallery.vue'
 
 const emit = defineEmits(['scrollTo'])
 
