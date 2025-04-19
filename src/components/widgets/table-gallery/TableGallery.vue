@@ -1,7 +1,7 @@
 <template>
   <h2 id="gallery">
     {{ $t('header.gallery') }}
-  
+
     <button @click="changeAutoplay">
       Autoplay {{ isAutoplay }}
     </button>
@@ -31,14 +31,14 @@
       <template v-slot:toolbar="{ toolbarMethods }">
         <div>
           <div class="vel-toolbar flex items-center">
-            <div 
+            <div
               role="button"
               class="toolbar-btn"
             >
-              {{ lightboxIndexRef + 1 }} из {{ galleryImages.length }}
+              {{ lightboxIndexRef + 1 }} / {{ galleryImages.length }}
             </div>
 
-            <div 
+            <div
               role="button"
               class="toolbar-btn toolbar-btn__zoomin"
               @click="toolbarMethods.zoomIn"
@@ -47,9 +47,9 @@
                 <use xlink:href="#icon-zoomin"></use>
               </svg>
             </div>
-            
-            <div 
-              role="button" 
+
+            <div
+              role="button"
               class="toolbar-btn toolbar-btn__zoomout"
               @click="toolbarMethods.zoomOut"
             >
@@ -57,9 +57,9 @@
                 <use xlink:href="#icon-zoomout"></use>
               </svg>
             </div>
-            
-            <div 
-              role="button" 
+
+            <div
+              role="button"
               class="toolbar-btn toolbar-btn__rotate"
               @click="toolbarMethods.rotateLeft"
             >
@@ -67,8 +67,8 @@
                 <use xlink:href="#icon-rotate-left"></use>
               </svg>
             </div>
-            
-            <div 
+
+            <div
               role="button"
               class="toolbar-btn toolbar-btn__rotate"
               @click="toolbarMethods.rotateRight"
