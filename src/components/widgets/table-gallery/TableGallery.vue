@@ -137,9 +137,9 @@ const onShow = (index: number) => {
   lightboxIndexRef.value = index - 1
   lightboxVisible.value = true
 }
-const onHide = () => (() => {
+const onHide = () => {
   lightboxVisible.value = false
-})
+}
 </script>
 
 <style lang="scss">
