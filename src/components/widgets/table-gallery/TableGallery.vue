@@ -23,6 +23,7 @@
     <vue-easy-lightbox
       :visible="lightboxVisible"
       :imgs="galleryImages"
+      :move-disabled="true"
       :index="lightboxIndexRef"
       @hide="onHide"
       @on-prev="lightboxIndexRef--"
