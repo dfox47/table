@@ -64,7 +64,7 @@ const menuItems = ref([
     href: '/#tabs'
   },
   {
-    title: 'header.technicalDescription',
+    title: 'header.technical.description',
     href: '/#tabs',
   },
   {

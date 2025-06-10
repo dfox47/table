@@ -1,11 +1,5 @@
 <template>
-  <h2 id="gallery">
-    {{ $t('header.gallery') }}
-
-    <button @click="changeAutoplay">
-      Autoplay {{ isAutoplay }}
-    </button>
-  </h2>
+  <h2 id="gallery">{{ $t('header.gallery') }}</h2>
 
   <div class="gallery">
     <Carousel v-bind="carouselConfig" ref="myCarousel">
@@ -22,14 +16,14 @@
 
     <vue-easy-lightbox
       :visible="lightboxVisible"
-      :imgs="galleryImages"
+      :imgs="galleryImages.map(i => i.src)"
       :move-disabled="true"
       :index="lightboxIndexRef"
       @hide="onHide"
       @on-prev="lightboxIndexRef--"
       @on-next="lightboxIndexRef++"
     >
-      <template v-slot:toolbar="{ toolbarMethods }">
+      <template v-slot:toolbar="{}">
         <div>
           <div class="vel-toolbar flex items-center">
             <div
@@ -37,46 +31,6 @@
               class="toolbar-btn"
             >
               {{ lightboxIndexRef + 1 }} / {{ galleryImages.length }}
-            </div>
-
-            <div
-              role="button"
-              class="toolbar-btn toolbar-btn__zoomin"
-              @click="toolbarMethods.zoomIn"
-              >
-              <svg class="vel-icon icon" aria-hidden="true">
-                <use xlink:href="#icon-zoomin"></use>
-              </svg>
-            </div>
-
-            <div
-              role="button"
-              class="toolbar-btn toolbar-btn__zoomout"
-              @click="toolbarMethods.zoomOut"
-            >
-              <svg class="vel-icon icon" aria-hidden="true">
-                <use xlink:href="#icon-zoomout"></use>
-              </svg>
-            </div>
-
-            <div
-              role="button"
-              class="toolbar-btn toolbar-btn__rotate"
-              @click="toolbarMethods.rotateLeft"
-            >
-              <svg class="vel-icon icon" aria-hidden="true">
-                <use xlink:href="#icon-rotate-left"></use>
-              </svg>
-            </div>
-
-            <div
-              role="button"
-              class="toolbar-btn toolbar-btn__rotate"
-              @click="toolbarMethods.rotateRight"
-              >
-              <svg class="vel-icon icon" aria-hidden="true">
-                <use xlink:href="#icon-rotate-right"></use>
-              </svg>
             </div>
           </div>
         </div>
@@ -91,8 +45,6 @@ import 'vue3-carousel/carousel.css'
 import VueEasyLightbox from 'vue-easy-lightbox'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 
-const myCarousel = ref(null);
-
 const galleryImages = ref(Array.from({ length: 20 }, (_, i) => ({
   id: i + 1,
   src: `/gallery/${i + 1}.jpg`,
@@ -103,34 +55,24 @@ const carouselConfig: any = ref({
   height: 300,
   itemsToShow: 1,
   gap: 24,
-  autoplay: 4000,
+  // autoplay: 4000,
   pauseAutoplayOnHover: true,
   active: true,
   breakpoints: {
-    // 300px and up
     320: {
       itemsToShow: 1,
       snapAlign: 'center',
     },
-    // 400px and up
     768: {
       itemsToShow: 2,
       snapAlign: 'start',
     },
-    // 500px and up
     1024: {
       itemsToShow: 3,
       snapAlign: 'start',
     },
   },
 })
-
-const isAutoplay = ref(true)
-
-const changeAutoplay = () => {
-  isAutoplay.value = !isAutoplay.value
-  carouselConfig.value.autoplay = isAutoplay.value ? 4000 : 0
-}
 
 const lightboxVisible = ref(false)
 const lightboxIndexRef = ref(0) // default 0
@@ -153,15 +95,40 @@ const onHide = () => {
 }
 
 .carousel {
-  --vc-nav-background: rgba(255, 255, 255, 0.7);
+  --vc-nav-background: rgba(#fff, 0.7);
   --vc-nav-border-radius: 100%;
+
+  &__item {
+    padding: 2px;
+  }
+
+  &__next {
+    margin: 0 10px;
+  }
+
+  &__prev {
+    margin: 0 10px;
+  }
+
+  &__slide {
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      box-shadow: 0 2px 2px rgba(#000, 0.15);
+      content: "";
+      height: calc(100% - 4px);
+      left: 2px;
+      position: absolute;
+      top: 2px;
+      width: calc(100% - 4px);
+      z-index: 3;
+    }
+  }
 }
 
-.carousel__next {
-  margin: 0 0.5rem;
-}
-
-.carousel__prev {
-  margin: 0 0.5rem;
+.vel-img {
+  max-height: 100%;
+  max-width: 100%;
 }
 </style>
